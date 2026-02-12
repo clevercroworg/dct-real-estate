@@ -44,7 +44,7 @@ export default function FeaturedProjects() {
                             <p className="text-[#64748B] text-[14px] mb-4">
                                 Plot Development · Akaltara
                             </p>
-                            <Link href="/" className="text-[#011E51] font-medium transition-all duration-150 hover:text-brand-gold hover:translate-x-1 inline-block">
+                            <Link href="/projects/ongoing" className="text-[#011E51] font-medium transition-all duration-150 hover:text-brand-gold hover:translate-x-1 inline-block">
                                 View Project →
                             </Link>
                         </div>
@@ -67,7 +67,7 @@ export default function FeaturedProjects() {
                             <p className="text-[#64748B] text-[14px] mb-4">
                                 Commercial Project · Bilaspur
                             </p>
-                            <Link href="/" className="text-[#011E51] font-medium transition-all duration-150 hover:text-brand-gold hover:translate-x-1 inline-block">
+                            <Link href="/projects/commercial" className="text-[#011E51] font-medium transition-all duration-150 hover:text-brand-gold hover:translate-x-1 inline-block">
                                 View Project →
                             </Link>
                         </div>
@@ -90,7 +90,7 @@ export default function FeaturedProjects() {
                             <p className="text-[#64748B] text-[14px] mb-4">
                                 Farmhouse · Bilaspur
                             </p>
-                            <Link href="/" className="text-[#011E51] font-medium transition-all duration-150 hover:text-brand-gold hover:translate-x-1 inline-block">
+                            <Link href="/projects/chitvan-farm" className="text-[#011E51] font-medium transition-all duration-150 hover:text-brand-gold hover:translate-x-1 inline-block">
                                 View Project →
                             </Link>
                         </div>
