@@ -1,14 +1,37 @@
 import Link from 'next/link';
 
-export default function ProjectGallery() {
+interface ProjectGalleryProps {
+    title?: string;
+    description?: string;
+    videoUrl?: string; // YouTube embed URL
+    images?: string[];
+}
+
+export default function ProjectGallery({ title, description, videoUrl, images }: ProjectGalleryProps) {
+    const defaultImages = [
+        "/images/launch-1.jpg",
+        "/images/launch-2.jpg",
+        "/images/vertical-farmhouse.jpg",
+        "/images/vertical-villas.jpg",
+        "/images/vertical-plotted.jpg",
+        "/images/vertical-residential.jpg",
+        "/images/vertical-commercial.jpg",
+        "/images/project-chitvan.jpg"
+    ];
+
+    const displayImages = images || defaultImages;
+    const displayTitle = title || "Chitvan walkthrough";
+    const displayDesc = description || "A glimpse of the clubhouse, greens, and outdoor living.";
+    const displayVideo = videoUrl || "https://www.youtube-nocookie.com/embed/yur8jcoeX-c?autoplay=0&rel=0";
+
     return (
         <section className="py-20 bg-[#061B3A]">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
                     <div>
                         <p className="text-xs uppercase tracking-[0.3em] text-[#C9A24D] mb-2">Gallery</p>
-                        <h3 className="font-heading text-2xl lg:text-3xl font-semibold text-white">Chitvan walkthrough</h3>
-                        <p className="text-sm text-white/70 mt-2">A glimpse of the clubhouse, greens, and outdoor living.</p>
+                        <h3 className="font-heading text-2xl lg:text-3xl font-semibold text-white">{displayTitle}</h3>
+                        <p className="text-sm text-white/70 mt-2">{displayDesc}</p>
                     </div>
                     <Link href="/contact" className="text-sm font-medium text-white/80 hover:text-[#C9A24D] inline-flex items-center gap-2 transition-colors">
                         {/* @ts-expect-error: ion-icon custom element */}
@@ -23,8 +46,8 @@ export default function ProjectGallery() {
                         <div className="aspect-video">
                             <iframe
                                 className="w-full h-full"
-                                src="https://www.youtube-nocookie.com/embed/yur8jcoeX-c?autoplay=0&rel=0"
-                                title="Chitvan Farmhouse video"
+                                src={displayVideo}
+                                title={`${displayTitle} video`}
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
                             >
@@ -35,11 +58,11 @@ export default function ProjectGallery() {
 
                 {/* Image Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-                        <div key={item} className="relative group overflow-hidden rounded-xl bg-white/5 h-32 md:h-48">
+                    {displayImages.map((imgSrc, idx) => (
+                        <div key={idx} className="relative group overflow-hidden rounded-xl bg-white/5 h-32 md:h-48">
                             <img
-                                src={`/images/chitvan-gallery-${item}.png`}
-                                alt={`Chitvan gallery ${item}`}
+                                src={imgSrc}
+                                alt={`Gallery image ${idx + 1}`}
                                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
                             />
                             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>

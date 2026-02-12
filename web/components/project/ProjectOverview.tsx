@@ -1,11 +1,32 @@
 'use client';
 
-export default function ProjectOverview() {
+interface OverviewDetail {
+    label: string;
+    value: string;
+}
+
+interface ProjectOverviewProps {
+    title: string;
+    description: React.ReactNode;
+    details: OverviewDetail[];
+    brochureLink?: string;
+    brochurePoints?: string[];
+}
+
+export default function ProjectOverview({ title, description, details, brochureLink = '#', brochurePoints }: ProjectOverviewProps) {
     const handleBrochureSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         // Simulate download
-        window.open('/brochures/chitvan-farm.pdf', '_blank');
+        window.open(brochureLink, '_blank');
     };
+
+    const defaultPoints = [
+        "Clubhouse, swimming pool, and community hubs.",
+        "Open-air gym and yoga center in nature.",
+        "Secured campus with dedicated guard room."
+    ];
+
+    const displayPoints = brochurePoints || defaultPoints;
 
     return (
         <section className="py-20">
@@ -16,38 +37,19 @@ export default function ProjectOverview() {
                     <div>
                         <p className="text-xs uppercase tracking-[0.3em] text-[#C9A24D] mb-3">The Estate</p>
                         <h2 className="font-heading text-3xl lg:text-5xl font-semibold text-[#061B3A]">
-                            Chitvan is a modern farmhouse address crafted for quiet luxury.
+                            {title}
                         </h2>
-                        <p className="text-gray-600 mt-6 text-base leading-relaxed text-lg">
-                            Welcome to Chitvan, the latest addition to DCT’s portfolio. Nestled on
-                            the Mohda Mod stretch of the Bilaspur–Raipur National Highway 130, this
-                            farmhouse community is designed as a complete sensory experience with
-                            lush green gardens, social spaces, and outdoor living.
-                        </p>
-                        <p className="text-gray-600 mt-4 text-base leading-relaxed text-lg">
-                            Chitvan embraces difference by bringing an unconventional lifestyle
-                            closer to Bilaspur and Raipur. It is an evolving, integrated living
-                            destination designed for those who value space, greenery, and a
-                            peaceful retreat without losing connectivity.
-                        </p>
+                        <div className="text-gray-600 mt-6 text-base leading-relaxed text-lg">
+                            {description}
+                        </div>
 
                         <div className="mt-10 grid sm:grid-cols-2 gap-4">
-                            <div className="p-6 border border-gray-200 rounded-2xl hover:bg-slate-50 transition-colors">
-                                <p className="text-xs uppercase tracking-widest text-gray-500">Project Type</p>
-                                <p className="mt-2 font-semibold text-[#061B3A] text-lg">Farmhouse Community</p>
-                            </div>
-                            <div className="p-6 border border-gray-200 rounded-2xl hover:bg-slate-50 transition-colors">
-                                <p className="text-xs uppercase tracking-widest text-gray-500">Status</p>
-                                <p className="mt-2 font-semibold text-[#061B3A] text-lg">Open for Enquiry</p>
-                            </div>
-                            <div className="p-6 border border-gray-200 rounded-2xl hover:bg-slate-50 transition-colors">
-                                <p className="text-xs uppercase tracking-widest text-gray-500">Corridor</p>
-                                <p className="mt-2 font-semibold text-[#061B3A] text-lg">Bilaspur – Raipur NH 130</p>
-                            </div>
-                            <div className="p-6 border border-gray-200 rounded-2xl hover:bg-slate-50 transition-colors">
-                                <p className="text-xs uppercase tracking-widest text-gray-500">Location</p>
-                                <p className="mt-2 font-semibold text-[#061B3A] text-lg">Mohda Mod, Bhojpuri Toll Plaza</p>
-                            </div>
+                            {details.map((detail, index) => (
+                                <div key={index} className="p-6 border border-gray-200 rounded-2xl hover:bg-slate-50 transition-colors">
+                                    <p className="text-xs uppercase tracking-widest text-gray-500">{detail.label}</p>
+                                    <p className="mt-2 font-semibold text-[#061B3A] text-lg">{detail.value}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
@@ -58,10 +60,10 @@ export default function ProjectOverview() {
 
                         <div className="flex items-center justify-between relative z-10">
                             <p className="text-xs uppercase tracking-[0.3em] text-white/60">Brochure</p>
-                            <span className="px-3 py-1 text-[10px] uppercase tracking-widest bg-white/10 rounded-full">Limited Plots</span>
+                            <span className="px-3 py-1 text-[10px] uppercase tracking-widest bg-white/10 rounded-full">Limited Units</span>
                         </div>
 
-                        <h3 className="font-heading text-2xl font-semibold mt-4 relative z-10">Download the Chitvan brochure</h3>
+                        <h3 className="font-heading text-2xl font-semibold mt-4 relative z-10">Download the brochure</h3>
                         <p className="text-sm text-white/70 mt-3 relative z-10">Enter your details for instant access.</p>
 
                         <form className="mt-8 grid gap-4 relative z-10" onSubmit={handleBrochureSubmit}>
@@ -93,21 +95,13 @@ export default function ProjectOverview() {
                         </form>
 
                         <div className="mt-8 border-t border-white/10 pt-6 grid gap-3 text-sm text-white/70 relative z-10">
-                            <div className="flex items-center gap-3">
-                                {/* @ts-expect-error: ion-icon custom element */}
-                                <ion-icon name="checkmark-circle-outline" class="text-[#C9A24D] text-lg"></ion-icon>
-                                Clubhouse, swimming pool, and community hubs.
-                            </div>
-                            <div className="flex items-center gap-3">
-                                {/* @ts-expect-error: ion-icon custom element */}
-                                <ion-icon name="checkmark-circle-outline" class="text-[#C9A24D] text-lg"></ion-icon>
-                                Open-air gym and yoga center in nature.
-                            </div>
-                            <div className="flex items-center gap-3">
-                                {/* @ts-expect-error: ion-icon custom element */}
-                                <ion-icon name="checkmark-circle-outline" class="text-[#C9A24D] text-lg"></ion-icon>
-                                Secured campus with dedicated guard room.
-                            </div>
+                            {displayPoints.map((point, index) => (
+                                <div key={index} className="flex items-center gap-3">
+                                    {/* @ts-expect-error: ion-icon custom element */}
+                                    <ion-icon name="checkmark-circle-outline" class="text-[#C9A24D] text-lg"></ion-icon>
+                                    {point}
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>

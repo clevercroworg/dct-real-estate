@@ -1,7 +1,24 @@
 // @ts-nocheck
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+    const pathname = usePathname();
+
+    // Check if the current page is a Project Detail Page
+    // It should start with /projects/ but NOT be one of the listing pages
+    const isProjectPage = pathname?.startsWith('/projects/');
+    const isListingPage = [
+        '/projects/ongoing',
+        '/projects/completed',
+        '/projects/commercial',
+        '/projects/upcoming'
+    ].includes(pathname || '');
+
+    const shouldHideGlobalStickyBar = isProjectPage && !isListingPage;
+
     return (
         <>
             <footer className="bg-[#05162F] text-white pt-20 pb-10">
@@ -46,7 +63,7 @@ export default function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/projects/ongoing" className="hover:text-white transition">
+                                    <Link href="/projects" className="hover:text-white transition">
                                         Projects
                                     </Link>
                                 </li>
@@ -110,64 +127,68 @@ export default function Footer() {
                 </div>
             </footer>
 
-            {/* STICKY ACTION BAR */}
-            {/* DESKTOP STICKY PILL */}
-            <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden lg:flex items-center gap-12 bg-white px-14 py-5 rounded-full shadow-2xl border border-gray-200">
-                <a
-                    href="tel:6264883066"
-                    className="flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-brand-gold transition"
-                >
-                    <ion-icon name="call-outline" class="text-lg"></ion-icon>
-                    Call
-                </a>
+            {/* STICKY ACTION BAR - GLOBAL (Hidden on Project Details Pages) */}
+            {!shouldHideGlobalStickyBar && (
+                <>
+                    {/* DESKTOP STICKY PILL */}
+                    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden lg:flex items-center gap-12 bg-white px-14 py-5 rounded-full shadow-2xl border border-gray-200">
+                        <a
+                            href="tel:6264883066"
+                            className="flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-brand-gold transition"
+                        >
+                            <ion-icon name="call-outline" class="text-lg"></ion-icon>
+                            Call
+                        </a>
 
-                <a
-                    href="https://wa.me/916264883066"
-                    target="_blank"
-                    className="flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-[#25D366] transition"
-                >
-                    <ion-icon name="logo-whatsapp" class="text-lg"></ion-icon>
-                    WhatsApp
-                </a>
+                        <a
+                            href="https://wa.me/916264883066"
+                            target="_blank"
+                            className="flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-[#25D366] transition"
+                        >
+                            <ion-icon name="logo-whatsapp" class="text-lg"></ion-icon>
+                            WhatsApp
+                        </a>
 
-                <Link
-                    href="/contact"
-                    className="flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-brand-gold transition"
-                >
-                    <ion-icon name="send-outline" class="text-lg"></ion-icon>
-                    Enquire
-                </Link>
-            </div>
+                        <Link
+                            href="/contact"
+                            className="flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-brand-gold transition"
+                        >
+                            <ion-icon name="send-outline" class="text-lg"></ion-icon>
+                            Enquire
+                        </Link>
+                    </div>
 
-            {/* MOBILE STICKY BAR */}
-            <div className="fixed bottom-3 left-0 right-0 z-50 px-4 lg:hidden">
-                <div className="flex items-center gap-3 bg-white/95 backdrop-blur px-3 py-3 rounded-2xl shadow-xl border border-gray-200">
-                    {/* CALL (GOLD) */}
-                    <a
-                        href="tel:6264883066"
-                        className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-brand-gold text-brand-blue text-sm font-medium shadow-md active:scale-95 transition"
-                    >
-                        <ion-icon name="call-outline" class="text-lg"></ion-icon>
-                    </a>
+                    {/* MOBILE STICKY BAR */}
+                    <div className="fixed bottom-3 left-0 right-0 z-50 px-4 lg:hidden">
+                        <div className="flex items-center gap-3 bg-white/95 backdrop-blur px-3 py-3 rounded-2xl shadow-xl border border-gray-200">
+                            {/* CALL (GOLD) */}
+                            <a
+                                href="tel:6264883066"
+                                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-brand-gold text-brand-blue text-sm font-medium shadow-md active:scale-95 transition"
+                            >
+                                <ion-icon name="call-outline" class="text-lg"></ion-icon>
+                            </a>
 
-                    {/* ENQUIRE (BRAND BLUE) */}
-                    <Link
-                        href="/contact"
-                        className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-brand-blue text-white text-sm font-medium shadow-md active:scale-95 transition"
-                    >
-                        <ion-icon name="send-outline" class="text-lg"></ion-icon>
-                    </Link>
+                            {/* ENQUIRE (BRAND BLUE) */}
+                            <Link
+                                href="/contact"
+                                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-brand-blue text-white text-sm font-medium shadow-md active:scale-95 transition"
+                            >
+                                <ion-icon name="send-outline" class="text-lg"></ion-icon>
+                            </Link>
 
-                    {/* WHATSAPP (PRIMARY) */}
-                    <a
-                        href="https://wa.me/916264883066"
-                        target="_blank"
-                        className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-[#25D366] text-white text-sm font-medium shadow-md active:scale-95 transition"
-                    >
-                        <ion-icon name="logo-whatsapp" class="text-lg"></ion-icon>
-                    </a>
-                </div>
-            </div>
+                            {/* WHATSAPP (PRIMARY) */}
+                            <a
+                                href="https://wa.me/916264883066"
+                                target="_blank"
+                                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-[#25D366] text-white text-sm font-medium shadow-md active:scale-95 transition"
+                            >
+                                <ion-icon name="logo-whatsapp" class="text-lg"></ion-icon>
+                            </a>
+                        </div>
+                    </div>
+                </>
+            )}
         </>
     );
 }

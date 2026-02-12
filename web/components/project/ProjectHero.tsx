@@ -1,3 +1,7 @@
+"use client";
+
+import { useVisitModal } from './VisitModalContext';
+
 interface ProjectHeroProps {
     title: string;
     tagline: string;
@@ -5,7 +9,6 @@ interface ProjectHeroProps {
     bgImage: string;
     videoUrl?: string; // If we want a video background later
     badges: string[];
-    onOpenModal: () => void;
 }
 
 export default function ProjectHero({
@@ -14,8 +17,8 @@ export default function ProjectHero({
     location,
     bgImage,
     badges,
-    onOpenModal
 }: ProjectHeroProps) {
+    const { openModal } = useVisitModal();
     return (
         <section className="pt-24 pb-8">
             <div className="relative w-full overflow-hidden rounded-b-[38px] min-h-[45vh] lg:min-h-[48vh] shadow-2xl group">
@@ -64,7 +67,7 @@ export default function ProjectHero({
                             <div className="mt-8 flex flex-wrap items-center gap-4">
                                 <button
                                     type="button"
-                                    onClick={onOpenModal}
+                                    onClick={openModal}
                                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#C9A24D] text-[#061B3A] text-xs font-semibold uppercase tracking-widest shadow-lg shadow-[#C9A24D]/30 hover:-translate-y-0.5 transition-transform"
                                 >
                                     {/* @ts-expect-error: ion-icon custom element */}
@@ -118,6 +121,6 @@ export default function ProjectHero({
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 }
