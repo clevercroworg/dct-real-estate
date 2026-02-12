@@ -12,6 +12,21 @@ This project is built using the following technologies:
 -   **Icons:** [Ionicons](https://ionic.io/ionicons)
 -   **Deployment:** Vercel (Recommended)
 
+## 🚀 Deployment Instructions (Vercel)
+
+Since the Next.js app is located in the `web` folder, you must configure Vercel as follows:
+
+1.  Connect your GitHub repository to Vercel.
+2.  In the **Configure Project** step, find the **Root Directory** setting.
+3.  Click **Edit** and select the `web` folder.
+4.  Proceed with deployment.
+
+If you have already deployed and are seeing a 404 error:
+1.  Go to your Vercel Project Dashboard.
+2.  Navigate to **Settings** > **General**.
+3.  Update the **Root Directory** to `web`.
+4.  Go to **Deployments** and redeploy the latest commit.
+
 ## 📂 Project Structure
 
 -   `/web`: The main Next.js application source code.
