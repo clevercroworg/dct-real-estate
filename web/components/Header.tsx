@@ -3,23 +3,35 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const isHome = pathname === '/';
 
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
         };
+        // Initial check
+        handleScroll();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Navbar background logic:
+    // - Home page + Top: Transparent
+    // - Home page + Scrolled: Solid Blue
+    // - Other pages: Solid Blue
+    const navBackground = isHome && !isScrolled ? 'bg-transparent' : 'bg-[#061B3A] shadow-lg';
+    // Text color is always white for this design, but if transparent bg needed dark text, we'd handle it here.
+
     return (
         <header
             id="site-header"
-            className={`fixed top-0 left-0 w-full z-50 ${isScrolled ? 'scrolled' : ''}`}
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${navBackground} ${isScrolled ? 'py-0' : 'py-2'}`}
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className={`flex items-center justify-between h-20 transition-all duration-300 ${isScrolled ? 'h-[72px]' : ''}`}>
