@@ -45,9 +45,7 @@ export default function ChitvanFarmPage() {
                 projectName="Chitvan Farmhouse"
             />
 
-            <StickyContactBar onOpenModal={openModal} />
 
-            <div className="pb-20"></div> {/* Spacer for sticky bar */}
         </main>
     );
 }
