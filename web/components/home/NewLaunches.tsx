@@ -43,7 +43,7 @@ export default function NewLaunches() {
                             <p className="launch-tag text-[10px] lg:text-xs uppercase tracking-[0.12em] text-brand-gold mb-2.5">CLUBHOUSE</p>
                             <h3 className="launch-title font-heading text-[20px] lg:text-[28px] font-semibold text-white mb-1.5">Aishwaryam</h3>
                             <p className="launch-meta text-white/75 text-[13px] lg:text-[15px] mb-4">Bilaspur</p>
-                            <a href="/projects/commercial" className="launch-link text-white font-medium hover:text-brand-gold hover:translate-x-1 transition-all inline-flex items-center gap-1 text-sm lg:text-base">
+                            <a href="/projects/aishwaryam" className="launch-link text-white font-medium hover:text-brand-gold hover:translate-x-1 transition-all inline-flex items-center gap-1 text-sm lg:text-base">
                                 View Details →
                             </a>
                         </div>

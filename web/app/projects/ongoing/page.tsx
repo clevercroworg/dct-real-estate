@@ -14,7 +14,7 @@ export default function OngoingProjectsPage() {
             image: '/images/project-vihar.jpg',
             badge: 'Residential',
             status: 'Ongoing',
-            link: '/projects/anand-vihar', // Placeholder link
+            link: '/projects/anand-vihar',
             delay: 0,
         },
         {
@@ -25,7 +25,7 @@ export default function OngoingProjectsPage() {
             badge: 'Clubhouse',
             status: 'Ongoing', // Used RERA in HTML, but status is a good fallback
             rera: 'RERA: PCGRERA220824001808',
-            link: '/projects/aishwaryam', // Placeholder link
+            link: '/projects/aishwaryam',
             delay: 100,
         },
         {
