@@ -32,7 +32,6 @@ export default function Home() {
 
               {/* Award Tag */}
               <div className="absolute bottom-6 left-6 bg-brand-dark text-white px-5 py-3 rounded-lg shadow-lg flex items-center gap-3">
-                {/* @ts-expect-error: ion-icon is a custom element */}
                 <ion-icon name="ribbon-outline" class="text-brand-gold text-xl"></ion-icon>
                 <span className="text-sm font-medium">Trusted Real Estate Leader</span>
               </div>
@@ -60,7 +59,6 @@ export default function Home() {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-brand-gold text-brand-blue font-medium rounded-md hover:bg-[#d4b15f] transition"
               >
                 Learn More
-                {/* @ts-expect-error: ion-icon is a custom element */}
                 <ion-icon name="arrow-forward-outline"></ion-icon>
               </Link>
             </div>

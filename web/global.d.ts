@@ -1,6 +1,6 @@
-import React from 'react';
+import 'react';
 
-declare global {
+declare module 'react' {
     namespace JSX {
         interface IntrinsicElements {
             'ion-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
@@ -8,7 +8,7 @@ declare global {
                 src?: string;
                 mode?: 'ios' | 'md';
                 lazy?: boolean;
-                class?: string; // Add class property specifically for custom element usage if needed
+                class?: string;
             };
         }
     }

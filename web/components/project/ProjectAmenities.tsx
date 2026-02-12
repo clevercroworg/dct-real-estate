@@ -44,7 +44,6 @@ export default function ProjectAmenities({ title, amenities }: ProjectAmenitiesP
                     {displayAmenities.map((item, idx) => (
                         <div key={idx} className="p-6 bg-white/5 rounded-2xl text-white/80 flex items-center gap-4 hover:bg-white/10 transition-colors group">
                             <span className="p-2 rounded-full bg-white/5 group-hover:bg-[#C9A24D] transition-colors">
-                                {/* @ts-expect-error: ion-icon custom element */}
                                 <ion-icon name={item.icon} class="text-[#C9A24D] text-lg group-hover:text-[#061B3A] transition-colors"></ion-icon>
                             </span>
                             <span className="font-light tracking-wide">{item.name}</span>

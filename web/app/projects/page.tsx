@@ -134,7 +134,6 @@ export default function AllProjectsPage() {
                             </p>
                         </div>
                         <button className="px-6 py-3 rounded-full bg-[#C9A24D] text-[#061B3A] font-semibold text-xs uppercase tracking-widest hover:bg-[#d4b15f] transition-all shadow-lg hover:shadow-[#C9A24D]/30 inline-flex items-center gap-2">
-                            {/* @ts-expect-error: ion-icon custom element */}
                             <ion-icon name="calendar-outline"></ion-icon>
                             Schedule a Site Visit
                         </button>
@@ -168,7 +167,6 @@ export default function AllProjectsPage() {
                                 href="tel:6264883066"
                                 className="px-8 py-4 rounded-full bg-white text-[#061B3A] font-bold text-sm uppercase tracking-widest hover:bg-[#C9A24D] hover:text-[#061B3A] transition-all shadow-xl hover:shadow-2xl inline-flex items-center gap-3"
                             >
-                                {/* @ts-expect-error: ion-icon custom element */}
                                 <ion-icon name="call-outline" class="text-xl"></ion-icon>
                                 Call +91 62648 83066
                             </a>

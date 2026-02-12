@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 import Link from 'next/link';
 
 export default function Verticals() {
@@ -35,7 +35,7 @@ export default function Verticals() {
                                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#011E51]/85 via-[#011E51]/35 to-transparent flex flex-col justify-end items-center pb-10 text-center text-white">
-                                {/* @ts-expect-error: ion-icon is a custom element */}
+
                                 <ion-icon
                                     name={vertical.icon}
                                     class="text-3xl mb-2.5 text-brand-gold transition-transform duration-300 group-hover:-translate-y-1"

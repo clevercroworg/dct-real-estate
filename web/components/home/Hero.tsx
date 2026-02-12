@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 import Link from 'next/link';
 
 export default function Hero() {
@@ -57,7 +57,7 @@ export default function Hero() {
                                 href="/projects/ongoing"
                                 className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#C9A24D] text-white font-semibold text-[15px] transition hover:bg-[#A8842C] hover:-translate-y-0.5"
                             >
-                                {/* @ts-expect-error: ion-icon is a custom element */}
+
                                 <ion-icon name="business-outline" class="text-lg mr-2"></ion-icon>
                                 View Projects
                             </Link>
@@ -67,7 +67,7 @@ export default function Hero() {
                                 href="/contact"
                                 className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-white/90 text-white font-semibold text-[15px] transition-all duration-200 hover:bg-brand-gold hover:border-brand-gold hover:-translate-y-0.5"
                             >
-                                {/* @ts-expect-error: ion-icon is a custom element */}
+
                                 <ion-icon name="send-outline" class="text-lg mr-2"></ion-icon>
                                 Enquire Now
                             </Link>

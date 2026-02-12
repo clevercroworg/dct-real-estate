@@ -37,7 +37,6 @@ export default function ProjectFAQ() {
                         <h2 className="font-heading text-3xl lg:text-4xl font-semibold text-[#061B3A]">Answers to common questions</h2>
                     </div>
                     <a href="/contact" className="text-sm font-medium text-[#061B3A] hover:text-[#C9A24D] inline-flex items-center gap-2">
-                        {/* @ts-expect-error: ion-icon custom element */}
                         <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
                         Ask a question
                     </a>
@@ -52,7 +51,6 @@ export default function ProjectFAQ() {
                         >
                             <div className="flex items-center justify-between font-semibold text-[#061B3A]">
                                 {faq.question}
-                                {/* @ts-expect-error: ion-icon custom element */}
                                 <ion-icon name={openIndex === index ? "remove-outline" : "add-outline"} class="text-[#C9A24D] text-xl transition-transform duration-300"></ion-icon>
                             </div>
                             <div

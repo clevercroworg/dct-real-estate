@@ -16,7 +16,6 @@ export default function ProjectStickyNav() {
                         target="_blank"
                         className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-[#C9A24D] transition-colors"
                     >
-                        {/* @ts-expect-error: ion-icon custom element */}
                         <ion-icon name="chatbubble-ellipses-outline" class="text-lg text-[#C9A24D]"></ion-icon>
                         <span className="hidden sm:inline">Chat with us</span>
                         <span className="sm:hidden">Chat</span>
@@ -29,7 +28,6 @@ export default function ProjectStickyNav() {
                         href="tel:6264883066"
                         className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-[#C9A24D] transition-colors"
                     >
-                        {/* @ts-expect-error: ion-icon custom element */}
                         <ion-icon name="call-outline" class="text-lg text-[#C9A24D]"></ion-icon>
                         <span className="hidden sm:inline">Call us</span>
                         <span className="sm:hidden">Call</span>
@@ -43,7 +41,6 @@ export default function ProjectStickyNav() {
                         onClick={openModal}
                         className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-[#C9A24D] transition-colors"
                     >
-                        {/* @ts-expect-error: ion-icon custom element */}
                         <ion-icon name="calendar-outline" class="text-lg text-[#C9A24D]"></ion-icon>
                         <span className="hidden sm:inline">Schedule a visit</span>
                         <span className="sm:hidden">Visit</span>

@@ -40,7 +40,6 @@ export default function ProjectStats({ stats }: ProjectStatsProps) {
                     {displayStats.map((stat, index) => (
                         <div key={index} className="flex items-start gap-4">
                             <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center flex-shrink-0">
-                                {/* @ts-expect-error: ion-icon custom element */}
                                 <ion-icon name={stat.icon} class="text-[#C9A24D] text-2xl"></ion-icon>
                             </div>
                             <div>

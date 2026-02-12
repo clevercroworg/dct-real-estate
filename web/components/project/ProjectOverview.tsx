@@ -85,7 +85,6 @@ export default function ProjectOverview({ title, description, details, brochureL
                                 type="submit"
                                 className="rounded-full w-full justify-center inline-flex items-center gap-2 px-4 py-4 text-xs tracking-widest font-semibold uppercase bg-[#C9A24D] text-[#061B3A] shadow-lg shadow-[#C9A24D]/20 hover:-translate-y-0.5 hover:shadow-[#C9A24D]/40 transition-all"
                             >
-                                {/* @ts-expect-error: ion-icon custom element */}
                                 <ion-icon name="download-outline" class="text-[#061B3A] text-lg"></ion-icon>
                                 Download Brochure
                             </button>
@@ -97,7 +96,6 @@ export default function ProjectOverview({ title, description, details, brochureL
                         <div className="mt-8 border-t border-white/10 pt-6 grid gap-3 text-sm text-white/70 relative z-10">
                             {displayPoints.map((point, index) => (
                                 <div key={index} className="flex items-center gap-3">
-                                    {/* @ts-expect-error: ion-icon custom element */}
                                     <ion-icon name="checkmark-circle-outline" class="text-[#C9A24D] text-lg"></ion-icon>
                                     {point}
                                 </div>

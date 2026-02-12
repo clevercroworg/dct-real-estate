@@ -48,7 +48,6 @@ export default function ProjectHero({
                                 {title}
                             </h1>
                             <p className="text-white/80 mt-4 text-base lg:text-lg flex items-center gap-2">
-                                {/* @ts-expect-error: ion-icon custom element */}
                                 <ion-icon name="location-outline" class="text-[#C9A24D]"></ion-icon>
                                 {location}
                             </p>
@@ -70,7 +69,6 @@ export default function ProjectHero({
                                     onClick={openModal}
                                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#C9A24D] text-[#061B3A] text-xs font-semibold uppercase tracking-widest shadow-lg shadow-[#C9A24D]/30 hover:-translate-y-0.5 transition-transform"
                                 >
-                                    {/* @ts-expect-error: ion-icon custom element */}
                                     <ion-icon name="calendar-outline"></ion-icon>
                                     Book a site visit
                                 </button>
@@ -78,7 +76,6 @@ export default function ProjectHero({
                                     href="tel:6264883066"
                                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/30 text-white text-xs font-semibold uppercase tracking-widest hover:border-[#C9A24D] hover:text-[#C9A24D] transition-colors"
                                 >
-                                    {/* @ts-expect-error: ion-icon custom element */}
                                     <ion-icon name="call-outline"></ion-icon>
                                     Call now
                                 </a>
@@ -86,17 +83,14 @@ export default function ProjectHero({
 
                             <div className="mt-10 flex flex-wrap gap-6 text-xs uppercase tracking-widest text-white/70">
                                 <span className="inline-flex items-center gap-2">
-                                    {/* @ts-expect-error: ion-icon custom element */}
                                     <ion-icon name="home-outline" class="text-[#C9A24D]"></ion-icon>
                                     Clubhouse
                                 </span>
                                 <span className="inline-flex items-center gap-2">
-                                    {/* @ts-expect-error: ion-icon custom element */}
                                     <ion-icon name="water-outline" class="text-[#C9A24D]"></ion-icon>
                                     Swimming Pool
                                 </span>
                                 <span className="inline-flex items-center gap-2">
-                                    {/* @ts-expect-error: ion-icon custom element */}
                                     <ion-icon name="shield-checkmark-outline" class="text-[#C9A24D]"></ion-icon>
                                     Secured Campus
                                 </span>

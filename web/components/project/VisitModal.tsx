@@ -39,7 +39,6 @@ export default function VisitModal() {
                         onClick={closeModal}
                         className="text-[#061B3A] hover:text-[#C9A24D] transition-colors"
                     >
-                        {/* @ts-expect-error: ion-icon custom element */}
                         <ion-icon name="close-outline" class="text-2xl"></ion-icon>
                     </button>
                 </div>
@@ -76,7 +75,6 @@ export default function VisitModal() {
                         type="submit"
                         className="rounded-full w-full justify-center inline-flex items-center gap-2 px-4 py-3 text-xs tracking-widest font-semibold uppercase bg-[#061B3A] text-white hover:bg-[#0B2550] transition-colors"
                     >
-                        {/* @ts-expect-error: ion-icon custom element */}
                         <ion-icon name="calendar-outline"></ion-icon>
                         Submit request
                     </button>

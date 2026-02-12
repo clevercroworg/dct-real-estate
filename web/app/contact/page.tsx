@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-nocheck removed
 'use client';
 
 import React from 'react';

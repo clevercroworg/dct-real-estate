@@ -58,7 +58,6 @@ export default function ProjectLocation({ title, landmarks }: ProjectLocationPro
                     {displayLandmarks.map((landmark, idx) => (
                         <div key={idx} className="bg-white rounded-2xl border border-gray-200 p-8 hover:shadow-lg transition-shadow">
                             <h3 className="font-heading text-xl font-semibold text-[#061B3A] mb-6 flex items-center gap-2">
-                                {/* @ts-expect-error: ion-icon custom element */}
                                 <ion-icon name={landmark.icon} class="text-[#C9A24D]"></ion-icon>
                                 {landmark.category}
                             </h3>

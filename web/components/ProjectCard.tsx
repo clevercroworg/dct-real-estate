@@ -46,7 +46,6 @@ export default function ProjectCard({
                     {title}
                 </h3>
                 <p className="text-sm text-gray-500 mt-2 flex items-center gap-2">
-                    {/* @ts-expect-error: ion-icon custom element */}
                     <ion-icon name="location-outline" class="text-[#C9A24D]"></ion-icon>
                     {location}
                 </p>
@@ -61,7 +60,6 @@ export default function ProjectCard({
                         href={link}
                         className="text-xs uppercase tracking-widest px-4 py-2 rounded-full bg-[#061B3A] text-white hover:bg-[#C9A24D] hover:text-[#061B3A] transition-all inline-flex items-center gap-2 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                     >
-                        {/* @ts-expect-error: ion-icon custom element */}
                         <ion-icon name="arrow-forward-outline"></ion-icon>
                         View Project
                     </Link>

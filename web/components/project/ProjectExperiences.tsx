@@ -12,7 +12,6 @@ export default function ProjectExperiences() {
                         </h2>
                     </div>
                     <Link href="/contact" className="text-sm font-medium text-[#061B3A] hover:text-[#C9A24D] inline-flex items-center gap-2 transition-colors">
-                        {/* @ts-expect-error: ion-icon custom element */}
                         <ion-icon name="call-outline"></ion-icon>
                         Speak to an advisor
                     </Link>

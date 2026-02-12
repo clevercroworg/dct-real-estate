@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -105,7 +105,7 @@ export default function Header() {
                             href="tel:6264883066"
                             className="ml-2 inline-flex items-center gap-2 px-4 py-2 bg-brand-gold text-brand-blue text-[11px] tracking-widest font-medium rounded-full transition-all duration-200 hover:bg-[#d4b15f] hover:-translate-y-0.5 hover:shadow-lg"
                         >
-                            {/* @ts-expect-error: ion-icon is a custom element */}
+
                             <ion-icon name="call-outline" class="w-4 h-4 text-brand-blue"></ion-icon>
                             62648&nbsp;83066
                         </a>

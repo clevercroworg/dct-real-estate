@@ -34,7 +34,6 @@ export default function ProjectGallery({ title, description, videoUrl, images }:
                         <p className="text-sm text-white/70 mt-2">{displayDesc}</p>
                     </div>
                     <Link href="/contact" className="text-sm font-medium text-white/80 hover:text-[#C9A24D] inline-flex items-center gap-2 transition-colors">
-                        {/* @ts-expect-error: ion-icon custom element */}
                         <ion-icon name="calendar-outline"></ion-icon>
                         Book a visit
                     </Link>
