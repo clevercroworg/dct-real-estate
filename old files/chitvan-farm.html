@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chitvan Farmhouse | DCT Real Estate</title>
+  <meta name="description" content="Chitvan Farmhouse by DCT Real Estate — an integrated farmhouse community on Bilaspur–Raipur NH 130 with clubhouse, wellness spaces, and secure living." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-body text-text-primary bg-white pb-24">
+
+  <!-- HEADER -->
+<header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all bg-[#061B3A] text-white shadow-lg">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- LOGO -->
+      <a href="/" class="flex items-center">
+        <img src="images/logo.png" alt="DCT Real Estate" class="h-10">
+      </a>
+
+      <!-- DESKTOP NAV -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs tracking-widest font-light uppercase">
+
+        <a href="/" class="nav-link">Home</a>
+
+        <!-- ABOUT DROPDOWN -->
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1">
+            About
+            <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M5.25 7.5L10 12.25 14.75 7.5" />
+            </svg>
+          </button>
+
+          <div class="dropdown-panel">
+            <a href="/about.html" class="dropdown-link">Overview</a>
+            <a href="/directors-message.html" class="dropdown-link">Director’s Message</a>
+            <a href="/leadership.html" class="dropdown-link">Leadership</a>
+          </div>
+        </div>
+
+        <!-- PROJECTS DROPDOWN -->
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1">
+            Projects
+            <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M5.25 7.5L10 12.25 14.75 7.5" />
+            </svg>
+          </button>
+
+          <div class="dropdown-panel">
+            <a href="/projects/ongoing.html" class="dropdown-link">Ongoing Projects</a>
+            <a href="/projects/completed.html" class="dropdown-link">Completed Projects</a>
+            <a href="/projects/commercial.html" class="dropdown-link">Commercial Projects</a>
+            <a href="/projects/upcoming.html" class="dropdown-link">Upcoming Projects</a>
+          </div>
+        </div>
+
+        <a href="/media.html" class="nav-link">Media</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+
+        <!-- DESKTOP CALL BUTTON -->
+         <a href="tel:6264883066"
+   class="ml-2 inline-flex items-center gap-2 px-4 py-2
+          bg-[#C9A24D] text-[#061B3A]
+          text-[11px] tracking-widest font-medium
+          rounded-full transition
+          hover:bg-[#d4b15f] hover:-translate-y-0.5 hover:shadow-lg">
+
+  <ion-icon name="call-outline" class="w-4 h-4 text-[#061B3A]"></ion-icon>
+  62648&nbsp;83066
+</a>
+
+
+      </nav>
+
+      <!-- MOBILE ACTIONS -->
+      <div class="flex items-center gap-3 lg:hidden">
+
+        <!-- MOBILE CALL ICON -->
+        <a href="tel:6264883066"
+           class="inline-flex items-center justify-center
+                  w-10 h-10 rounded-full
+                  bg-[#C9A24D] text-[#061B3A]
+                  transition hover:bg-[#d4b15f]">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="w-5 h-5"
+               fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+              d="M2 4.5C2 3.12 3.12 2 4.5 2h2c.83 0 1.58.51 1.88 1.29l.97 2.42a2 2.42 0 01-.45 2.11L7.5 9.5a12.5 12.5 0 007 7l1.68-1.4a2 2.42 0 012.11-.45l2.42.97A2 2.42 0 0122 17.5v2c0 1.38-1.12 2.5-2.5 2.5C9.61 22 2 14.39 2 4.5z"/>
+          </svg>
+        </a>
+
+        <!-- HAMBURGER -->
+        <button id="menu-toggle" class="text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu"
+       class="fixed inset-0 bg-[#061B3A] text-white
+              transform translate-x-full transition-transform duration-300">
+
+    <div class="p-6 flex flex-col gap-8">
+
+      <button id="menu-close" class="self-end">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8"
+             viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <nav class="flex flex-col gap-6 uppercase tracking-widest text-sm font-light">
+
+        <a href="/">Home</a>
+
+        <div class="flex flex-col gap-3">
+          <span class="text-white/50 text-xs">About</span>
+          <a href="/about.html">Overview</a>
+          <a href="/directors-message.html">Director’s Message</a>
+          <a href="/leadership.html">Leadership</a>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <span class="text-white/50 text-xs">Projects</span>
+          <a href="/projects/ongoing.html">Ongoing Projects</a>
+          <a href="/projects/completed.html">Completed Projects</a>
+          <a href="/projects/commercial.html">Commercial Projects</a>
+          <a href="/projects/upcoming.html">Upcoming Projects</a>
+        </div>
+
+        <a href="/media.html">Media</a>
+        <a href="/contact.html">Contact</a>
+
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const closeBtn = document.getElementById('menu-close');
+  const menu = document.getElementById('mobile-menu');
+
+  toggle.onclick = () => menu.classList.remove('translate-x-full');
+  closeBtn.onclick = () => menu.classList.add('translate-x-full');
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('site-header')
+      .classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+
+
+  <!-- HERO -->
+  <section class="pt-16 pb-8">
+    <div class="relative w-full overflow-hidden rounded-b-[38px] min-h-[45vh] lg:min-h-[48vh] shadow-2xl">
+      <img src="images/chitvan-farmhouse-hero.png" alt="Chitvan Farmhouse" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-r from-[#061B3A]/95 via-[#061B3A]/80 to-transparent"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(201,162,77,0.18),transparent_55%)]"></div>
+      <div class="absolute inset-0 opacity-20 mix-blend-soft-light" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><filter id=%22n%22 x=%220%22 y=%220%22 width=%22100%25%22 height=%22100%25%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%221%22 stitchTiles=%22stitch%22/></filter><rect width=%22400%22 height=%22400%22 filter=%22url(%23n)%22 opacity=%220.15%22/></svg>');"></div>
+      <span class="absolute top-6 right-6 z-10 px-3 py-1 text-[10px] uppercase tracking-widest bg-white/10 text-white rounded-full border border-white/20 backdrop-blur">
+        New Launch
+      </span>
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center px-4 lg:px-6 py-12 lg:py-16">
+          <div class="max-w-2xl">
+            <p class="text-[#C9A24D] text-xs tracking-[0.35em] uppercase mb-4">Farmhouse</p>
+            <h1 class="font-heading text-white text-4xl lg:text-5xl font-semibold leading-tight drop-shadow-[0_6px_30px_rgba(6,27,58,0.6)]">
+              Chitvan Farmhouse
+            </h1>
+            <p class="text-white/80 mt-4 text-base lg:text-lg flex items-center gap-2">
+              <ion-icon name="location-outline" class="text-[#C9A24D]"></ion-icon>
+              Mohda Mod, Bhojpuri Toll Plaza, NH 130, Bilaspur (C.G.)
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <span class="text-[11px] uppercase tracking-widest px-3 py-1 rounded-full bg-[#C9A24D] text-[#061B3A]">
+                Integrated Farmhouse Living
+              </span>
+              <span class="text-[11px] uppercase tracking-widest px-3 py-1 rounded-full bg-white/10 text-white">
+                Bilaspur – Raipur NH 130
+              </span>
+            </div>
+            <div class="mt-6 flex flex-wrap items-center gap-4">
+              <button type="button" id="open-visit-modal" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#C9A24D] text-[#061B3A] text-xs font-semibold uppercase tracking-widest shadow-lg shadow-[#C9A24D]/30 hover:-translate-y-0.5 transition">
+                <ion-icon name="calendar-outline"></ion-icon>
+                Book a site visit
+              </button>
+              <a href="tel:6264883066" class="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/30 text-white text-xs font-semibold uppercase tracking-widest hover:border-[#C9A24D] hover:text-[#C9A24D] transition">
+                <ion-icon name="call-outline"></ion-icon>
+                Call now
+              </a>
+            </div>
+            <div class="mt-8 flex flex-wrap gap-6 text-xs uppercase tracking-widest text-white/70">
+              <span class="inline-flex items-center gap-2">
+                <ion-icon name="home-outline" class="text-[#C9A24D]"></ion-icon>
+                Clubhouse
+              </span>
+              <span class="inline-flex items-center gap-2">
+                <ion-icon name="water-outline" class="text-[#C9A24D]"></ion-icon>
+                Swimming Pool
+              </span>
+              <span class="inline-flex items-center gap-2">
+                <ion-icon name="shield-checkmark-outline" class="text-[#C9A24D]"></ion-icon>
+                Secured Campus
+              </span>
+            </div>
+          </div>
+          <div class="w-full">
+            <div class="relative w-full overflow-hidden rounded-3xl shadow-2xl bg-black border border-white/10">
+              <div class="aspect-video">
+                <iframe
+                  class="w-full h-full"
+                  src="https://www.youtube-nocookie.com/embed/yur8jcoeX-c?autoplay=0&rel=0"
+                  title="Chitvan Farmhouse video"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE STATS -->
+  <section class="pt-10 pb-14 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-6 bg-[#0C1B33] text-white rounded-3xl p-8 lg:p-10 shadow-2xl">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
+            <ion-icon name="leaf-outline" class="text-[#C9A24D] text-2xl"></ion-icon>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-white/60">Signature</p>
+            <p class="text-2xl font-semibold mt-2">Living Ecosystem</p>
+            <p class="text-sm text-white/70 mt-2">Greens, water, and open spaces designed to breathe.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
+            <ion-icon name="home-outline" class="text-[#C9A24D] text-2xl"></ion-icon>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-white/60">Community</p>
+            <p class="text-2xl font-semibold mt-2">Farmhouse Living</p>
+            <p class="text-sm text-white/70 mt-2">Private plots with shared wellness and social spaces.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
+            <ion-icon name="navigate-outline" class="text-[#C9A24D] text-2xl"></ion-icon>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-white/60">Connectivity</p>
+            <p class="text-2xl font-semibold mt-2">NH 130 Corridor</p>
+            <p class="text-sm text-white/70 mt-2">Mohda Mod, Bhojpuri Toll Plaza, Bilaspur.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12">
+        <div>
+          <p class="text-xs uppercase tracking-[0.3em] text-[#C9A24D] mb-3">The Estate</p>
+          <h2 class="font-heading text-3xl lg:text-5xl font-semibold text-[#061B3A]">Chitvan is a modern farmhouse address crafted for quiet luxury.</h2>
+          <p class="text-gray-600 mt-5 text-base leading-relaxed">
+            Welcome to Chitvan, the latest addition to DCT’s portfolio. Nestled on
+            the Mohda Mod stretch of the Bilaspur–Raipur National Highway 130, this
+            farmhouse community is designed as a complete sensory experience with
+            lush green gardens, social spaces, and outdoor living.
+          </p>
+          <p class="text-gray-600 mt-4 text-base leading-relaxed">
+            Chitvan embraces difference by bringing an unconventional lifestyle
+            closer to Bilaspur and Raipur. It is an evolving, integrated living
+            destination designed for those who value space, greenery, and a
+            peaceful retreat without losing connectivity.
+          </p>
+          <div class="mt-8 grid sm:grid-cols-2 gap-4">
+            <div class="p-5 border border-gray-200 rounded-2xl">
+              <p class="text-xs uppercase tracking-widest text-gray-500">Project Type</p>
+              <p class="mt-2 font-semibold text-[#061B3A]">Farmhouse Community</p>
+            </div>
+            <div class="p-5 border border-gray-200 rounded-2xl">
+              <p class="text-xs uppercase tracking-widest text-gray-500">Status</p>
+              <p class="mt-2 font-semibold text-[#061B3A]">Open for Enquiry</p>
+            </div>
+            <div class="p-5 border border-gray-200 rounded-2xl">
+              <p class="text-xs uppercase tracking-widest text-gray-500">Corridor</p>
+              <p class="mt-2 font-semibold text-[#061B3A]">Bilaspur – Raipur NH 130</p>
+            </div>
+            <div class="p-5 border border-gray-200 rounded-2xl">
+              <p class="text-xs uppercase tracking-widest text-gray-500">Location</p>
+              <p class="mt-2 font-semibold text-[#061B3A]">Mohda Mod, Bhojpuri Toll Plaza</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-[#0C1B33] text-white p-8 rounded-3xl shadow-2xl">
+          <div class="flex items-center justify-between">
+            <p class="text-xs uppercase tracking-[0.3em] text-white/60">Brochure</p>
+            <span class="px-3 py-1 text-[10px] uppercase tracking-widest bg-white/10 rounded-full">Limited Plots</span>
+          </div>
+          <h3 class="font-heading text-2xl font-semibold mt-4">Download the Chitvan brochure</h3>
+          <p class="text-sm text-white/70 mt-3">Enter your details for instant access.</p>
+          <form class="mt-6 grid gap-4" id="brochure-form">
+            <input type="text" name="name" required placeholder="Full name" class="w-full border border-white/20 bg-transparent rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D] text-white placeholder-white/50">
+            <input type="tel" name="phone" required placeholder="Phone number" class="w-full border border-white/20 bg-transparent rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D] text-white placeholder-white/50">
+            <button type="submit" class="rounded-full w-full justify-center inline-flex items-center gap-2 px-4 py-3 text-xs tracking-widest font-semibold uppercase bg-[#C9A24D] text-[#061B3A] shadow-lg shadow-[#C9A24D]/40 hover:-translate-y-0.5 hover:shadow-xl transition">
+              <ion-icon name="download-outline" class="text-[#061B3A]"></ion-icon>
+              Download Brochure
+            </button>
+            <p class="text-[11px] text-white/60">
+              By submitting, you agree to receive a call back from DCT.
+            </p>
+          </form>
+          <div class="mt-8 border-t border-white/10 pt-6 grid gap-3 text-sm text-white/70">
+            <div class="flex items-center gap-2">
+              <ion-icon name="checkmark-circle-outline" class="text-[#C9A24D]"></ion-icon>
+              Clubhouse, swimming pool, and community hubs.
+            </div>
+            <div class="flex items-center gap-2">
+              <ion-icon name="checkmark-circle-outline" class="text-[#C9A24D]"></ion-icon>
+              Open-air gym and yoga center in nature.
+            </div>
+            <div class="flex items-center gap-2">
+              <ion-icon name="checkmark-circle-outline" class="text-[#C9A24D]"></ion-icon>
+              Secured campus with dedicated guard room.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE EXPERIENCES -->
+  <section class="py-20 bg-[#F8FAFC]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+        <div>
+          <p class="text-xs uppercase tracking-[0.3em] text-[#C9A24D] mb-3">Signature Experiences</p>
+          <h2 class="font-heading text-3xl lg:text-4xl font-semibold text-[#061B3A]">Where nature meets crafted community living</h2>
+        </div>
+        <a href="/contact.html" class="text-sm font-medium text-[#061B3A] hover:text-[#C9A24D] inline-flex items-center gap-2">
+          <ion-icon name="call-outline"></ion-icon>
+          Speak to an advisor
+        </a>
+      </div>
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="bg-white border border-gray-200 rounded-3xl p-7 shadow-lg">
+          <div class="w-full h-40 rounded-2xl overflow-hidden bg-[#F1F5F9]">
+            <img src="images/chitvan-experience-1.png" alt="Clubhouse Social Core" class="w-full h-full object-cover">
+          </div>
+          <h3 class="font-heading text-xl font-semibold text-[#061B3A] mt-4">Clubhouse Social Core</h3>
+          <p class="text-sm text-gray-600 mt-3">A gathering hub for celebrations, fitness, and everyday leisure.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-3xl p-7 shadow-lg">
+          <div class="w-full h-40 rounded-2xl overflow-hidden bg-[#F1F5F9]">
+            <img src="images/chitvan-experience-2.png" alt="Wellness Outdoors" class="w-full h-full object-cover">
+          </div>
+          <h3 class="font-heading text-xl font-semibold text-[#061B3A] mt-4">Wellness Outdoors</h3>
+          <p class="text-sm text-gray-600 mt-3">Open-air gym, yoga lawns, and tree-lined walkways.</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-3xl p-7 shadow-lg">
+          <div class="w-full h-40 rounded-2xl overflow-hidden bg-[#F1F5F9]">
+            <img src="images/chitvan-experience-3.png" alt="Secure Living" class="w-full h-full object-cover">
+          </div>
+          <h3 class="font-heading text-xl font-semibold text-[#061B3A] mt-4">Secure Living</h3>
+          <p class="text-sm text-gray-600 mt-3">Round-the-clock security and a dedicated guard room.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="py-20 bg-[#061B3A]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+        <div>
+          <p class="text-xs uppercase tracking-[0.3em] text-[#C9A24D] mb-2">Gallery</p>
+          <h3 class="font-heading text-2xl lg:text-3xl font-semibold text-white">Chitvan walkthrough</h3>
+          <p class="text-sm text-white/70 mt-2">A glimpse of the clubhouse, greens, and outdoor living.</p>
+        </div>
+        <a href="/contact.html" class="text-sm font-medium text-white/80 hover:text-[#C9A24D] inline-flex items-center gap-2">
+          <ion-icon name="calendar-outline"></ion-icon>
+          Book a visit
+        </a>
+      </div>
+      <div class="max-w-4xl mx-auto">
+        <div class="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-black">
+          <div class="aspect-video">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube-nocookie.com/embed/yur8jcoeX-c?autoplay=0&rel=0"
+              title="Chitvan Farmhouse video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <img src="images/chitvan-gallery-1.png" alt="Chitvan gallery" class="w-full h-48 object-cover rounded-2xl">
+          <img src="images/chitvan-gallery-2.png" alt="Chitvan gallery" class="w-full h-48 object-cover rounded-2xl">
+          <img src="images/chitvan-gallery-3.png" alt="Chitvan gallery" class="w-full h-48 object-cover rounded-2xl">
+          <img src="images/chitvan-gallery-4.png" alt="Chitvan gallery" class="w-full h-48 object-cover rounded-2xl">
+          <img src="images/chitvan-gallery-5.png" alt="Chitvan gallery" class="w-full h-48 object-cover rounded-2xl">
+          <img src="images/chitvan-gallery-6.png" alt="Chitvan gallery" class="w-full h-48 object-cover rounded-2xl">
+          <img src="images/chitvan-gallery-7.png" alt="Chitvan gallery" class="w-full h-48 object-cover rounded-2xl">
+          <img src="images/chitvan-gallery-8.png" alt="Chitvan gallery" class="w-full h-48 object-cover rounded-2xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section class="py-16 bg-[#061B3A]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+        <div>
+          <p class="text-xs uppercase tracking-[0.3em] text-[#C9A24D] mb-3">Amenities</p>
+          <h2 class="font-heading text-3xl lg:text-4xl font-semibold text-white">Designed for everyday ease</h2>
+        </div>
+        <a href="tel:6264883066" class="btn-outline-white">Call for pricing</a>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 bg-white/5 rounded-xl text-white/80 flex items-center gap-3">
+          <ion-icon name="enter-outline" class="text-[#C9A24D] text-xl"></ion-icon>
+          Grand Entrance Gate
+        </div>
+        <div class="p-6 bg-white/5 rounded-xl text-white/80 flex items-center gap-3">
+          <ion-icon name="business-outline" class="text-[#C9A24D] text-xl"></ion-icon>
+          Grand Clubhouse
+        </div>
+        <div class="p-6 bg-white/5 rounded-xl text-white/80 flex items-center gap-3">
+          <ion-icon name="water-outline" class="text-[#C9A24D] text-xl"></ion-icon>
+          Swimming Pool
+        </div>
+        <div class="p-6 bg-white/5 rounded-xl text-white/80 flex items-center gap-3">
+          <ion-icon name="happy-outline" class="text-[#C9A24D] text-xl"></ion-icon>
+          Kids Play Area
+        </div>
+        <div class="p-6 bg-white/5 rounded-xl text-white/80 flex items-center gap-3">
+          <ion-icon name="flash-outline" class="text-[#C9A24D] text-xl"></ion-icon>
+          Individual Transformer
+        </div>
+        <div class="p-6 bg-white/5 rounded-xl text-white/80 flex items-center gap-3">
+          <ion-icon name="barbell-outline" class="text-[#C9A24D] text-xl"></ion-icon>
+          Open-Air Gym
+        </div>
+        <div class="p-6 bg-white/5 rounded-xl text-white/80 flex items-center gap-3">
+          <ion-icon name="trail-sign-outline" class="text-[#C9A24D] text-xl"></ion-icon>
+          Wide Roads
+        </div>
+        <div class="p-6 bg-white/5 rounded-xl text-white/80 flex items-center gap-3">
+          <ion-icon name="leaf-outline" class="text-[#C9A24D] text-xl"></ion-icon>
+          Yoga Center
+        </div>
+        <div class="p-6 bg-white/5 rounded-xl text-white/80 flex items-center gap-3">
+          <ion-icon name="leaf-outline" class="text-[#C9A24D] text-xl"></ion-icon>
+          Plantation
+        </div>
+        <div class="p-6 bg-white/5 rounded-xl text-white/80 flex items-center gap-3">
+          <ion-icon name="flower-outline" class="text-[#C9A24D] text-xl"></ion-icon>
+          Lush Green Garden
+        </div>
+        <div class="p-6 bg-white/5 rounded-xl text-white/80 flex items-center gap-3">
+          <ion-icon name="shield-checkmark-outline" class="text-[#C9A24D] text-xl"></ion-icon>
+          Secured Campus
+        </div>
+        <div class="p-6 bg-white/5 rounded-xl text-white/80 flex items-center gap-3">
+          <ion-icon name="lock-closed-outline" class="text-[#C9A24D] text-xl"></ion-icon>
+          Security Guard Room
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
+        <div>
+          <img src="images/chitvan-features.png" alt="Project amenities" class="w-full rounded-2xl shadow-xl">
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-[0.3em] text-[#C9A24D] mb-3">Property Features</p>
+          <h2 class="font-heading text-3xl lg:text-4xl font-semibold text-[#061B3A]">Designed for elevated farmhouse living</h2>
+          <ul class="mt-6 grid sm:grid-cols-2 gap-4 text-sm text-gray-600">
+            <li>State-of-the-art fitness center</li>
+            <li>Luxurious swimming pools</li>
+            <li>Spacious parking area</li>
+            <li>Panoramic green views</li>
+            <li>Dedicated children’s play zone</li>
+            <li>Beautifully landscaped gardens</li>
+            <li>Premium modular kitchen setup</li>
+            <li>Advanced fire safety measures</li>
+            <li>Elegant high-quality doors</li>
+            <li>Well-designed storage spaces</li>
+            <li>Polished marble flooring</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEARBY PLACES -->
+  <section class="py-20 bg-[#F8FAFC]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col gap-3 mb-10">
+        <p class="text-xs uppercase tracking-[0.3em] text-[#C9A24D]">Nearby Places</p>
+        <h2 class="font-heading text-3xl lg:text-4xl font-semibold text-[#061B3A]">Everything within easy reach</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-10">
+        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+          <h3 class="font-heading text-xl font-semibold text-[#061B3A] mb-4">Hospitals</h3>
+          <div class="space-y-4 text-sm text-gray-600">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-medium text-[#061B3A]">Bilaspur District Hospital</p>
+                <p class="text-xs">General Hospital</p>
+              </div>
+              <div class="text-right">
+                <p>10.5 km</p>
+                <p class="text-xs text-gray-500">~15 minutes</p>
+              </div>
+            </div>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-medium text-[#061B3A]">Medicover Hospital</p>
+                <p class="text-xs">Private Hospital</p>
+              </div>
+              <div class="text-right">
+                <p>13.0 km</p>
+                <p class="text-xs text-gray-500">~20 minutes</p>
+              </div>
+            </div>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-medium text-[#061B3A]">Shree Sai Hospital</p>
+                <p class="text-xs">Multi-specialty Hospital</p>
+              </div>
+              <div class="text-right">
+                <p>14.3 km</p>
+                <p class="text-xs text-gray-500">~22 minutes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+          <h3 class="font-heading text-xl font-semibold text-[#061B3A] mb-4">Shopping</h3>
+          <div class="space-y-4 text-sm text-gray-600">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-medium text-[#061B3A]">City Mall</p>
+                <p class="text-xs">Shopping Mall</p>
+              </div>
+              <div class="text-right">
+                <p>7.5 km</p>
+                <p class="text-xs text-gray-500">~11 minutes</p>
+              </div>
+            </div>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-medium text-[#061B3A]">Reliance Smart</p>
+                <p class="text-xs">Supermarket</p>
+              </div>
+              <div class="text-right">
+                <p>12.0 km</p>
+                <p class="text-xs text-gray-500">~18 minutes</p>
+              </div>
+            </div>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-medium text-[#061B3A]">The Big Bazaar</p>
+                <p class="text-xs">Retail Store</p>
+              </div>
+              <div class="text-right">
+                <p>15.8 km</p>
+                <p class="text-xs text-gray-500">~24 minutes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+          <h3 class="font-heading text-xl font-semibold text-[#061B3A] mb-4">Schools</h3>
+          <div class="space-y-4 text-sm text-gray-600">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-medium text-[#061B3A]">St. Xavier's School</p>
+                <p class="text-xs">Primary School</p>
+              </div>
+              <div class="text-right">
+                <p>4.2 km</p>
+                <p class="text-xs text-gray-500">~6 minutes</p>
+              </div>
+            </div>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-medium text-[#061B3A]">Bilaspur International School</p>
+                <p class="text-xs">Secondary School</p>
+              </div>
+              <div class="text-right">
+                <p>8.6 km</p>
+                <p class="text-xs text-gray-500">~13 minutes</p>
+              </div>
+            </div>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-medium text-[#061B3A]">Jawahar Navodaya Vidyalaya</p>
+                <p class="text-xs">Residential School</p>
+              </div>
+              <div class="text-right">
+                <p>10.0 km</p>
+                <p class="text-xs text-gray-500">~15 minutes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+          <h3 class="font-heading text-xl font-semibold text-[#061B3A] mb-4">Restaurants</h3>
+          <div class="space-y-4 text-sm text-gray-600">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-medium text-[#061B3A]">The Spice Hut</p>
+                <p class="text-xs">Indian Restaurant</p>
+              </div>
+              <div class="text-right">
+                <p>5.3 km</p>
+                <p class="text-xs text-gray-500">~8 minutes</p>
+              </div>
+            </div>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-medium text-[#061B3A]">Rooftop Restaurant</p>
+                <p class="text-xs">Multi-cuisine</p>
+              </div>
+              <div class="text-right">
+                <p>9.1 km</p>
+                <p class="text-xs text-gray-500">~14 minutes</p>
+              </div>
+            </div>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="font-medium text-[#061B3A]">Barbeque Nation</p>
+                <p class="text-xs">BBQ Restaurant</p>
+              </div>
+              <div class="text-right">
+                <p>11.2 km</p>
+                <p class="text-xs text-gray-500">~17 minutes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+          <h4 class="text-xs uppercase tracking-widest text-gray-500 mb-2">Connectivity</h4>
+          <p class="font-semibold text-[#061B3A]">Bilaspur</p>
+          <p class="text-sm text-gray-600">25 km • ~37 minutes</p>
+          <p class="text-xs text-gray-500">Integrated living hub</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+          <h4 class="text-xs uppercase tracking-widest text-gray-500 mb-2">Connectivity</h4>
+          <p class="font-semibold text-[#061B3A]">Raipur Smart City</p>
+          <p class="text-sm text-gray-600">90 km • ~2 hours 15 minutes</p>
+          <p class="text-xs text-gray-500">Smart city development</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 p-6">
+          <h4 class="text-xs uppercase tracking-widest text-gray-500 mb-2">Connectivity</h4>
+          <p class="font-semibold text-[#061B3A]">Rural Residential Area</p>
+          <p class="text-sm text-gray-600">3 km • ~4 minutes</p>
+          <p class="text-xs text-gray-500">Local neighborhood access</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+        <div>
+          <p class="text-xs uppercase tracking-[0.3em] text-[#C9A24D] mb-3">Frequently Asked Questions</p>
+          <h2 class="font-heading text-3xl lg:text-4xl font-semibold text-[#061B3A]">Answers to common questions</h2>
+        </div>
+        <a href="/contact.html" class="text-sm font-medium text-[#061B3A] hover:text-[#C9A24D] inline-flex items-center gap-2">
+          <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+          Ask a question
+        </a>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-6">
+        <details class="border border-gray-200 rounded-2xl p-6 group">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-[#061B3A]">
+            Where is Chitvan Farmhouse located?
+            <ion-icon name="add-outline" class="text-[#C9A24D] text-xl group-open:hidden"></ion-icon>
+            <ion-icon name="remove-outline" class="text-[#C9A24D] text-xl hidden group-open:inline"></ion-icon>
+          </summary>
+          <p class="text-sm text-gray-600 mt-3">
+            The project is located at Mohda Mod, Bhojpuri Toll Plaza, NH 130, Bilaspur (C.G.).
+          </p>
+        </details>
+        <details class="border border-gray-200 rounded-2xl p-6 group">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-[#061B3A]">
+            What amenities are available?
+            <ion-icon name="add-outline" class="text-[#C9A24D] text-xl group-open:hidden"></ion-icon>
+            <ion-icon name="remove-outline" class="text-[#C9A24D] text-xl hidden group-open:inline"></ion-icon>
+          </summary>
+          <p class="text-sm text-gray-600 mt-3">
+            The community offers a grand entrance, clubhouse, swimming pool, kids play area, open-air gym, yoga center, and lush gardens.
+          </p>
+        </details>
+        <details class="border border-gray-200 rounded-2xl p-6 group">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-[#061B3A]">
+            How can I get the brochure?
+            <ion-icon name="add-outline" class="text-[#C9A24D] text-xl group-open:hidden"></ion-icon>
+            <ion-icon name="remove-outline" class="text-[#C9A24D] text-xl hidden group-open:inline"></ion-icon>
+          </summary>
+          <p class="text-sm text-gray-600 mt-3">
+            Use the brochure form on this page and you will get the download instantly.
+          </p>
+        </details>
+        <details class="border border-gray-200 rounded-2xl p-6 group">
+          <summary class="flex items-center justify-between cursor-pointer font-semibold text-[#061B3A]">
+            Is site visit available?
+            <ion-icon name="add-outline" class="text-[#C9A24D] text-xl group-open:hidden"></ion-icon>
+            <ion-icon name="remove-outline" class="text-[#C9A24D] text-xl hidden group-open:inline"></ion-icon>
+          </summary>
+          <p class="text-sm text-gray-600 mt-3">
+            Yes. Click “Book a site visit” and our team will coordinate a convenient time.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT MODAL -->
+  <div id="visit-modal" class="fixed inset-0 z-[60] hidden">
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="relative z-[61] min-h-screen flex items-center justify-center px-6 py-10">
+      <div class="w-full max-w-lg bg-white rounded-3xl shadow-2xl p-8">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-[#C9A24D]">Schedule a Visit</p>
+            <h3 class="font-heading text-2xl font-semibold text-[#061B3A] mt-2">Plan your Chitvan walkthrough</h3>
+          </div>
+          <button type="button" id="close-visit-modal" class="text-[#061B3A] hover:text-[#C9A24D]">
+            <ion-icon name="close-outline" class="text-2xl"></ion-icon>
+          </button>
+        </div>
+        <form class="mt-6 grid gap-4">
+          <input type="text" name="name" required placeholder="Full name" class="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D]">
+          <input type="tel" name="phone" required placeholder="Phone number" class="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D]">
+          <input type="date" name="date" class="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D]">
+          <textarea name="message" rows="3" placeholder="Preferred time or notes" class="w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#C9A24D]"></textarea>
+          <button type="submit" class="rounded-full w-full justify-center inline-flex items-center gap-2 px-4 py-3 text-xs tracking-widest font-semibold uppercase bg-[#061B3A] text-white hover:bg-[#0B2550] transition">
+            <ion-icon name="calendar-outline"></ion-icon>
+            Submit request
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY ACTION BAR -->
+  <div class="fixed bottom-4 left-0 right-0 z-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-[#061B3A] text-white rounded-2xl shadow-2xl px-5 py-3 flex items-center justify-between gap-4 border border-white/10">
+        <a href="https://wa.me/916264883066" target="_blank" class="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-[#C9A24D] transition">
+          <ion-icon name="chatbubble-ellipses-outline" class="text-lg text-[#C9A24D]"></ion-icon>
+          Chat with us
+        </a>
+        <span class="hidden sm:block h-6 w-px bg-white/10"></span>
+        <a href="tel:6264883066" class="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-[#C9A24D] transition">
+          <ion-icon name="call-outline" class="text-lg text-[#C9A24D]"></ion-icon>
+          Call us
+        </a>
+        <span class="hidden sm:block h-6 w-px bg-white/10"></span>
+        <button type="button" id="open-visit-modal-sticky" class="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-[#C9A24D] transition">
+          <ion-icon name="calendar-outline" class="text-lg text-[#C9A24D]"></ion-icon>
+          Schedule a visit
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- FOOTER -->
+<footer class="bg-[#05162F] text-white pt-20 pb-10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <!-- TOP GRID -->
+    <div class="grid md:grid-cols-4 gap-12 mb-16">
+
+      <!-- BRAND -->
+      <div>
+        <img src="images/logo.png" alt="DCT Real Estate" class="h-12 mb-4">
+        <p class="text-white/70 text-sm leading-relaxed">
+          DCT Real Estate Developers is committed to delivering
+          thoughtfully planned developments with transparency,
+          quality, and long-term value.
+        </p>
+        <div class="flex gap-4 mt-6 text-white/70">
+  <a href="https://www.facebook.com/YOURPAGE" target="_blank"
+     class="hover:text-white transition">
+    <ion-icon name="logo-facebook" class="text-xl"></ion-icon>
+  </a>
+
+  <a href="https://www.instagram.com/YOURPAGE" target="_blank"
+     class="hover:text-white transition">
+    <ion-icon name="logo-instagram" class="text-xl"></ion-icon>
+  </a>
+
+  <a href="https://www.youtube.com/@YOURCHANNEL" target="_blank"
+     class="hover:text-white transition">
+    <ion-icon name="logo-youtube" class="text-xl"></ion-icon>
+  </a>
+
+  <a href="https://wa.me/916264883066" target="_blank"
+     class="hover:text-[#25D366] transition">
+    <ion-icon name="logo-whatsapp" class="text-xl"></ion-icon>
+  </a>
+</div>
+
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div>
+        <h4 class="font-semibold text-sm tracking-wide mb-4 uppercase">
+          Company
+        </h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li><a href="/" class="hover:text-white transition">Home</a></li>
+          <li><a href="/about.html" class="hover:text-white transition">About Us</a></li>
+          <li><a href="/projects.html" class="hover:text-white transition">Projects</a></li>
+          <li><a href="/contact.html" class="hover:text-white transition">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- PROJECTS -->
+      <div>
+        <h4 class="font-semibold text-sm tracking-wide mb-4 uppercase">
+          Projects
+        </h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li>Residential Developments</li>
+          <li>Commercial Projects</li>
+          <li>Plotted Layouts</li>
+          <li>Villas &amp; Farmhouses</li>
+        </ul>
+      </div>
+
+      <!-- CONTACT -->
+      <div>
+        <h4 class="font-semibold text-sm tracking-wide mb-4 uppercase">
+          Contact
+        </h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li>
+            📍 Bilaspur, Chhattisgarh, India
+          </li>
+          <li>
+            <a href="tel:6264883066" class="hover:text-white transition">
+              +91 62648 83066
+            </a>
+          </li>
+          <li>
+            <a href="tel:7470886613" class="hover:text-white transition">
+              +91 74708 86613
+            </a>
+          </li>
+          <li>
+            <a href="mailto:info@dctrealestate.in" class="hover:text-white transition">
+              info@dctrealestate.in
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="border-t border-white/10 pt-6
+            flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+  <p class="text-white/50 text-xs">
+    © 2026 DCT Real Estate Developers. All rights reserved.
+  </p>
+
+  <div class="flex gap-4 text-white/50 text-xs">
+    <a href="/privacy-policy.html" class="hover:text-white transition">
+      Privacy Policy
+    </a>
+    <span>|</span>
+    <a href="/terms-and-conditions.html" class="hover:text-white transition">
+      Terms &amp; Conditions
+    </a>
+  </div>
+
+</div>
+
+
+  </div>
+</footer>
+
+<script>
+  const brochureForm = document.getElementById('brochure-form');
+  if (brochureForm) {
+    brochureForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const brochureUrl = 'brochures/chitvan-farm.pdf';
+      window.location.href = brochureUrl;
+      brochureForm.reset();
+    });
+  }
+</script>
+
+<script>
+  const visitModal = document.getElementById('visit-modal');
+  const openVisitBtn = document.getElementById('open-visit-modal');
+  const openVisitSticky = document.getElementById('open-visit-modal-sticky');
+  const closeVisitBtn = document.getElementById('close-visit-modal');
+
+  const openVisitModal = () => visitModal && visitModal.classList.remove('hidden');
+  const closeVisitModal = () => visitModal && visitModal.classList.add('hidden');
+
+  if (openVisitBtn) openVisitBtn.addEventListener('click', openVisitModal);
+  if (openVisitSticky) openVisitSticky.addEventListener('click', openVisitModal);
+  if (closeVisitBtn) closeVisitBtn.addEventListener('click', closeVisitModal);
+  if (visitModal) {
+    visitModal.addEventListener('click', (event) => {
+      if (event.target === visitModal) closeVisitModal();
+    });
+  }
+</script>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: var(--font-dm-sans);
+  --font-body: var(--font-inter);
+
+  --color-brand-blue: #061B3A;
+  --color-brand-dark: #011E51;
+  --color-brand-gold: #C9A24D;
+  --color-text-primary: #334155;
+  --color-text-muted: #475569;
+}
+
+@layer base {
+  body {
+    @apply font-body text-text-primary bg-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-7 py-3 font-semibold text-[15px] bg-brand-gold text-white rounded-[2px] transition-all duration-200 hover:bg-[#A8842C] hover:-translate-y-px;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center px-7 py-3 font-semibold text-[15px] border border-white/90 text-white rounded-[2px] transition-all duration-200 hover:bg-brand-gold hover:border-brand-gold hover:-translate-y-px;
+  }
+}
+
+@layer components {
+  /* ================= HEADER (RAW PORT) ================= */
+
+  #site-header {
+    background: #061B3A;
+    transition: all 300ms ease;
+  }
+
+  #site-header.scrolled {
+    background: rgba(6, 27, 58, 0.98);
+    backdrop-filter: blur(10px);
+    height: 72px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Nav links */
+  .nav-link {
+    color: #ffffff;
+    position: relative;
+    padding-bottom: 4px;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 1px;
+    background: #C9A24D;
+    transition: width 200ms ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Dropdown */
+  .dropdown-panel {
+    position: absolute;
+    left: 0;
+    margin-top: 16px;
+    width: 220px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(1, 30, 81, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 200ms ease;
+    z-index: 100;
+  }
+
+  /* Bridge for hover safety */
+  .dropdown-panel::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
+  }
+
+  .group:hover .dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .dropdown-link {
+    display: block;
+    padding: 12px 18px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #061B3A;
+    transition: background 150ms ease;
+  }
+
+  .dropdown-link:hover {
+    background: #F8FAFC;
+  }
+}
+
+/* Custom Animations */
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes sectionShine {
+  0% {
+    left: -150%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+
+@keyframes testimonial-scroll {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@layer utilities {
+  .hero-animate {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: heroFadeUp 600ms ease-out forwards;
+  }
+
+  .hero-delay-1 {
+    animation-delay: 150ms;
+  }
+
+  .hero-delay-2 {
+    animation-delay: 300ms;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 28px;
+    white-space: nowrap;
+    animation: marquee-scroll 35s linear infinite;
+  }
+
+  .shine-bg {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shine-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(120deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.18) 50%,
+        transparent 60%);
+    animation: sectionShine 6s infinite;
+    pointer-events: none;
+  }
+
+  .testimonial-track {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    animation: testimonial-scroll 45s linear infinite;
+  }
+
+  .testimonial-column:hover .testimonial-track {
+    animation-play-state: paused;
+  }
+
+  .testimonial-column.slow .testimonial-track {
+    animation-duration: 55s;
+  }
+
+  .testimonial-column.medium .testimonial-track {
+    animation-duration: 45s;
+  }
+
+  .testimonial-column.fast .testimonial-track {
+    animation-duration: 35s;
+  }
+
+  /* Scroll Reveal Helper */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 500ms ease-out, transform 500ms ease-out;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

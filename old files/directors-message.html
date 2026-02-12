@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Director’s Message | DCT Real Estate</title>
+  <meta name="description" content="Message from Rajendra Singh Rajput, Director at DCT Real Estate Developers." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-body text-text-primary bg-white">
+
+  <!-- HEADER -->
+  <header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="/" class="flex items-center">
+          <img src="images/logo.png" alt="DCT Real Estate" class="h-12">
+        </a>
+        <nav class="hidden lg:flex items-center gap-8 text-xs tracking-widest font-light uppercase">
+          <a href="/" class="nav-link">Home</a>
+          <div class="relative group">
+            <button class="nav-link flex items-center gap-1">
+              About
+              <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M5.25 7.5L10 12.25 14.75 7.5" />
+              </svg>
+            </button>
+            <div class="dropdown-panel">
+              <a href="/about.html" class="dropdown-link">Overview</a>
+              <a href="/directors-message.html" class="dropdown-link">Director’s Message</a>
+              <a href="/leadership.html" class="dropdown-link">Leadership</a>
+            </div>
+          </div>
+          <div class="relative group">
+            <button class="nav-link flex items-center gap-1">
+              Projects
+              <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M5.25 7.5L10 12.25 14.75 7.5" />
+              </svg>
+            </button>
+            <div class="dropdown-panel">
+              <a href="/projects/ongoing.html" class="dropdown-link">Ongoing Projects</a>
+              <a href="/projects/completed.html" class="dropdown-link">Completed Projects</a>
+              <a href="/projects/commercial.html" class="dropdown-link">Commercial Projects</a>
+              <a href="/projects/upcoming.html" class="dropdown-link">Upcoming Projects</a>
+            </div>
+          </div>
+          <a href="/media.html" class="nav-link">Media</a>
+          <a href="/contact.html" class="nav-link">Contact</a>
+          <a href="tel:6264883066" class="ml-2 inline-flex items-center gap-2 px-4 py-2 bg-[#C9A24D] text-[#061B3A] text-[11px] tracking-widest font-medium rounded-full transition hover:bg-[#d4b15f] hover:-translate-y-0.5 hover:shadow-lg">
+            <ion-icon name="call-outline" class="w-4 h-4 text-[#061B3A]"></ion-icon>
+            62648&nbsp;83066
+          </a>
+        </nav>
+        <div class="flex items-center gap-3 lg:hidden">
+          <a href="tel:6264883066" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#C9A24D] text-[#061B3A] transition hover:bg-[#d4b15f]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2 4.5C2 3.12 3.12 2 4.5 2h2c.83 0 1.58.51 1.88 1.29l.97 2.42a2 2.42 0 01-.45 2.11L7.5 9.5a12.5 12.5 0 007 7l1.68-1.4a2 2.42 0 012.11-.45l2.42.97A2 2.42 0 0122 17.5v2c0 1.38-1.12 2.5-2.5 2.5C9.61 22 2 14.39 2 4.5z"/>
+            </svg>
+          </a>
+          <button id="menu-toggle" class="text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="fixed inset-0 bg-[#061B3A] text-white transform translate-x-full transition-transform duration-300">
+      <div class="p-6 flex flex-col gap-8">
+        <button id="menu-close" class="self-end">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+        <nav class="flex flex-col gap-6 uppercase tracking-widest text-sm font-light">
+          <a href="/">Home</a>
+          <div class="flex flex-col gap-3">
+            <span class="text-white/50 text-xs">About</span>
+            <a href="/about.html">Overview</a>
+            <a href="/directors-message.html">Director’s Message</a>
+            <a href="/leadership.html">Leadership</a>
+          </div>
+          <div class="flex flex-col gap-3">
+            <span class="text-white/50 text-xs">Projects</span>
+            <a href="/projects/ongoing.html">Ongoing Projects</a>
+            <a href="/projects/completed.html">Completed Projects</a>
+            <a href="/projects/commercial.html">Commercial Projects</a>
+            <a href="/projects/upcoming.html">Upcoming Projects</a>
+          </div>
+          <a href="/media.html">Media</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24">
+    <section class="relative bg-[#061B3A] text-white overflow-hidden">
+      <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(120deg, rgba(201,162,77,0.25), transparent 40%);"></div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
+        <p class="uppercase text-xs tracking-[0.3em] text-white/60">Director Messages</p>
+        <h1 class="font-heading text-4xl md:text-5xl font-semibold mt-3">About Rajendra Singh Rajput</h1>
+        <p class="text-white/70 text-lg mt-5 max-w-3xl">Rajendra Singh Rajput brings over a decade of expertise in the real estate industry, passionately shaping spaces that enhance people’s lives. His journey began with a deep enthusiasm for architecture and property development, evolving into a career dedicated to crafting exceptional residential and commercial spaces in Bilaspur.</p>
+      </div>
+    </section>
+
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-2">
+          <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+            <h2 class="font-heading text-2xl font-semibold">DCT Real Estate Developers</h2>
+            <p class="text-slate-700 mt-4">With an unwavering focus on quality, functionality, and community needs, Rajendra has built a reputation for excellence. For him, real estate is not just about constructing buildings—it’s about fostering connections, driving growth, and making a lasting impact on the lives of residents and businesses. His leadership is rooted in thoughtful development and delivering long-term value to all stakeholders.</p>
+          </div>
+          <div class="mt-10 bg-[#F7F3EA] rounded-3xl p-8 border border-[#E9DFC5]">
+            <h3 class="font-heading text-xl font-semibold">Personal Commitment</h3>
+            <p class="text-slate-700 mt-4">Rajendra Singh Rajput’s commitment to excellence extends beyond constructing properties—he is dedicated to creating spaces that foster a sense of community and enhance residents' quality of life. With over a decade of experience in the real estate sector, he prioritizes not just the aesthetic and functional aspects of his projects, but also their long-term sustainability.</p>
+            <p class="text-slate-700 mt-4">Guided by the belief that every development should serve both people’s needs and regional growth, he integrates quality, innovation, and ethical business practices into every project. From residential projects that nurture family well-being to commercial developments that fuel economic progress, his visionary leadership continues to make a meaningful impact.</p>
+          </div>
+        </div>
+        <aside class="bg-[#061B3A] text-white rounded-3xl p-8">
+          <p class="uppercase text-xs tracking-[0.25em] text-white/60">Achievements</p>
+          <h3 class="font-heading text-2xl font-semibold mt-3">Recognition & Contributions</h3>
+          <p class="text-white/70 mt-4">Rajendra Singh Rajput has built a distinguished reputation in the real estate sector through commitment to quality, innovation, and community-driven development.</p>
+          <div class="mt-6 space-y-4">
+            <div class="rounded-2xl bg-white/10 p-4">
+              <p class="text-sm text-white/80">Honored by Nitin Gadkari, Union Minister for Road Transport & Highways, recognizing transformative contributions to the sector.</p>
+            </div>
+            <div class="rounded-2xl bg-white/10 p-4">
+              <p class="text-sm text-white/80">Awarded by celebrated actor Ashutosh Rana for impact in real estate development.</p>
+            </div>
+            <div class="rounded-2xl bg-white/10 p-4">
+              <p class="text-sm text-white/80">Recognized by Zee MP CG News for outstanding contributions and visionary work.</p>
+            </div>
+            <div class="rounded-2xl bg-white/10 p-4">
+              <p class="text-sm text-white/80">Honored by Chhattisgarh Chief Minister Bhupesh Baghel for dedication to regional growth and infrastructure.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="py-20 bg-[#061B3A] text-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+            <p class="text-xs uppercase tracking-[0.25em] text-white/60">Award Moment</p>
+            <p class="mt-3 text-white/80">Rajendra Singh Rajput receiving an award from Nitin Gadkari, Union Minister for Road Transport & Highways of India.</p>
+          </div>
+          <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+            <p class="text-xs uppercase tracking-[0.25em] text-white/60">Recognition</p>
+            <p class="mt-3 text-white/80">Honored by celebrated Indian actor Ashutosh Rana for leadership and contributions.</p>
+          </div>
+          <div class="rounded-2xl bg-white/5 border border-white/10 p-6">
+            <p class="text-xs uppercase tracking-[0.25em] text-white/60">Regional Impact</p>
+            <p class="mt-3 text-white/80">Acknowledged by Zee MP CG News and the Chief Minister of Chhattisgarh for industry impact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#05162F] text-white pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-12 mb-16">
+        <div>
+          <img src="images/logo.png" alt="DCT Real Estate" class="h-12 mb-4">
+          <p class="text-white/70 text-sm leading-relaxed">DCT Real Estate Developers is committed to delivering thoughtfully planned developments with transparency, quality, and long-term value.</p>
+          <div class="flex gap-4 mt-6 text-white/70">
+            <a href="https://www.facebook.com/YOURPAGE" target="_blank" class="hover:text-white transition">
+              <ion-icon name="logo-facebook" class="text-xl"></ion-icon>
+            </a>
+            <a href="https://www.instagram.com/YOURPAGE" target="_blank" class="hover:text-white transition">
+              <ion-icon name="logo-instagram" class="text-xl"></ion-icon>
+            </a>
+            <a href="https://www.youtube.com/@YOURCHANNEL" target="_blank" class="hover:text-white transition">
+              <ion-icon name="logo-youtube" class="text-xl"></ion-icon>
+            </a>
+            <a href="https://wa.me/916264883066" target="_blank" class="hover:text-[#25D366] transition">
+              <ion-icon name="logo-whatsapp" class="text-xl"></ion-icon>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm tracking-wide mb-4 uppercase">Company</h4>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li><a href="/" class="hover:text-white transition">Home</a></li>
+            <li><a href="/about.html" class="hover:text-white transition">About Us</a></li>
+            <li><a href="/projects.html" class="hover:text-white transition">Projects</a></li>
+            <li><a href="/contact.html" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm tracking-wide mb-4 uppercase">Projects</h4>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li>Residential Developments</li>
+            <li>Commercial Projects</li>
+            <li>Plotted Layouts</li>
+            <li>Villas & Farmhouses</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-sm tracking-wide mb-4 uppercase">Contact</h4>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li>📍 Bilaspur, Chhattisgarh, India</li>
+            <li><a href="tel:6264883066" class="hover:text-white transition">+91 62648 83066</a></li>
+            <li><a href="tel:7470886613" class="hover:text-white transition">+91 74708 86613</a></li>
+            <li><a href="mailto:info@dctrealestate.in" class="hover:text-white transition">info@dctrealestate.in</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <p class="text-white/50 text-xs">© 2026 DCT Real Estate Developers. All rights reserved.</p>
+        <div class="flex gap-4 text-white/50 text-xs">
+          <a href="/privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
+          <span>|</span>
+          <a href="/terms-and-conditions.html" class="hover:text-white transition">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const closeBtn = document.getElementById('menu-close');
+    const menu = document.getElementById('mobile-menu');
+    if (toggle && closeBtn && menu) {
+      toggle.onclick = () => menu.classList.remove('translate-x-full');
+      closeBtn.onclick = () => menu.classList.add('translate-x-full');
+    }
+    window.addEventListener('scroll', () => {
+      document.getElementById('site-header')
+        .classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

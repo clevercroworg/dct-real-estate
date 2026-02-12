@@ -1,0 +1,72 @@
+import Link from 'next/link';
+
+interface ProjectCardProps {
+    title: string;
+    location: string;
+    description: string;
+    image: string;
+    status: string;
+    badge?: string;
+    link: string;
+    rera?: string;
+    delay?: number;
+}
+
+export default function ProjectCard({
+    title,
+    location,
+    description,
+    image,
+    status,
+    badge,
+    link,
+    rera,
+    delay = 0,
+}: ProjectCardProps) {
+    return (
+        <article
+            className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+            style={{ animationDelay: `${delay}ms` }}
+        >
+            <div className="relative h-56 overflow-hidden">
+                <img
+                    src={image}
+                    alt={title}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+                {badge && (
+                    <span className="absolute top-4 left-4 text-[10px] uppercase tracking-widest px-3 py-1 rounded-full bg-[#C9A24D] text-white">
+                        {badge}
+                    </span>
+                )}
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
+            </div>
+            <div className="p-6">
+                <h3 className="font-heading text-xl font-semibold text-[#061B3A] group-hover:text-[#C9A24D] transition-colors">
+                    {title}
+                </h3>
+                <p className="text-sm text-gray-500 mt-2 flex items-center gap-2">
+                    {/* @ts-expect-error: ion-icon custom element */}
+                    <ion-icon name="location-outline" class="text-[#C9A24D]"></ion-icon>
+                    {location}
+                </p>
+                <p className="text-gray-600 mt-4 text-sm leading-relaxed line-clamp-2">
+                    {description}
+                </p>
+                <div className="mt-6 flex items-center justify-between border-t border-gray-100 pt-4">
+                    <span className="text-xs uppercase tracking-wider text-[#C9A24D] font-medium truncate max-w-[50%]">
+                        {rera || status}
+                    </span>
+                    <Link
+                        href={link}
+                        className="text-xs uppercase tracking-widest px-4 py-2 rounded-full bg-[#061B3A] text-white hover:bg-[#C9A24D] hover:text-[#061B3A] transition-all inline-flex items-center gap-2 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                    >
+                        {/* @ts-expect-error: ion-icon custom element */}
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                        View Project
+                    </Link>
+                </div>
+            </div>
+        </article>
+    );
+}
