@@ -8,12 +8,14 @@ export default function AboutPage() {
         <div className="min-h-screen">
             <main className="pt-24">
                 {/* HERO */}
+                {/* HERO */}
                 <section className="relative overflow-hidden bg-[#061B3A] text-white min-h-[60vh] flex items-center">
                     {/* Animated Background Slider */}
                     <div className="absolute inset-0 z-0">
                         <div className="absolute inset-0 bg-black/60 z-10"></div>
                         <div className="absolute inset-0 animate-slideshow">
-                            <div className="absolute inset-0 bg-[url('/images/about/about.jpg')] bg-cover bg-center animate-zoom-fade"></div>
+                            {/* User requested 'bg-4' from 'background' folder. Using assumed path. */}
+                            <div className="absolute inset-0 bg-[url('/images/background/bg-4.jpg')] bg-cover bg-center animate-zoom-fade"></div>
                         </div>
                     </div>
 
@@ -35,7 +37,16 @@ export default function AboutPage() {
 
                 {/* OVERVIEW */}
                 <section className="py-20 bg-slate-50">
-                    <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-start">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+                        <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white group">
+                            {/* Added about.jpg here as requested */}
+                            <img
+                                src="/images/about/about.jpg"
+                                alt="About DCT Real Estate"
+                                className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                            />
+                        </div>
+
                         <div>
                             <h2 className="font-heading text-3xl font-bold text-brand-blue">Overview</h2>
                             <p className="text-slate-600 mt-6 leading-loose text-lg">
