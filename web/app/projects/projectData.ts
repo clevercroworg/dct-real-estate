@@ -66,7 +66,21 @@ export const projects = [
             "/images/projects/anand-vihar/gallery/AnandVihar - Gallery5.jpeg",
             "/images/projects/anand-vihar/gallery/AnandVihar - Gallery6.jpeg",
             "/images/projects/anand-vihar/gallery/AnandVihar - Gallery7.jpeg",
-            "/images/projects/anand-vihar/gallery/AnandVihar - Gallery8.jpeg"
+            "/images/projects/anand-vihar/gallery/AnandVihar - Gallery8.jpeg",
+            "/images/projects/anand-vihar/1.jpg",
+            "/images/projects/anand-vihar/2.jpg",
+            "/images/projects/anand-vihar/3.jpg",
+            "/images/projects/anand-vihar/4.jpg",
+            "/images/projects/anand-vihar/5.jpg",
+            "/images/projects/anand-vihar/6.jpg",
+            "/images/projects/anand-vihar/7.jpg",
+            "/images/projects/anand-vihar/8.jpg",
+            "/images/projects/anand-vihar/9.jpg",
+            "/images/projects/anand-vihar/10.jpg",
+            "/images/projects/anand-vihar/11.jpg",
+            "/images/projects/anand-vihar/12.jpg",
+            "/images/projects/anand-vihar/13.jpg",
+            "/images/projects/anand-vihar/14.jpg"
         ],
         amenities: {
             title: "Essential Amenities for Comfortable Living",
@@ -172,12 +186,12 @@ export const projects = [
                 {
                     title: "Modern Business Hub",
                     description: "State-of-the-art retail and office spaces designed to cater to modern business needs.",
-                    image: "/images/projects/project-aishwaryam.jpg"
+                    image: "/images/projects/aishwaryam/3.jpg"
                 },
                 {
                     title: "Growth Corridor",
                     description: "The perfect launchpad for businesses in one of Bilaspur’s fastest-growing corridors.",
-                    image: "/images/projects/project-aishwaryam.png"
+                    image: "/images/projects/aishwaryam/1.jpg"
                 }
             ]
         },
@@ -210,7 +224,10 @@ export const projects = [
         },
         gallery: [
             "/images/projects/aishwaryam/gallery/Aishwaryam - Gallery1.jpeg",
-            "/images/projects/aishwaryam/gallery/Aishwaryam - Hero.png"
+            "/images/projects/aishwaryam/1.jpg",
+            "/images/projects/aishwaryam/2.jpg",
+            "/images/projects/aishwaryam/3.jpg",
+            "/images/projects/aishwaryam/14.jpg"
         ],
         amenities: {
             title: "Infrastructure for Business Success",
@@ -334,7 +351,8 @@ export const projects = [
             "/images/projects/chitvan-farm/gallery/Chitvan - Gallery13.JPG",
             "/images/projects/chitvan-farm/gallery/Chitvan - Gallery14.JPG",
             "/images/projects/chitvan-farm/gallery/Chitvan - Gallery15.JPG",
-            "/images/projects/chitvan-farm/gallery/Chitvan - Gallery16.JPG"
+            "/images/projects/chitvan-farm/gallery/Chitvan - Gallery16.JPG",
+            "/images/projects/chitvan-farm/chitvan.jpg"
         ],
         amenities: {
             title: "Designed for everyday ease",
@@ -428,7 +446,7 @@ export const projects = [
                 {
                     title: "Nature's Retreat",
                     description: "Escape the urban chaos and immerse yourself in the calm of nature at Vill. Jarondha.",
-                    image: "/images/projects/project-gold.jpg"
+                    image: "/images/projects/gold-farm-house/1.png"
                 },
                 {
                     title: "Versatile Spaces",
@@ -438,7 +456,7 @@ export const projects = [
                 {
                     title: "Secure Investment",
                     description: "T&CP approved spacious plots promising great returns and a secure environment.",
-                    image: "/images/projects/project-gold.jpg"
+                    image: "/images/projects/gold-farm-house/n1.jpg"
                 }
             ]
         },
@@ -470,8 +488,10 @@ export const projects = [
             ]
         },
         gallery: [
-            "/images/projects/project-gold.jpg",
-            "/images/projects/project-arpa.jpg"
+            "/images/projects/gold-farm-house/1.png",
+            "/images/projects/gold-farm-house/3.png",
+            "/images/projects/gold-farm-house/4.png",
+            "/images/projects/gold-farm-house/n1.jpg"
         ],
         amenities: {
             title: "Designed for Nature Lovers",
@@ -552,7 +572,7 @@ export const projects = [
                 {
                     title: "Community Living",
                     description: "The perfect secure environment for modern families to thrive together.",
-                    image: "/images/verticals/vertical-residential.jpg"
+                    image: "/images/projects/krishnapuram/krishnapuram11.jpg"
                 }
             ]
         },
@@ -585,7 +605,9 @@ export const projects = [
         gallery: [
             "/images/projects/krishnapuram/gallery/Krishnapuram - Gallery1.png",
             "/images/projects/krishnapuram/gallery/Krishnapuram - Gallery2.jpeg",
-            "/images/projects/krishnapuram/gallery/Krishnapuram - hero.jpeg"
+            "/images/projects/krishnapuram/1.png",
+            "/images/projects/krishnapuram/krishnapuram1.jpg",
+            "/images/projects/krishnapuram/krishnapuram11.jpg"
         ],
         amenities: {
             title: "Complete Family Living",
@@ -677,7 +699,7 @@ export const projects = [
                 {
                     title: "Centralized Trade",
                     description: "Capturing regional demand by acting as a central location for wholesalers and retailers.",
-                    image: "/images/verticals/vertical-commercial.jpg"
+                    image: "/images/projects/bilaspur-textile-market/3.png"
                 }
             ]
         },
@@ -710,7 +732,10 @@ export const projects = [
         gallery: [
             "/images/projects/bilaspur-textile-market/gallery/BilaspurTextileMarket - Galler1.png",
             "/images/projects/bilaspur-textile-market/gallery/BilaspurTextileMarket - Galler2.jpeg",
-            "/images/projects/bilaspur-textile-market/gallery/BilaspurTextileMarket - hero.jpeg"
+            "/images/projects/bilaspur-textile-market/1.png",
+            "/images/projects/bilaspur-textile-market/2.png",
+            "/images/projects/bilaspur-textile-market/3.png",
+            "/images/projects/bilaspur-textile-market/btm.png"
         ],
         amenities: {
             title: "Business Ready Infrastructure",
@@ -811,7 +836,7 @@ export const projects = [
                 {
                     title: "Vibrant Community",
                     description: "The perfect secure setting for building your dream home and community experience.",
-                    image: "/images/verticals/vertical-villas.jpg"
+                    image: "/images/projects/shri-ram-park/p3.jpg"
                 }
             ]
         },
@@ -844,7 +869,9 @@ export const projects = [
         gallery: [
             "/images/projects/shri-ram-park/gallery/ShriRamPark - Gallery1.jpeg",
             "/images/projects/shri-ram-park/gallery/ShriRamPark - Gallery2.jpeg",
-            "/images/projects/shri-ram-park/gallery/ShriRamPark - hero.jpeg"
+            "/images/projects/shri-ram-park/p1.jpg",
+            "/images/projects/shri-ram-park/p2.jpg",
+            "/images/projects/shri-ram-park/p3.jpg"
         ],
         amenities: {
             title: "Quality Living Infrastructure",
@@ -923,12 +950,12 @@ export const projects = [
                 {
                     title: "Sophisticated Living",
                     description: "An ideal blend of convenience and sophistication for residential and commercial use.",
-                    image: "/images/verticals/vertical-apartments.jpg"
+                    image: "/images/projects/induimperial/2-min-min.jpg"
                 },
                 {
                     title: "Prestigious Property",
                     description: "Meticulously planned layouts and infrastructure for a superior living experience.",
-                    image: "/images/projects/project-indu.jpg"
+                    image: "/images/projects/induimperial/3-min-min.jpg"
                 }
             ]
         },
@@ -959,8 +986,9 @@ export const projects = [
             ]
         },
         gallery: [
-            "/images/verticals/vertical-apartments.jpg",
-            "/images/projects/project-indu.jpg"
+            "/images/projects/induimperial/1-min-min.jpg",
+            "/images/projects/induimperial/2-min-min.jpg",
+            "/images/projects/induimperial/3-min-min.jpg"
         ],
         amenities: {
             title: "Imperial Amenities",

@@ -103,6 +103,9 @@ export default function Header() {
                         <Link href="/blog" className="nav-link">
                             Blogs
                         </Link>
+                        <Link href="/careers" className="nav-link">
+                            Careers
+                        </Link>
                         <Link href="/contact" className="nav-link">
                             Contact
                         </Link>
@@ -235,6 +238,9 @@ export default function Header() {
                         </Link>
                         <Link href="/blog" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
                             Blogs
+                        </Link>
+                        <Link href="/careers" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
+                            Careers
                         </Link>
                         <Link href="/contact" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
                             Contact

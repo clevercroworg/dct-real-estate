@@ -16,8 +16,10 @@ interface ProjectOverviewProps {
 export default function ProjectOverview({ title, description, details, brochureLink = '#', brochurePoints }: ProjectOverviewProps) {
     const handleBrochureSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Simulate download
-        window.open(brochureLink, '_blank');
+        // Redirect to thank you page with brochure link
+        if (brochureLink && brochureLink !== '#') {
+            window.location.href = `/thank-you?file=${encodeURIComponent(brochureLink)}`;
+        }
     };
 
     const defaultPoints = [

@@ -70,7 +70,10 @@ export default async function ProjectDetailPage({ params }: Props) {
 
                 <ProjectExperiences data={project.experience} />
 
-                <ProjectGallery images={project.gallery || []} />
+                <ProjectGallery
+                    title={`${project.title} Walkthrough`}
+                    images={project.gallery || []}
+                />
 
                 <ProjectAmenities
                     title={project.amenities.title}
