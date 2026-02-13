@@ -128,11 +128,7 @@ export default function LeadershipPage() {
                         </p>
                     </div>
                 </div>
+            </main>
         </div>
-        </div >
-    </div >
-</section >
-</main >
-</div >
-);
+    );
 }
