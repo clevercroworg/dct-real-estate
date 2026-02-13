@@ -129,10 +129,10 @@ export default function LeadershipPage() {
                     </div>
                 </div>
         </div>
-                        </div >
-                    </div >
-                </section >
-            </main >
         </div >
-    );
+    </div >
+</section >
+</main >
+</div >
+);
 }
