@@ -312,7 +312,7 @@ export const projects = [
         hero: {
             tagline: "Farmhouse",
             location: "Mohda Mod, Bhojpuri Toll Plaza, NH 130, Bilaspur (C.G.)",
-            bgImage: "/images/chitvan-farmhouse-hero.png",
+            bgImage: "/images/projects/chitvan-farm/gallery/Chitvan - hero.jpeg",
             badges: ["Integrated Farmhouse Living", "Bilaspur – Raipur NH 130"]
         },
         stats: [
@@ -552,7 +552,7 @@ export const projects = [
         title: 'Krishnapuram',
         location: 'Near Bilha Turning, Raipur Road, Bilaspur',
         summary: 'RERA-approved plotted community with landscaped zones and planned infrastructure.',
-        image: '/images/verticals/vertical-residential.jpg',
+        image: '/images/projects/krishnapuram/1.png',
         badge: 'Residential',
         status: 'Completed',
         delay: 0,
@@ -579,7 +579,7 @@ export const projects = [
         hero: {
             tagline: "Residential",
             location: "Near Bilha Turning, Raipur Road, Bilaspur",
-            bgImage: "/images/verticals/vertical-residential.jpg",
+            bgImage: "/images/projects/krishnapuram/1.png",
             badges: ["Residential", "RERA Approved"]
         },
         stats: [
@@ -603,11 +603,8 @@ export const projects = [
             ]
         },
         gallery: [
-            "/images/projects/krishnapuram/gallery/Krishnapuram - Gallery1.png",
             "/images/projects/krishnapuram/gallery/Krishnapuram - Gallery2.jpeg",
-            "/images/projects/krishnapuram/1.png",
-            "/images/projects/krishnapuram/krishnapuram1.jpg",
-            "/images/projects/krishnapuram/krishnapuram11.jpg"
+            "/images/projects/krishnapuram/krishnapuram1.jpg"
         ],
         amenities: {
             title: "Complete Family Living",
@@ -679,7 +676,7 @@ export const projects = [
         title: 'Bilaspur Textile Market',
         location: 'Parsada, Raipur Road, Bilaspur',
         summary: 'A purpose-built commercial destination with modern infrastructure and strong visibility.',
-        image: '/images/verticals/vertical-commercial.jpg',
+        image: '/images/projects/bilaspur-textile-market/btm.png',
         badge: 'Commercial',
         status: 'Completed',
         delay: 100,
@@ -706,7 +703,7 @@ export const projects = [
         hero: {
             tagline: "Commercial",
             location: "Parsada, Raipur Road, Bilaspur",
-            bgImage: "/images/verticals/vertical-commercial.jpg",
+            bgImage: "/images/projects/bilaspur-textile-market/btm.png",
             badges: ["Commercial", "Raipur Road"]
         },
         stats: [
@@ -732,10 +729,7 @@ export const projects = [
         gallery: [
             "/images/projects/bilaspur-textile-market/gallery/BilaspurTextileMarket - Galler1.png",
             "/images/projects/bilaspur-textile-market/gallery/BilaspurTextileMarket - Galler2.jpeg",
-            "/images/projects/bilaspur-textile-market/1.png",
-            "/images/projects/bilaspur-textile-market/2.png",
-            "/images/projects/bilaspur-textile-market/3.png",
-            "/images/projects/bilaspur-textile-market/btm.png"
+            "/images/projects/bilaspur-textile-market/2.png"
         ],
         amenities: {
             title: "Business Ready Infrastructure",
@@ -843,7 +837,7 @@ export const projects = [
         hero: {
             tagline: "Residential",
             location: "Sakri, Bilaspur",
-            bgImage: "/images/verticals/vertical-villas.jpg",
+            bgImage: "/images/projects/shri-ram-park/p1.jpg",
             badges: ["Residential", "Sakri"]
         },
         stats: [
@@ -868,9 +862,6 @@ export const projects = [
         },
         gallery: [
             "/images/projects/shri-ram-park/gallery/ShriRamPark - Gallery1.jpeg",
-            "/images/projects/shri-ram-park/gallery/ShriRamPark - Gallery2.jpeg",
-            "/images/projects/shri-ram-park/p1.jpg",
-            "/images/projects/shri-ram-park/p2.jpg",
             "/images/projects/shri-ram-park/p3.jpg"
         ],
         amenities: {
@@ -962,7 +953,7 @@ export const projects = [
         hero: {
             tagline: "Residential",
             location: "Behind High Court, Raipur Road, Bilaspur",
-            bgImage: "/images/verticals/vertical-apartments.jpg",
+            bgImage: "/images/projects/induimperial/1-min-min.jpg",
             badges: ["Premium Living", "Raipur Road"]
         },
         stats: [
@@ -986,7 +977,6 @@ export const projects = [
             ]
         },
         gallery: [
-            "/images/projects/induimperial/1-min-min.jpg",
             "/images/projects/induimperial/2-min-min.jpg",
             "/images/projects/induimperial/3-min-min.jpg"
         ],
