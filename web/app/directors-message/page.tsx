@@ -34,6 +34,17 @@ export default function DirectorsMessagePage() {
                             <div className="bg-white rounded-3xl p-10 border border-slate-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow duration-300">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
 
+                                <div className="float-right ml-6 mb-6 w-48 h-56 relative rounded-2xl overflow-hidden shadow-lg transform rotate-3 hover:rotate-0 transition-all duration-500">
+                                    <img
+                                        src="/images/about/director.jpg"
+                                        alt="Rajendra Singh Rajput"
+                                        className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#061B3A]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                        <p className="text-white text-xs font-bold tracking-widest uppercase">Director</p>
+                                    </div>
+                                </div>
+
                                 <h2 className="font-heading text-3xl font-bold text-[#061B3A] mb-8 relative">
                                     DCT Real Estate Developers
                                     <span className="block h-1 w-20 bg-brand-gold mt-4 rounded-full"></span>

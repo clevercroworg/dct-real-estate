@@ -8,25 +8,26 @@ export default function AboutPage() {
         <div className="min-h-screen">
             <main className="pt-24">
                 {/* HERO */}
-                <section className="relative overflow-hidden bg-[#061B3A] text-white">
-                    <div
-                        className="absolute inset-0 opacity-15"
-                        style={{
-                            backgroundImage:
-                                'radial-gradient(circle at 20% 20%, #C9A24D 0, transparent 35%), radial-gradient(circle at 80% 10%, #7DA1FF 0, transparent 30%)',
-                        }}
-                    ></div>
-                    <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+                <section className="relative overflow-hidden bg-[#061B3A] text-white min-h-[60vh] flex items-center">
+                    {/* Animated Background Slider */}
+                    <div className="absolute inset-0 z-0">
+                        <div className="absolute inset-0 bg-black/60 z-10"></div>
+                        <div className="absolute inset-0 animate-slideshow">
+                            <div className="absolute inset-0 bg-[url('/images/about/about.jpg')] bg-cover bg-center animate-zoom-fade"></div>
+                        </div>
+                    </div>
+
+                    <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
                         <div className="max-w-3xl">
-                            <p className="uppercase text-xs tracking-[0.3em] text-white/70">About Us</p>
-                            <h1 className="font-heading text-4xl md:text-5xl font-semibold mt-3">
-                                About DCT Real Estate & Developers
+                            <p className="uppercase text-xs tracking-[0.3em] text-[#C9A24D] font-bold mb-4">About Us</p>
+                            <h1 className="font-heading text-4xl md:text-6xl font-bold leading-tight">
+                                Building Dreams with <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C9A24D] to-white">Trust & Excellence</span>
                             </h1>
-                            <p className="text-white/70 text-lg mt-5">
+                            <p className="text-white/80 text-lg mt-6 leading-relaxed max-w-2xl">
                                 DCT Real Estate Developers is a trusted real estate company in Bilaspur,
                                 offering premium residential projects including apartments, independent villas,
-                                and affordable plots. Our dynamic team is dedicated to delivering top-quality
-                                properties while exceeding customer expectations.
+                                and affordable plots.
                             </p>
                         </div>
                     </div>
