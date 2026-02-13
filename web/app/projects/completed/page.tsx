@@ -11,7 +11,7 @@ export default function CompletedProjectsPage() {
             title: 'Krishnapuram',
             location: 'Near Bilha Turning, Raipur Road, Bilaspur',
             description: 'RERA-approved plotted community with landscaped zones and planned infrastructure.',
-            image: '/images/vertical-residential.jpg',
+            image: '/images/verticals/vertical-residential.jpg',
             badge: 'Residential',
             status: 'Completed',
             link: '/projects/krishnapuram',
@@ -21,7 +21,7 @@ export default function CompletedProjectsPage() {
             title: 'Bilaspur Textile Market',
             location: 'Parsada, Raipur Road, Bilaspur',
             description: 'A purpose-built commercial destination with modern infrastructure and strong visibility.',
-            image: '/images/vertical-commercial.jpg',
+            image: '/images/verticals/vertical-commercial.jpg',
             badge: 'Commercial',
             status: 'Completed',
             link: '/projects/bilaspur-textile-market',
@@ -31,7 +31,7 @@ export default function CompletedProjectsPage() {
             title: 'Shri Ram Park',
             location: 'Behind High Court, Chhatauna Road, Bilaspur',
             description: 'A planned residential layout with strong connectivity and a serene environment.',
-            image: '/images/vertical-villas.jpg',
+            image: '/images/verticals/vertical-villas.jpg',
             badge: 'Residential',
             status: 'Completed',
             link: '/projects/shri-ram-park',
@@ -41,7 +41,7 @@ export default function CompletedProjectsPage() {
             title: 'Induimperial',
             location: 'Behind High Court, Raipur Road, Bilaspur',
             description: 'Premium living with wellness amenities, landscaped greens, and a secured campus.',
-            image: '/images/vertical-apartments.jpg',
+            image: '/images/verticals/vertical-apartments.jpg',
             badge: 'Residential',
             status: 'Completed',
             link: '/projects/induimperial',
@@ -55,7 +55,7 @@ export default function CompletedProjectsPage() {
             <section className="relative min-h-[52vh] flex items-end">
                 <div className="absolute inset-0">
                     <img
-                        src="/images/launch-1.jpg"
+                        src="/images/banners/launch-1.jpg"
                         alt="Completed projects"
                         className="w-full h-full object-cover z-0"
                     />

@@ -6,7 +6,9 @@ export default function DirectorsMessagePage() {
             <main className="pt-24">
                 {/* HERO SECTION */}
                 <section className="relative bg-[#061B3A] text-white py-20 overflow-hidden">
-                    <div className="absolute inset-0 opacity-20 bg-cover bg-center" style={{ backgroundImage: "url('/images/background/bg-4.png')" }}></div>
+                    <div className="absolute inset-0">
+                        <img src="/images/background/bg-4.png" alt="Background" className="w-full h-full object-cover" />
+                    </div>
                     <div className="absolute inset-0 bg-[#061B3A]/80"></div> {/* Overlay for readability */}
                     <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
                         <ScrollReveal animationClass="animate-slide-left">

@@ -27,19 +27,19 @@ export default function Footer() {
                     <div className="grid md:grid-cols-4 gap-12 mb-16">
                         {/* BRAND */}
                         <div>
-                            <img src="/images/logo.png" alt="DCT Real Estate" className="h-12 mb-4" />
+                            <img src="/images/branding/logo.png" alt="DCT Real Estate" className="h-12 mb-4" />
                             <p className="text-white/70 text-sm leading-relaxed">
                                 DCT Real Estate Developers is committed to delivering thoughtfully planned developments with
                                 transparency, quality, and long-term value.
                             </p>
                             <div className="flex gap-4 mt-6 text-white/70">
-                                <a href="https://www.facebook.com/" target="_blank" className="hover:text-white transition">
+                                <a href="https://www.facebook.com/DCTBilaspur" target="_blank" className="hover:text-white transition">
                                     <ion-icon name="logo-facebook" class="text-xl"></ion-icon>
                                 </a>
-                                <a href="https://www.instagram.com/" target="_blank" className="hover:text-white transition">
+                                <a href="https://www.instagram.com/dctbilaspur/" target="_blank" className="hover:text-white transition">
                                     <ion-icon name="logo-instagram" class="text-xl"></ion-icon>
                                 </a>
-                                <a href="https://www.youtube.com/" target="_blank" className="hover:text-white transition">
+                                <a href="https://www.youtube.com/@dctrealestatedevelopers692/" target="_blank" className="hover:text-white transition">
                                     <ion-icon name="logo-youtube" class="text-xl"></ion-icon>
                                 </a>
                                 <a href="https://wa.me/916264883066" target="_blank" className="hover:text-[#25D366] transition">
@@ -63,6 +63,11 @@ export default function Footer() {
                                     </Link>
                                 </li>
                                 <li>
+                                    <Link href="/our-ventures" className="hover:text-white transition">
+                                        Our Ventures
+                                    </Link>
+                                </li>
+                                <li>
                                     <Link href="/projects" className="hover:text-white transition">
                                         Projects
                                     </Link>
@@ -70,6 +75,11 @@ export default function Footer() {
                                 <li>
                                     <Link href="/contact" className="hover:text-white transition">
                                         Contact
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/blog" className="hover:text-white transition">
+                                        Blogs
                                     </Link>
                                 </li>
                                 <li>
@@ -127,73 +137,79 @@ export default function Footer() {
                             <Link href="/terms-and-conditions" className="hover:text-white transition">
                                 Terms & Conditions
                             </Link>
+                            <span>|</span>
+                            <Link href="/disclaimer" className="hover:text-white transition">
+                                Disclaimer
+                            </Link>
                         </div>
                     </div>
                 </div>
-            </footer>
+            </footer >
 
             {/* STICKY ACTION BAR - GLOBAL (Hidden on Project Details Pages) */}
-            {!shouldHideGlobalStickyBar && (
-                <>
-                    {/* DESKTOP STICKY PILL */}
-                    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden lg:flex items-center gap-12 bg-white px-14 py-5 rounded-full shadow-2xl border border-gray-200">
-                        <a
-                            href="tel:6264883066"
-                            className="flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-brand-gold transition"
-                        >
-                            <ion-icon name="call-outline" class="text-lg"></ion-icon>
-                            Call
-                        </a>
-
-                        <a
-                            href="https://wa.me/916264883066"
-                            target="_blank"
-                            className="flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-[#25D366] transition"
-                        >
-                            <ion-icon name="logo-whatsapp" class="text-lg"></ion-icon>
-                            WhatsApp
-                        </a>
-
-                        <Link
-                            href="/contact"
-                            className="flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-brand-gold transition"
-                        >
-                            <ion-icon name="send-outline" class="text-lg"></ion-icon>
-                            Enquire
-                        </Link>
-                    </div>
-
-                    {/* MOBILE STICKY BAR */}
-                    <div className="fixed bottom-3 left-0 right-0 z-50 px-4 lg:hidden">
-                        <div className="flex items-center gap-3 bg-white/95 backdrop-blur px-3 py-3 rounded-2xl shadow-xl border border-gray-200">
-                            {/* CALL (GOLD) */}
+            {
+                !shouldHideGlobalStickyBar && (
+                    <>
+                        {/* DESKTOP STICKY PILL */}
+                        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden lg:flex items-center gap-12 bg-white px-14 py-5 rounded-full shadow-2xl border border-gray-200">
                             <a
                                 href="tel:6264883066"
-                                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-brand-gold text-brand-blue text-sm font-medium shadow-md active:scale-95 transition"
+                                className="flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-brand-gold transition"
                             >
                                 <ion-icon name="call-outline" class="text-lg"></ion-icon>
+                                Call
                             </a>
 
-                            {/* ENQUIRE (BRAND BLUE) */}
-                            <Link
-                                href="/contact"
-                                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-brand-blue text-white text-sm font-medium shadow-md active:scale-95 transition"
-                            >
-                                <ion-icon name="send-outline" class="text-lg"></ion-icon>
-                            </Link>
-
-                            {/* WHATSAPP (PRIMARY) */}
                             <a
                                 href="https://wa.me/916264883066"
                                 target="_blank"
-                                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-[#25D366] text-white text-sm font-medium shadow-md active:scale-95 transition"
+                                className="flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-[#25D366] transition"
                             >
                                 <ion-icon name="logo-whatsapp" class="text-lg"></ion-icon>
+                                WhatsApp
                             </a>
+
+                            <Link
+                                href="/contact"
+                                className="flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-brand-gold transition"
+                            >
+                                <ion-icon name="send-outline" class="text-lg"></ion-icon>
+                                Enquire
+                            </Link>
                         </div>
-                    </div>
-                </>
-            )}
+
+                        {/* MOBILE STICKY BAR */}
+                        <div className="fixed bottom-3 left-0 right-0 z-50 px-4 lg:hidden">
+                            <div className="flex items-center gap-3 bg-white/95 backdrop-blur px-3 py-3 rounded-2xl shadow-xl border border-gray-200">
+                                {/* CALL (GOLD) */}
+                                <a
+                                    href="tel:6264883066"
+                                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-brand-gold text-brand-blue text-sm font-medium shadow-md active:scale-95 transition"
+                                >
+                                    <ion-icon name="call-outline" class="text-lg"></ion-icon>
+                                </a>
+
+                                {/* ENQUIRE (BRAND BLUE) */}
+                                <Link
+                                    href="/contact"
+                                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-brand-blue text-white text-sm font-medium shadow-md active:scale-95 transition"
+                                >
+                                    <ion-icon name="send-outline" class="text-lg"></ion-icon>
+                                </Link>
+
+                                {/* WHATSAPP (PRIMARY) */}
+                                <a
+                                    href="https://wa.me/916264883066"
+                                    target="_blank"
+                                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-[#25D366] text-white text-sm font-medium shadow-md active:scale-95 transition"
+                                >
+                                    <ion-icon name="logo-whatsapp" class="text-lg"></ion-icon>
+                                </a>
+                            </div>
+                        </div>
+                    </>
+                )
+            }
         </>
     );
 }

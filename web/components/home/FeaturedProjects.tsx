@@ -30,7 +30,7 @@ export default function FeaturedProjects() {
                     {/* PROJECT 1 */}
                     <div className="group bg-white rounded-[14px] overflow-hidden shadow-[0_20px_40px_rgba(1,30,81,0.08)] hover:-translate-y-1.5 hover:shadow-[0_30px_60px_rgba(1,30,81,0.14)] transition-all duration-200 reveal">
                         <img
-                            src="/images/project-vihar.jpg"
+                            src="/images/projects/project-vihar.jpg"
                             alt="Krishnapuram Project"
                             className="w-full h-[260px] object-cover block"
                         />
@@ -53,7 +53,7 @@ export default function FeaturedProjects() {
                     {/* PROJECT 2 */}
                     <div className="group bg-white rounded-[14px] overflow-hidden shadow-[0_20px_40px_rgba(1,30,81,0.08)] hover:-translate-y-1.5 hover:shadow-[0_30px_60px_rgba(1,30,81,0.14)] transition-all duration-200 reveal">
                         <img
-                            src="/images/project-aishwaryam.png"
+                            src="/images/projects/project-aishwaryam.png"
                             alt="Arpa Business Park"
                             className="w-full h-[260px] object-cover block"
                         />
@@ -76,7 +76,7 @@ export default function FeaturedProjects() {
                     {/* PROJECT 3 */}
                     <div className="group bg-white rounded-[14px] overflow-hidden shadow-[0_20px_40px_rgba(1,30,81,0.08)] hover:-translate-y-1.5 hover:shadow-[0_30px_60px_rgba(1,30,81,0.14)] transition-all duration-200 reveal">
                         <img
-                            src="/images/project-chitvan.jpg"
+                            src="/images/projects/project-chitvan.jpg"
                             alt="Dwarkapuram Project"
                             className="w-full h-[260px] object-cover block"
                         />

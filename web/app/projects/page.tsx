@@ -5,93 +5,21 @@ export const metadata = {
     description: 'Explore the complete portfolio of DCT Real Estate, including ongoing, completed, and commercial developments in Bilaspur.',
 };
 
+import { projects } from './projectData';
+
 export default function AllProjectsPage() {
-    const projects = [
-        // ONGOING
-        {
-            title: 'Anand Vihar',
-            location: 'Akaltara',
-            description: 'A calm residential community focused on plotted living and everyday convenience.',
-            image: '/images/project-vihar.jpg',
-            badge: 'Residential',
-            status: 'Ongoing',
-            link: '/projects/anand-vihar',
-            delay: 0,
-        },
-        {
-            title: 'Aishwaryam',
-            location: 'Opp. LCIT College, Raipur Road, Bilaspur',
-            description: 'T&CP approved layout with strong road access on NH 130.',
-            image: '/images/project-aishwaryam.png',
-            badge: 'Clubhouse',
-            status: 'Ongoing',
-            rera: 'RERA: PCGRERA220824001808',
-            link: '/projects/aishwaryam',
-            delay: 100,
-        },
-        {
-            title: 'Chitvan Farm',
-            location: 'In front of LCIT College, Raipur Road, Bilaspur',
-            description: 'Farmhouse living on NH 130 with curated open spaces and club-style amenities.',
-            image: '/images/project-chitvan.jpg',
-            badge: 'Farmhouse',
-            status: 'Ongoing',
-            rera: 'RERA: PCGRERA060524001774',
-            link: '/projects/chitvan-farm',
-            delay: 200,
-        },
-        {
-            title: 'Gold Farm House',
-            location: 'Vill. Jarondha, Takhatpur-Mungeli Road, Bilaspur',
-            description: 'T&CP approved farmhouse plots positioned for peaceful living and returns.',
-            image: '/images/project-arpa.jpg',
-            badge: 'Farmhouse Plots',
-            status: 'Ongoing',
-            link: '/projects/gold-farm-house',
-            delay: 300,
-        },
-        // COMPLETED
-        {
-            title: 'Krishnapuram',
-            location: 'Near Bilha Turning, Raipur Road, Bilaspur',
-            description: 'RERA-approved plotted community with landscaped zones and planned infrastructure.',
-            image: '/images/vertical-residential.jpg',
-            badge: 'Residential',
-            status: 'Completed',
-            link: '/projects/krishnapuram',
-            delay: 0,
-        },
-        {
-            title: 'Bilaspur Textile Market',
-            location: 'Parsada, Raipur Road, Bilaspur',
-            description: 'A purpose-built commercial destination with modern infrastructure and strong visibility.',
-            image: '/images/vertical-commercial.jpg',
-            badge: 'Commercial',
-            status: 'Completed',
-            link: '/projects/bilaspur-textile-market',
-            delay: 100,
-        },
-        {
-            title: 'Shri Ram Park',
-            location: 'Behind High Court, Chhatauna Road, Bilaspur',
-            description: 'A planned residential layout with strong connectivity and a serene environment.',
-            image: '/images/vertical-villas.jpg',
-            badge: 'Residential',
-            status: 'Completed',
-            link: '/projects/shri-ram-park',
-            delay: 200,
-        },
-        {
-            title: 'Induimperial',
-            location: 'Behind High Court, Raipur Road, Bilaspur',
-            description: 'Premium living with wellness amenities, landscaped greens, and a secured campus.',
-            image: '/images/vertical-apartments.jpg',
-            badge: 'Residential',
-            status: 'Completed',
-            link: '/projects/induimperial',
-            delay: 300,
-        },
-    ];
+    // Mapping projectData to the format ProjectCard expects
+    const formattedProjects = projects.map(p => ({
+        title: p.title,
+        location: p.location,
+        description: p.summary,
+        image: p.image,
+        badge: p.badge,
+        status: p.status,
+        link: `/projects/${p.slug}`,
+        delay: p.delay,
+        rera: p.rera
+    }));
 
     return (
         <main className="bg-white">
@@ -99,7 +27,7 @@ export default function AllProjectsPage() {
             <section className="relative min-h-[50vh] flex items-end">
                 <div className="absolute inset-0">
                     <img
-                        src="/images/launch-1.jpg"
+                        src="/images/banners/launch-1.jpg"
                         alt="All Projects"
                         className="w-full h-full object-cover z-0"
                     />
@@ -140,7 +68,7 @@ export default function AllProjectsPage() {
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {projects.map((project, index) => (
+                        {formattedProjects.map((project, index) => (
                             <ProjectCard key={index} {...project} />
                         ))}
                     </div>

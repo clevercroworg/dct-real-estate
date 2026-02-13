@@ -11,10 +11,10 @@ interface EventGalleryProps {
 export default function EventGallery({ title, description, images = [] }: EventGalleryProps) {
     // Default placeholders if no images provided
     const displayImages = images.length > 0 ? images : [
-        "/images/launch-1.jpg",
-        "/images/launch-2.jpg",
-        "/images/vertical-commercial.jpg",
-        "/images/vertical-residential.jpg"
+        "/images/banners/launch-1.jpg",
+        "/images/banners/launch-2.jpg",
+        "/images/verticals/vertical-commercial.jpg",
+        "/images/verticals/vertical-residential.jpg"
     ];
 
     const [selectedImage, setSelectedImage] = useState<string | null>(null);

@@ -3,12 +3,12 @@ import Link from 'next/link';
 
 export default function Verticals() {
     const verticals = [
-        { title: 'Residential', icon: 'home-outline', image: '/images/vertical-residential.jpg', link: '/projects/residential' },
-        { title: 'Commercial', icon: 'business-outline', image: '/images/vertical-commercial.jpg', link: '/projects/commercial' },
-        { title: 'Plotted Developments', icon: 'map-outline', image: '/images/vertical-plotted.jpg', link: '/projects/plotted' },
-        { title: 'Villas', icon: 'home-sharp', image: '/images/vertical-villas.jpg', link: '/projects/villas' },
-        { title: 'Farmhouses', icon: 'leaf-outline', image: '/images/vertical-farmhouse.jpg', link: '/projects/farmhouses' },
-        { title: 'Apartments', icon: 'layers-outline', image: '/images/vertical-apartments.jpg', link: '/projects/apartments' },
+        { title: 'Residential', icon: 'home-outline', image: '/images/verticals/vertical-residential.jpg', link: '/projects/residential' },
+        { title: 'Commercial', icon: 'business-outline', image: '/images/verticals/vertical-commercial.jpg', link: '/projects/commercial' },
+        { title: 'Plotted Developments', icon: 'map-outline', image: '/images/verticals/vertical-plotted.jpg', link: '/projects/plotted' },
+        { title: 'Villas', icon: 'home-sharp', image: '/images/verticals/vertical-villas.jpg', link: '/projects/villas' },
+        { title: 'Farmhouses', icon: 'leaf-outline', image: '/images/verticals/vertical-farmhouse.jpg', link: '/projects/farmhouses' },
+        { title: 'Apartments', icon: 'layers-outline', image: '/images/verticals/vertical-apartments.jpg', link: '/projects/apartments' },
     ];
 
     return (

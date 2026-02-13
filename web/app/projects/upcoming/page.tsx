@@ -12,7 +12,7 @@ export default function UpcomingProjectsPage() {
             <section className="relative min-h-[52vh] flex items-end">
                 <div className="absolute inset-0">
                     <img
-                        src="/images/launch-1.jpg"
+                        src="/images/banners/launch-1.jpg"
                         alt="Upcoming projects"
                         className="w-full h-full object-cover z-0"
                     />

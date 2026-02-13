@@ -37,7 +37,7 @@ export default function Header() {
                 <div className={`flex items-center justify-between h-20 transition-all duration-300 ${isScrolled ? 'h-[72px]' : ''}`}>
                     {/* LOGO */}
                     <Link href="/" className="flex items-center">
-                        <img src="/images/logo.png" alt="DCT Real Estate" className="h-12" />
+                        <img src="/images/branding/logo.png" alt="DCT Real Estate" className="h-12" />
                     </Link>
 
                     {/* DESKTOP NAV */}
@@ -93,8 +93,15 @@ export default function Header() {
                             </div>
                         </div>
 
+                        <Link href="/our-ventures" className="nav-link">
+                            Our Ventures
+                        </Link>
+
                         <Link href="/media" className="nav-link">
                             Media
+                        </Link>
+                        <Link href="/blog" className="nav-link">
+                            Blogs
                         </Link>
                         <Link href="/contact" className="nav-link">
                             Contact
@@ -219,8 +226,15 @@ export default function Header() {
                             </Link>
                         </div>
 
+                        <Link href="/our-ventures" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
+                            Our Ventures
+                        </Link>
+
                         <Link href="/media" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
                             Media
+                        </Link>
+                        <Link href="/blog" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
+                            Blogs
                         </Link>
                         <Link href="/contact" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
                             Contact

@@ -54,7 +54,7 @@ export default function ProjectOverview({ title, description, details, brochureL
                     </div>
 
                     {/* Brochure Card */}
-                    <div className="bg-[#0C1B33] text-white p-8 lg:p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+                    <div className="bg-[#0C1B33] text-white p-8 lg:p-10 rounded-3xl shadow-2xl relative overflow-hidden h-fit">
                         {/* Background decorations */}
                         <div className="absolute top-0 right-0 w-32 h-32 bg-[#C9A24D]/10 rounded-full blur-3xl"></div>
 

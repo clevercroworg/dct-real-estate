@@ -11,10 +11,15 @@ export default function AboutPage() {
                 {/* HERO */}
                 <section className="relative overflow-hidden bg-[#061B3A] text-white min-h-[60vh] flex items-center">
                     {/* Animated Background Slider */}
+                    {/* Simple Background Image */}
                     <div className="absolute inset-0 z-0">
                         <div className="absolute inset-0 bg-black/60 z-10"></div>
-                        <div className="absolute inset-0 animate-slideshow">
-                            <div className="absolute inset-0 bg-[url('/images/background/bg-4.png')] bg-cover bg-center animate-zoom-fade"></div>
+                        <div className="absolute inset-0 z-0">
+                            <img
+                                src="/images/background/bg-4.png"
+                                alt="Background"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                     </div>
 

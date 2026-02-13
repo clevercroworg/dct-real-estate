@@ -55,7 +55,7 @@ export default function Home() {
 
               {/* CTA */}
               <Link
-                href="/about-founder"
+                href="/directors-message"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-brand-gold text-brand-blue font-medium rounded-md hover:bg-[#d4b15f] transition"
               >
                 Learn More

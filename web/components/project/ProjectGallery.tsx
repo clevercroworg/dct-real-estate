@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface ProjectGalleryProps {
     title?: string;
@@ -9,14 +10,14 @@ interface ProjectGalleryProps {
 
 export default function ProjectGallery({ title, description, videoUrl, images }: ProjectGalleryProps) {
     const defaultImages = [
-        "/images/launch-1.jpg",
-        "/images/launch-2.jpg",
-        "/images/vertical-farmhouse.jpg",
-        "/images/vertical-villas.jpg",
-        "/images/vertical-plotted.jpg",
-        "/images/vertical-residential.jpg",
-        "/images/vertical-commercial.jpg",
-        "/images/project-chitvan.jpg"
+        "/images/banners/launch-1.jpg",
+        "/images/banners/launch-2.jpg",
+        "/images/verticals/vertical-farmhouse.jpg",
+        "/images/verticals/vertical-villas.jpg",
+        "/images/verticals/vertical-plotted.jpg",
+        "/images/verticals/vertical-residential.jpg",
+        "/images/verticals/vertical-commercial.jpg",
+        "/images/projects/project-chitvan.jpg"
     ];
 
     const displayImages = images || defaultImages;
@@ -59,12 +60,14 @@ export default function ProjectGallery({ title, description, videoUrl, images }:
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
                     {displayImages.map((imgSrc, idx) => (
                         <div key={idx} className="relative group overflow-hidden rounded-xl bg-white/5 h-32 md:h-48">
-                            <img
+                            <Image
                                 src={imgSrc}
                                 alt={`Gallery image ${idx + 1}`}
-                                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                                fill
+                                sizes="(max-width: 768px) 50vw, 25vw"
+                                className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
                             />
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
                         </div>
                     ))}
                 </div>

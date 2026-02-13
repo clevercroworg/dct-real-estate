@@ -1,4 +1,17 @@
+'use client';
+
+import { useRef } from 'react';
+
 export default function NewLaunches() {
+    const sliderRef = useRef<HTMLDivElement>(null);
+
+    const scroll = (direction: 'left' | 'right') => {
+        if (sliderRef.current) {
+            const scrollAmount = direction === 'left' ? -400 : 400; // Adjust scroll distance as needed
+            sliderRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    };
+
     return (
         <section className="relative bg-[#061B3A] py-28 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -10,20 +23,26 @@ export default function NewLaunches() {
 
                     {/* NAV BUTTONS */}
                     <div className="hidden lg:flex gap-3">
-                        <button className="nav-arrow w-11 h-11 rounded-full bg-white/10 text-white hover:bg-brand-gold hover:text-brand-blue flex items-center justify-center transition-all">
-                            ←
+                        <button
+                            onClick={() => scroll('left')}
+                            className="nav-arrow w-11 h-11 rounded-full bg-white/10 text-white hover:bg-brand-gold hover:text-brand-blue flex items-center justify-center transition-all">
+                            <ion-icon name="arrow-back-outline"></ion-icon>
                         </button>
-                        <button className="nav-arrow w-11 h-11 rounded-full bg-white/10 text-white hover:bg-brand-gold hover:text-brand-blue flex items-center justify-center transition-all">
-                            →
+                        <button
+                            onClick={() => scroll('right')}
+                            className="nav-arrow w-11 h-11 rounded-full bg-white/10 text-white hover:bg-brand-gold hover:text-brand-blue flex items-center justify-center transition-all">
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
                         </button>
                     </div>
                 </div>
 
                 {/* SLIDER */}
-                <div className="launch-slider flex gap-4 lg:gap-10 px-4 lg:px-0 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth min-h-[360px] lg:min-h-[460px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <div
+                    ref={sliderRef}
+                    className="launch-slider flex gap-4 lg:gap-10 px-4 lg:px-0 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth min-h-[360px] lg:min-h-[460px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     {/* SLIDE 1 */}
-                    <div className="launch-slide relative min-w-[88%] lg:min-w-[65%] h-[360px] lg:h-[460px] rounded-xl overflow-hidden bg-black snap-center">
-                        <img src="/images/launch-1.jpg" alt="Project Launch" className="w-full h-full object-cover" />
+                    <div className="launch-slide relative min-w-[88%] lg:min-w-[65%] h-[360px] lg:h-[460px] rounded-xl overflow-hidden bg-black snap-center shrink-0">
+                        <img src="/images/banners/launch-1.jpg" alt="Project Launch" className="w-full h-full object-cover" />
 
                         <div className="launch-overlay absolute inset-0 p-5 lg:p-10 flex flex-col justify-end bg-gradient-to-t from-[#011E51]/90 via-[#011E51]/20 to-transparent">
                             <p className="launch-tag text-[10px] lg:text-xs uppercase tracking-[0.12em] text-brand-gold mb-2.5">New Launch</p>
@@ -36,8 +55,8 @@ export default function NewLaunches() {
                     </div>
 
                     {/* SLIDE 2 */}
-                    <div className="launch-slide relative min-w-[88%] lg:min-w-[65%] h-[360px] lg:h-[460px] rounded-xl overflow-hidden bg-black snap-center">
-                        <img src="/images/launch-2.jpg" alt="Event" className="w-full h-full object-cover" />
+                    <div className="launch-slide relative min-w-[88%] lg:min-w-[65%] h-[360px] lg:h-[460px] rounded-xl overflow-hidden bg-black snap-center shrink-0">
+                        <img src="/images/banners/launch-2.jpg" alt="Event" className="w-full h-full object-cover" />
 
                         <div className="launch-overlay absolute inset-0 p-5 lg:p-10 flex flex-col justify-end bg-gradient-to-t from-[#011E51]/90 via-[#011E51]/20 to-transparent">
                             <p className="launch-tag text-[10px] lg:text-xs uppercase tracking-[0.12em] text-brand-gold mb-2.5">CLUBHOUSE</p>

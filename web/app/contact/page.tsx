@@ -8,13 +8,16 @@ export default function ContactPage() {
         <div className="min-h-screen">
             <main className="pt-24">
                 {/* HERO SECTION */}
-                <section className="relative bg-[#061B3A] text-white overflow-hidden">
-                    <div
-                        className="absolute inset-0 opacity-15"
-                        style={{
-                            backgroundImage: 'radial-gradient(circle at 15% 20%, #C9A24D 0, transparent 40%), radial-gradient(circle at 80% 30%, #7DA1FF 0, transparent 35%)'
-                        }}
-                    ></div>
+                <section className="relative bg-[#061B3A] text-white overflow-hidden min-h-[65vh] flex items-center">
+                    {/* Background Image */}
+                    <div className="absolute inset-0">
+                        <img
+                            src="/images/about/contact.jpg"
+                            alt="Contact Us"
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-[#061B3A]/80"></div>
+                    </div>
                     <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 relative z-10">
                         <p className="uppercase text-xs tracking-[0.3em] text-white/60">Get In Touch</p>
                         <h1 className="font-heading text-4xl md:text-5xl font-semibold mt-3">We’d love to hear from you</h1>
@@ -58,6 +61,21 @@ export default function ContactPage() {
                                             Companydct242@gmail.com
                                         </a>.
                                     </p>
+                                </div>
+
+                                <div className="mt-6 bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                                    <h3 className="font-heading text-lg font-semibold text-brand-blue">Follow Us</h3>
+                                    <div className="flex gap-4 mt-4 text-brand-blue">
+                                        <a href="https://www.facebook.com/DCTBilaspur" target="_blank" className="hover:text-brand-gold transition">
+                                            <ion-icon name="logo-facebook" class="text-2xl"></ion-icon>
+                                        </a>
+                                        <a href="https://www.instagram.com/dctbilaspur/" target="_blank" className="hover:text-brand-gold transition">
+                                            <ion-icon name="logo-instagram" class="text-2xl"></ion-icon>
+                                        </a>
+                                        <a href="https://www.youtube.com/@dctrealestatedevelopers692/" target="_blank" className="hover:text-brand-gold transition">
+                                            <ion-icon name="logo-youtube" class="text-2xl"></ion-icon>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

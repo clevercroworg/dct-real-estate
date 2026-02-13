@@ -11,7 +11,7 @@ export default function OngoingProjectsPage() {
             title: 'Anand Vihar',
             location: 'Akaltara',
             description: 'A calm residential community focused on plotted living and everyday convenience.',
-            image: '/images/project-vihar.jpg',
+            image: '/images/projects/project-vihar.jpg',
             badge: 'Residential',
             status: 'Ongoing',
             link: '/projects/anand-vihar',
@@ -21,7 +21,7 @@ export default function OngoingProjectsPage() {
             title: 'Aishwaryam',
             location: 'Opp. LCIT College, Raipur Road, Bilaspur',
             description: 'T&CP approved layout with strong road access on NH 130.',
-            image: '/images/project-aishwaryam.png',
+            image: '/images/projects/project-aishwaryam.png',
             badge: 'Clubhouse',
             status: 'Ongoing', // Used RERA in HTML, but status is a good fallback
             rera: 'RERA: PCGRERA220824001808',
@@ -32,7 +32,7 @@ export default function OngoingProjectsPage() {
             title: 'Chitvan Farm',
             location: 'In front of LCIT College, Raipur Road, Bilaspur',
             description: 'Farmhouse living on NH 130 with curated open spaces and club-style amenities.',
-            image: '/images/project-chitvan.jpg',
+            image: '/images/projects/project-chitvan.jpg',
             badge: 'Farmhouse',
             status: 'Ongoing',
             rera: 'RERA: PCGRERA060524001774',
@@ -43,7 +43,7 @@ export default function OngoingProjectsPage() {
             title: 'Gold Farm House',
             location: 'Vill. Jarondha, Takhatpur-Mungeli Road, Bilaspur',
             description: 'T&CP approved farmhouse plots positioned for peaceful living and returns.',
-            image: '/images/project-arpa.jpg',
+            image: '/images/projects/project-arpa.jpg',
             badge: 'Farmhouse Plots',
             status: 'Ongoing',
             link: '/projects/gold-farm-house',
@@ -57,7 +57,7 @@ export default function OngoingProjectsPage() {
             <section className="relative min-h-[52vh] flex items-end">
                 <div className="absolute inset-0">
                     <img
-                        src="/images/launch-1.jpg"
+                        src="/images/banners/launch-1.jpg"
                         alt="Ongoing projects"
                         className="w-full h-full object-cover z-0"
                     />
