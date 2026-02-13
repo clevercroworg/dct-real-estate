@@ -6,8 +6,7 @@ export default function LeadershipPage() {
             <main className="pt-24">
                 {/* HERO SECTION */}
                 <section className="relative bg-[#061B3A] text-white py-20 overflow-hidden">
-                    {/* TODO: Replace '/images/about/about.jpg' with '/images/background/bg-4.jpg' when available */}
-                    <div className="absolute inset-0 opacity-20 bg-cover bg-center" style={{ backgroundImage: "url('/images/about/about.jpg')" }}></div>
+                    <div className="absolute inset-0 opacity-20 bg-cover bg-center" style={{ backgroundImage: "url('/images/background/bg-4.png')" }}></div>
                     <div className="absolute inset-0 bg-[#061B3A]/80"></div> {/* Overlay for readability */}
                     <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
                         <ScrollReveal animationClass="animate-slide-left">

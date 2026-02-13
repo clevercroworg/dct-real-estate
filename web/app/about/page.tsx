@@ -14,8 +14,7 @@ export default function AboutPage() {
                     <div className="absolute inset-0 z-0">
                         <div className="absolute inset-0 bg-black/60 z-10"></div>
                         <div className="absolute inset-0 animate-slideshow">
-                            {/* User requested 'bg-4' from 'background' folder. Using assumed path. */}
-                            <div className="absolute inset-0 bg-[url('/images/background/bg-4.jpg')] bg-cover bg-center animate-zoom-fade"></div>
+                            <div className="absolute inset-0 bg-[url('/images/background/bg-4.png')] bg-cover bg-center animate-zoom-fade"></div>
                         </div>
                     </div>
 
