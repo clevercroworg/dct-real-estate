@@ -13,7 +13,7 @@ export default function DirectorsMessagePage() {
                         </ScrollReveal>
                         <ScrollReveal animationClass="animate-slide-right">
                             <h1 className="font-heading text-4xl md:text-5xl font-bold mt-3">
-                                Leadership & Vision
+                                Message from the Director
                             </h1>
                         </ScrollReveal>
                     </div>
