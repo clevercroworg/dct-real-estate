@@ -20,7 +20,15 @@ export default function ProjectGallery({ title, description, videoUrl, images }:
         "/images/projects/project-chitvan.jpg"
     ];
 
-    const displayImages = images || defaultImages;
+    let displayImages = images || defaultImages;
+
+    // Ensure full rows for 4-column grid
+    const remainder = displayImages.length % 4;
+    if (remainder !== 0) {
+        const missing = 4 - remainder;
+        const placeholders = Array(missing).fill("/images/gallery-placeholder.svg");
+        displayImages = [...displayImages, ...placeholders];
+    }
     const displayTitle = title || "Chitvan walkthrough";
     const displayDesc = description || "A glimpse of the clubhouse, greens, and outdoor living.";
     const displayVideo = videoUrl || "https://www.youtube-nocookie.com/embed/yur8jcoeX-c?autoplay=0&rel=0";
