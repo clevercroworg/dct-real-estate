@@ -50,8 +50,8 @@ export default function DirectorsMessagePage() {
                             </div>
                             <div className="order-1 lg:order-2">
                                 <ScrollReveal animationClass="animate-slide-right">
-                                    <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                                        <img src="/images/about/director.jpg" alt="Rajendra Singh Rajput" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+                                    <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] w-full max-w-md mx-auto">
+                                        <img src="/images/about/director.jpg" alt="Rajendra Singh Rajput" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
                                     </div>
                                 </ScrollReveal>
                             </div>
@@ -65,8 +65,8 @@ export default function DirectorsMessagePage() {
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div className="order-1">
                                 <ScrollReveal animationClass="animate-slide-right">
-                                    <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white transform -rotate-2 hover:rotate-0 transition-all duration-500">
-                                        <img src="/images/about/nitin.jpg" alt="Honored by Nitin Gadkari" className="w-full h-auto object-cover" />
+                                    <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] w-full max-w-md mx-auto">
+                                        <img src="/images/about/nitin.jpg" alt="Honored by Nitin Gadkari" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
                                     </div>
                                 </ScrollReveal>
                             </div>
@@ -118,8 +118,8 @@ export default function DirectorsMessagePage() {
                             </div>
                             <div className="order-1 lg:order-2">
                                 <ScrollReveal animationClass="animate-slide-right">
-                                    <div className="relative rounded-tr-[5rem] rounded-bl-[5rem] overflow-hidden shadow-2xl border-4 border-white">
-                                        <img src="/images/about/asutosh.jpg" alt="With Ashutosh Rana" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+                                    <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] w-full max-w-md mx-auto">
+                                        <img src="/images/about/asutosh.jpg" alt="With Ashutosh Rana" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
                                     </div>
                                 </ScrollReveal>
                             </div>
@@ -133,7 +133,7 @@ export default function DirectorsMessagePage() {
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div className="order-1">
                                 <ScrollReveal animationClass="animate-slide-right">
-                                    <div className="relative rounded-full overflow-hidden shadow-2xl border-4 border-white aspect-square max-w-md mx-auto">
+                                    <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] w-full max-w-md mx-auto">
                                         <img src="/images/about/zee.jpg" alt="Zee News Award" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
                                     </div>
                                 </ScrollReveal>
@@ -187,8 +187,8 @@ export default function DirectorsMessagePage() {
                             </div>
                             <div className="order-1 lg:order-2">
                                 <ScrollReveal animationClass="animate-slide-right">
-                                    <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
-                                        <img src="/images/about/bhupesh.jpg" alt="With CM Bhupesh Baghel" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+                                    <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] w-full max-w-md mx-auto">
+                                        <img src="/images/about/bhupesh.jpg" alt="With CM Bhupesh Baghel" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
                                     </div>
                                 </ScrollReveal>
                             </div>

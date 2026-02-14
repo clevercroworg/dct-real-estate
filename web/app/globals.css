@@ -77,6 +77,14 @@
     width: 100%;
   }
 
+  .nav-link.active {
+    color: #C9A24D;
+  }
+
+  .nav-link.active::after {
+    width: 100%;
+  }
+
   /* Dropdown */
   .dropdown-panel {
     position: absolute;
@@ -120,6 +128,12 @@
 
   .dropdown-link:hover {
     background: #F8FAFC;
+  }
+
+  .dropdown-link.active {
+    background: #F8FAFC;
+    color: #C9A24D !important;
+    font-weight: 600;
   }
 }
 

@@ -2,7 +2,7 @@ export const mediaEvents = [
     {
         id: 'prime-award',
         title: "Rajendra Singh Rajput Honored by Chirag Paswan with Prime of Central India Award",
-        description: "A prestigious moment for DCT Real Estate as our founder receives recognition for excellence in real estate development.",
+        description: "A proud moment for DCT Real Estate as our founder, Mr. Rajendra Singh Rajput, was honored with the 'Prime of Central India Award' by Shri Chirag Paswan. This recognition celebrates his visionary leadership and our team's commitment to transforming Central India's real estate landscape through quality and innovation.",
         images: [
             "/images/events/award/IMG-20250114-WA0039.jpg",
             "/images/events/award/dc1.jpg",
@@ -20,7 +20,7 @@ export const mediaEvents = [
     {
         id: 'megha-expo-2025',
         title: "Megha Expo 2025",
-        description: "Showcasing our latest projects and future vision at the Megha Expo 2025.",
+        description: "DCT Real Estate made a strong impression at Megha Expo 2025, showcasing our diverse portfolio of premium projects. The event provided a perfect platform to present our vision for urban living in Bilaspur, connecting with investors and homebuyers who share our passion for sustainable, world-class developments.",
         images: [
             "/images/events/megha-expo/1.jpg",
             "/images/events/megha-expo/2.jpg",

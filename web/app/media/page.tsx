@@ -1,6 +1,7 @@
 'use client';
 
 import EventGallery from '@/components/media/EventGallery';
+import MediaCTA from '@/components/media/MediaCTA';
 import { mediaEvents } from './mediaData';
 
 export default function MediaPage() {
@@ -32,6 +33,9 @@ export default function MediaPage() {
                 ))}
 
             </section>
+
+            {/* CTA SECTION */}
+            <MediaCTA />
         </main>
     );
 }

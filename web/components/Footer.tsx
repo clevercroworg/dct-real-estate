@@ -29,8 +29,10 @@ export default function Footer() {
                         <div>
                             <img src="/images/branding/logo.png" alt="DCT Real Estate" className="h-12 mb-4" />
                             <p className="text-white/70 text-sm leading-relaxed">
-                                DCT Real Estate Developers is committed to delivering thoughtfully planned developments with
-                                transparency, quality, and long-term value.
+                                <span className="font-semibold text-white">About DCT :</span> DCT Real Estate & Devloper is a real estate company of Bilaspur with top class residential projects that includes apartments, independent villa and plots in Bilaspur at very affordable prices. The company is a result of a strong and dynamic team of individuals with a zest for excellence in its field.
+                                <Link href="/about" className="text-[#C9A24D] hover:text-white ml-1 transition-colors">
+                                    Read More
+                                </Link>
                             </p>
                             <div className="flex gap-4 mt-6 text-white/70">
                                 <a href="https://www.facebook.com/DCTBilaspur" target="_blank" className="hover:text-white transition">

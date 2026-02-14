@@ -604,7 +604,9 @@ export const projects = [
         },
         gallery: [
             "/images/projects/krishnapuram/gallery/Krishnapuram - Gallery2.jpeg",
-            "/images/projects/krishnapuram/krishnapuram1.jpg"
+            "/images/projects/krishnapuram/krishnapuram1.jpg",
+            "/images/gallery-placeholder.svg",
+            "/images/gallery-placeholder.svg"
         ],
         amenities: {
             title: "Complete Family Living",
@@ -729,7 +731,8 @@ export const projects = [
         gallery: [
             "/images/projects/bilaspur-textile-market/gallery/BilaspurTextileMarket - Galler1.png",
             "/images/projects/bilaspur-textile-market/gallery/BilaspurTextileMarket - Galler2.jpeg",
-            "/images/projects/bilaspur-textile-market/2.png"
+            "/images/projects/bilaspur-textile-market/2.png",
+            "/images/gallery-placeholder.svg"
         ],
         amenities: {
             title: "Business Ready Infrastructure",
@@ -862,7 +865,9 @@ export const projects = [
         },
         gallery: [
             "/images/projects/shri-ram-park/gallery/ShriRamPark - Gallery1.jpeg",
-            "/images/projects/shri-ram-park/p3.jpg"
+            "/images/projects/shri-ram-park/p3.jpg",
+            "/images/gallery-placeholder.svg",
+            "/images/gallery-placeholder.svg"
         ],
         amenities: {
             title: "Quality Living Infrastructure",
@@ -978,7 +983,9 @@ export const projects = [
         },
         gallery: [
             "/images/projects/induimperial/2-min-min.jpg",
-            "/images/projects/induimperial/3-min-min.jpg"
+            "/images/projects/induimperial/3-min-min.jpg",
+            "/images/gallery-placeholder.svg",
+            "/images/gallery-placeholder.svg"
         ],
         amenities: {
             title: "Imperial Amenities",

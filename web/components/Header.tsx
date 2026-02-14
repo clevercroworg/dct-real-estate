@@ -42,13 +42,13 @@ export default function Header() {
 
                     {/* DESKTOP NAV */}
                     <nav className="hidden lg:flex items-center gap-8 text-xs tracking-widest font-light uppercase">
-                        <Link href="/" className="nav-link">
+                        <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>
                             Home
                         </Link>
 
                         {/* ABOUT DROPDOWN */}
                         <div className="relative group">
-                            <button className="nav-link flex items-center gap-1">
+                            <button className={`nav-link flex items-center gap-1 ${['/about', '/directors-message', '/leadership'].includes(pathname) ? 'active' : ''}`}>
                                 About
                                 <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M5.25 7.5L10 12.25 14.75 7.5" />
@@ -56,13 +56,13 @@ export default function Header() {
                             </button>
 
                             <div className="dropdown-panel">
-                                <Link href="/about" className="dropdown-link">
+                                <Link href="/about" className={`dropdown-link ${pathname === '/about' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
                                     Overview
                                 </Link>
-                                <Link href="/directors-message" className="dropdown-link">
+                                <Link href="/directors-message" className={`dropdown-link ${pathname === '/directors-message' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
                                     Director’s Message
                                 </Link>
-                                <Link href="/leadership" className="dropdown-link">
+                                <Link href="/leadership" className={`dropdown-link ${pathname === '/leadership' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
                                     Leadership
                                 </Link>
                             </div>
@@ -70,7 +70,7 @@ export default function Header() {
 
                         {/* PROJECTS DROPDOWN */}
                         <div className="relative group">
-                            <button className="nav-link flex items-center gap-1">
+                            <button className={`nav-link flex items-center gap-1 ${pathname.startsWith('/projects') ? 'active' : ''}`}>
                                 Projects
                                 <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M5.25 7.5L10 12.25 14.75 7.5" />
@@ -78,35 +78,35 @@ export default function Header() {
                             </button>
 
                             <div className="dropdown-panel">
-                                <Link href="/projects/ongoing" className="dropdown-link">
+                                <Link href="/projects/ongoing" className={`dropdown-link ${pathname === '/projects/ongoing' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
                                     Ongoing Projects
                                 </Link>
-                                <Link href="/projects/completed" className="dropdown-link">
+                                <Link href="/projects/completed" className={`dropdown-link ${pathname === '/projects/completed' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
                                     Completed Projects
                                 </Link>
-                                <Link href="/projects/commercial" className="dropdown-link">
+                                <Link href="/projects/commercial" className={`dropdown-link ${pathname === '/projects/commercial' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
                                     Commercial Projects
                                 </Link>
-                                <Link href="/projects/upcoming" className="dropdown-link">
+                                <Link href="/projects/upcoming" className={`dropdown-link ${pathname === '/projects/upcoming' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
                                     Upcoming Projects
                                 </Link>
                             </div>
                         </div>
 
-                        <Link href="/our-ventures" className="nav-link">
+                        <Link href="/our-ventures" className={`nav-link ${pathname === '/our-ventures' ? 'active' : ''}`}>
                             Our Ventures
                         </Link>
 
-                        <Link href="/media" className="nav-link">
+                        <Link href="/media" className={`nav-link ${pathname === '/media' ? 'active' : ''}`}>
                             Media
                         </Link>
-                        <Link href="/blog" className="nav-link">
+                        <Link href="/blog" className={`nav-link ${pathname.startsWith('/blog') ? 'active' : ''}`}>
                             Blogs
                         </Link>
-                        <Link href="/careers" className="nav-link">
+                        <Link href="/careers" className={`nav-link ${pathname === '/careers' ? 'active' : ''}`}>
                             Careers
                         </Link>
-                        <Link href="/contact" className="nav-link">
+                        <Link href="/contact" className={`nav-link ${pathname === '/contact' ? 'active' : ''}`}>
                             Contact
                         </Link>
 
@@ -196,53 +196,105 @@ export default function Header() {
                     </button>
 
                     <nav className="flex flex-col gap-6 uppercase tracking-widest text-sm font-light">
-                        <Link href="/" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
+                        <Link
+                            href="/"
+                            className={`text-lg font-medium ${pathname === '/' ? 'text-brand-gold' : ''}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
                             Home
                         </Link>
 
                         <div className="flex flex-col gap-3">
                             <span className="text-white/50 text-xs">About</span>
-                            <Link href="/about" className="pl-4 border-l border-white/10" onClick={() => setMobileMenuOpen(false)}>
+                            <Link
+                                href="/about"
+                                className={`pl-4 border-l ${pathname === '/about' ? 'border-brand-gold text-brand-gold' : 'border-white/10'}`}
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
                                 Overview
                             </Link>
-                            <Link href="/directors-message" className="pl-4 border-l border-white/10" onClick={() => setMobileMenuOpen(false)}>
+                            <Link
+                                href="/directors-message"
+                                className={`pl-4 border-l ${pathname === '/directors-message' ? 'border-brand-gold text-brand-gold' : 'border-white/10'}`}
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
                                 Director’s Message
                             </Link>
-                            <Link href="/leadership" className="pl-4 border-l border-white/10" onClick={() => setMobileMenuOpen(false)}>
+                            <Link
+                                href="/leadership"
+                                className={`pl-4 border-l ${pathname === '/leadership' ? 'border-brand-gold text-brand-gold' : 'border-white/10'}`}
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
                                 Leadership
                             </Link>
                         </div>
 
                         <div className="flex flex-col gap-3">
                             <span className="text-white/50 text-xs">Projects</span>
-                            <Link href="/projects/ongoing" className="pl-4 border-l border-white/10" onClick={() => setMobileMenuOpen(false)}>
+                            <Link
+                                href="/projects/ongoing"
+                                className={`pl-4 border-l ${pathname === '/projects/ongoing' ? 'border-brand-gold text-brand-gold' : 'border-white/10'}`}
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
                                 Ongoing Projects
                             </Link>
-                            <Link href="/projects/completed" className="pl-4 border-l border-white/10" onClick={() => setMobileMenuOpen(false)}>
+                            <Link
+                                href="/projects/completed"
+                                className={`pl-4 border-l ${pathname === '/projects/completed' ? 'border-brand-gold text-brand-gold' : 'border-white/10'}`}
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
                                 Completed Projects
                             </Link>
-                            <Link href="/projects/commercial" className="pl-4 border-l border-white/10" onClick={() => setMobileMenuOpen(false)}>
+                            <Link
+                                href="/projects/commercial"
+                                className={`pl-4 border-l ${pathname === '/projects/commercial' ? 'border-brand-gold text-brand-gold' : 'border-white/10'}`}
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
                                 Commercial Projects
                             </Link>
-                            <Link href="/projects/upcoming" className="pl-4 border-l border-white/10" onClick={() => setMobileMenuOpen(false)}>
+                            <Link
+                                href="/projects/upcoming"
+                                className={`pl-4 border-l ${pathname === '/projects/upcoming' ? 'border-brand-gold text-brand-gold' : 'border-white/10'}`}
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
                                 Upcoming Projects
                             </Link>
                         </div>
 
-                        <Link href="/our-ventures" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
+                        <Link
+                            href="/our-ventures"
+                            className={`text-lg font-medium ${pathname === '/our-ventures' ? 'text-brand-gold' : ''}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
                             Our Ventures
                         </Link>
 
-                        <Link href="/media" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
+                        <Link
+                            href="/media"
+                            className={`text-lg font-medium ${pathname === '/media' ? 'text-brand-gold' : ''}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
                             Media
                         </Link>
-                        <Link href="/blog" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
+                        <Link
+                            href="/blog"
+                            className={`text-lg font-medium ${pathname.startsWith('/blog') ? 'text-brand-gold' : ''}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
                             Blogs
                         </Link>
-                        <Link href="/careers" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
+                        <Link
+                            href="/careers"
+                            className={`text-lg font-medium ${pathname === '/careers' ? 'text-brand-gold' : ''}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
                             Careers
                         </Link>
-                        <Link href="/contact" className="text-lg font-medium" onClick={() => setMobileMenuOpen(false)}>
+                        <Link
+                            href="/contact"
+                            className={`text-lg font-medium ${pathname === '/contact' ? 'text-brand-gold' : ''}`}
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
                             Contact
                         </Link>
                     </nav>
