@@ -941,7 +941,7 @@ export const projects = [
                 {
                     title: "Prime Location",
                     description: "Located behind the High Court with easy access to key city landmarks.",
-                    image: "/images/projects/project-indu.jpg"
+                    image: "/images/gallery-placeholder.svg"
                 },
                 {
                     title: "Sophisticated Living",
