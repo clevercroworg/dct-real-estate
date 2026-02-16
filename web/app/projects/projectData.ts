@@ -285,6 +285,7 @@ export const projects = [
         location: 'In front of LCIT College, Raipur Road, Bilaspur',
         summary: 'Farmhouse living on NH 130 with curated open spaces and club-style amenities.',
         image: '/images/projects/project-chitvan.jpg',
+        videoUrl: "https://www.youtube.com/embed/yur8jcoeX-c?rel=0&loop=1&playlist=yur8jcoeX-c",
         badge: 'Farmhouse',
         status: 'Ongoing',
         rera: 'RERA: PCGRERA060524001774',

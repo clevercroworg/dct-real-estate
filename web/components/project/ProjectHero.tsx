@@ -101,14 +101,23 @@ export default function ProjectHero({
                         <div className="w-full hidden lg:block">
                             <div className="relative w-full overflow-hidden rounded-3xl shadow-2xl bg-black border border-white/10 group-hover:border-[#C9A24D]/30 transition-colors">
                                 <div className="aspect-video">
-                                    <iframe
-                                        className="w-full h-full"
-                                        src={videoUrl || "https://www.youtube-nocookie.com/embed/yur8jcoeX-c?autoplay=0&rel=0"}
-                                        title="project video"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                    >
-                                    </iframe>
+                                    {videoUrl ? (
+                                        <iframe
+                                            className="w-full h-full"
+                                            src={videoUrl}
+                                            title="project video"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        >
+                                        </iframe>
+                                    ) : (
+                                        <div className="w-full h-full bg-white/5 flex items-center justify-center">
+                                            <div className="text-center">
+                                                <ion-icon name="image-outline" class="text-4xl text-white/20 mb-2"></ion-icon>
+                                                <p className="text-white/30 text-xs tracking-widest uppercase">Video Coming Soon</p>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>

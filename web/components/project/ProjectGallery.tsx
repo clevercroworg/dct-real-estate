@@ -31,7 +31,6 @@ export default function ProjectGallery({ title, description, videoUrl, images }:
     }
     const displayTitle = title || "Chitvan walkthrough";
     const displayDesc = description || "A glimpse of the clubhouse, greens, and outdoor living.";
-    const displayVideo = videoUrl || "https://www.youtube-nocookie.com/embed/yur8jcoeX-c?autoplay=0&rel=0";
 
     return (
         <section className="py-20 bg-[#061B3A]">
@@ -52,14 +51,23 @@ export default function ProjectGallery({ title, description, videoUrl, images }:
                 <div className="max-w-5xl mx-auto mb-12">
                     <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-black ring-1 ring-white/10">
                         <div className="aspect-video">
-                            <iframe
-                                className="w-full h-full"
-                                src={displayVideo}
-                                title={`${displayTitle} video`}
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                            >
-                            </iframe>
+                            {videoUrl ? (
+                                <iframe
+                                    className="w-full h-full"
+                                    src={videoUrl}
+                                    title={`${displayTitle} video`}
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                >
+                                </iframe>
+                            ) : (
+                                <div className="w-full h-full bg-white/5 flex items-center justify-center">
+                                    <div className="text-center">
+                                        <ion-icon name="videocam-off-outline" class="text-5xl text-white/10 mb-3"></ion-icon>
+                                        <p className="text-white/20 text-sm tracking-widest uppercase">Video Walkthrough Coming Soon</p>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
