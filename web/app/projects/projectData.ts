@@ -85,7 +85,7 @@ export const projects = [
         amenities: {
             title: "Essential Amenities for Comfortable Living",
             list: [
-                { icon: "arch-outline", name: "Grand Entrance Gate" },
+                { icon: "enter-outline", name: "Grand Entrance Gate" },
                 { icon: "business-outline", name: "Grand Clubhouse" },
                 { icon: "water-outline", name: "Swimming Pool" },
                 { icon: "happy-outline", name: "Kids Play Area" },
