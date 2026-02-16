@@ -1,5 +1,5 @@
-
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Hero() {
     return (
@@ -18,12 +18,16 @@ export default function Hero() {
             </video>
 
             {/* FALLBACK IMAGE */}
-            <img
-                src="/images/hero-poster.jpg"
-                alt="DCT Real Estate"
-                className="absolute inset-0 w-full h-full object-cover -z-10"
-                loading="eager"
-            />
+            <div className="absolute inset-0 -z-10">
+                <Image
+                    src="/images/hero-poster.jpg"
+                    alt="DCT Real Estate"
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="100vw"
+                />
+            </div>
 
             {/* DARK OVERLAY */}
             <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/85 via-brand-dark/75 to-brand-dark/90"></div>

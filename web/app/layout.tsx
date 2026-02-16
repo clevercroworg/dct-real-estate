@@ -34,12 +34,12 @@ export default function RootLayout({
         <Script
           type="module"
           src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
         <Script
           noModule
           src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
       </head>
       <body className={`${dmSans.variable} ${inter.variable} font-body antialiased`}>

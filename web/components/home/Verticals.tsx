@@ -24,9 +24,8 @@ export default function Verticals() {
                 {/* VERTICALS GRID */}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
                     {verticals.map((vertical, index) => (
-                        <Link
+                        <div
                             key={index}
-                            href={vertical.link}
                             className="group relative block h-[300px] lg:h-[380px] rounded-2xl overflow-hidden reveal"
                         >
                             <img
@@ -44,7 +43,7 @@ export default function Verticals() {
                                     {vertical.title}
                                 </h3>
                             </div>
-                        </Link>
+                        </div>
                     ))}
                 </div>
             </div>
