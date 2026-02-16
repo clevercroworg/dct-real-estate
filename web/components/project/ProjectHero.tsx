@@ -17,6 +17,7 @@ export default function ProjectHero({
     location,
     bgImage,
     badges,
+    videoUrl,
 }: ProjectHeroProps) {
     const { openModal } = useVisitModal();
     return (
@@ -102,7 +103,7 @@ export default function ProjectHero({
                                 <div className="aspect-video">
                                     <iframe
                                         className="w-full h-full"
-                                        src="https://www.youtube-nocookie.com/embed/yur8jcoeX-c?autoplay=0&rel=0"
+                                        src={videoUrl || "https://www.youtube-nocookie.com/embed/yur8jcoeX-c?autoplay=0&rel=0"}
                                         title="project video"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen

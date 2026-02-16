@@ -52,6 +52,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                     location={project.hero.location}
                     bgImage={project.hero.bgImage}
                     badges={project.hero.badges}
+                    videoUrl={(project as any).videoUrl}
                 />
 
                 <ProjectStats stats={project.stats} />
@@ -73,6 +74,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <ProjectGallery
                     title={`${project.title} Walkthrough`}
                     images={project.gallery || []}
+                    videoUrl={(project as any).videoUrl}
                 />
 
                 <ProjectAmenities
