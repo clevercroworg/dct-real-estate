@@ -21,7 +21,7 @@ export default function DisclaimerPopup() {
     return (
         <AnimatePresence>
             {isVisible && (
-                <div className="fixed bottom-6 right-6 z-[9999] w-full max-w-md px-4 sm:px-0">
+                <div className="fixed bottom-4 left-4 right-4 sm:bottom-6 sm:right-6 sm:left-auto z-[9999] sm:max-w-md">
                     {/* Modal Content - Corner Style */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9, y: 50 }}
