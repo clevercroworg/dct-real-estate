@@ -1,7 +1,7 @@
-import ProjectCard from '@/components/ProjectCard';
+import { projects } from '../projectData';
 import VisitModal from '@/components/project/VisitModal';
 import { VisitModalProvider } from '@/components/project/VisitModalContext';
-import ScheduleVisitButton from '@/components/ScheduleVisitButton';
+import ProjectListing from '@/components/project/ProjectListing';
 
 export const metadata = {
     title: 'Completed Projects | DCT Real Estate',
@@ -9,49 +9,6 @@ export const metadata = {
 };
 
 export default function CompletedProjectsPage() {
-    const projects = [
-        {
-            title: 'Krishnapuram',
-            location: 'Near Bilha Turning, Raipur Road, Bilaspur',
-            description: 'RERA-approved plotted community with landscaped zones and planned infrastructure.',
-            image: '/images/projects/krishnapuram/1.png',
-            badge: 'Residential',
-            status: 'Completed',
-            link: '/projects/krishnapuram',
-            delay: 0,
-        },
-        {
-            title: 'Bilaspur Textile Market',
-            location: 'Parsada, Raipur Road, Bilaspur',
-            description: 'A purpose-built commercial destination with modern infrastructure and strong visibility.',
-            image: '/images/projects/bilaspur-textile-market/btm.png',
-            badge: 'Commercial',
-            status: 'Completed',
-            link: '/projects/bilaspur-textile-market',
-            delay: 100,
-        },
-        {
-            title: 'Shri Ram Park',
-            location: 'Behind High Court, Chhatauna Road, Bilaspur',
-            description: 'A planned residential layout with strong connectivity and a serene environment.',
-            image: '/images/verticals/vertical-villas.jpg',
-            badge: 'Residential',
-            status: 'Completed',
-            link: '/projects/shri-ram-park',
-            delay: 200,
-        },
-        {
-            title: 'Induimperial',
-            location: 'Behind High Court, Raipur Road, Bilaspur',
-            description: 'Premium living with wellness amenities, landscaped greens, and a secured campus.',
-            image: '/images/verticals/vertical-apartments.jpg',
-            badge: 'Residential',
-            status: 'Completed',
-            link: '/projects/induimperial',
-            delay: 300,
-        },
-    ];
-
     return (
         <VisitModalProvider>
             <main className="bg-white">
@@ -81,30 +38,8 @@ export default function CompletedProjectsPage() {
                     </div>
                 </section>
 
-                {/* PROJECT GRID */}
-                <section className="py-20 bg-slate-50">
-                    <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
-                            <div className="max-w-2xl">
-                                <p className="text-xs uppercase tracking-[0.35em] text-[#C9A24D] mb-3">What we build</p>
-                                <h2 className="font-heading text-3xl lg:text-4xl font-semibold text-[#061B3A]">
-                                    Our Completed Portfolio
-                                </h2>
-                                <p className="text-slate-600 mt-3 text-lg">
-                                    Carefully selected sites with strong connectivity, robust infrastructure, and
-                                    a clear path to lifestyle upgrades.
-                                </p>
-                            </div>
-                            <ScheduleVisitButton />
-                        </div>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {projects.map((project, index) => (
-                                <ProjectCard key={index} {...project} />
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                {/* PROJECT LISTING */}
+                <ProjectListing projects={projects} initialFilter="Completed" />
 
                 {/* CTA */}
                 <section className="bg-[#061B3A] py-20">

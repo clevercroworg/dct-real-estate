@@ -1,7 +1,6 @@
-import ProjectCard from '@/components/ProjectCard';
 import VisitModal from '@/components/project/VisitModal';
 import { VisitModalProvider } from '@/components/project/VisitModalContext';
-import ScheduleVisitButton from '@/components/ScheduleVisitButton';
+import ProjectListing from '@/components/project/ProjectListing';
 
 export const metadata = {
     title: 'All Projects | DCT Real Estate',
@@ -11,18 +10,7 @@ export const metadata = {
 import { projects } from './projectData';
 
 export default function AllProjectsPage() {
-    // Mapping projectData to the format ProjectCard expects
-    const formattedProjects = projects.map(p => ({
-        title: p.title,
-        location: p.location,
-        description: p.summary,
-        image: p.image,
-        badge: p.badge,
-        status: p.status,
-        link: `/projects/${p.slug}`,
-        delay: p.delay,
-        rera: p.rera
-    }));
+
 
     return (
         <VisitModalProvider>
@@ -52,29 +40,8 @@ export default function AllProjectsPage() {
                     </div>
                 </section>
 
-                {/* PROJECT GRID */}
-                <section className="py-20 bg-slate-50">
-                    <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
-                            <div className="max-w-2xl">
-                                <p className="text-xs uppercase tracking-[0.35em] text-[#C9A24D] mb-3">Project Showcase</p>
-                                <h2 className="font-heading text-3xl lg:text-4xl font-semibold text-[#061B3A]">
-                                    All Projects
-                                </h2>
-                                <p className="text-slate-600 mt-3 text-lg">
-                                    Explore every opportunity we offer for investment, business, and quality living.
-                                </p>
-                            </div>
-                            <ScheduleVisitButton />
-                        </div>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {formattedProjects.map((project, index) => (
-                                <ProjectCard key={index} {...project} />
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                {/* PROJECT LISTING WITH FILTERS */}
+                <ProjectListing projects={projects} />
 
                 {/* CTA */}
                 <section className="bg-[#061B3A] py-20">

@@ -36,8 +36,11 @@ export default function Header() {
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className={`flex items-center justify-between h-20 transition-all duration-300 ${isScrolled ? 'h-[72px]' : ''}`}>
                     {/* LOGO */}
-                    <Link href="/" className="flex items-center">
+                    <Link href="/" className="flex items-center gap-4">
                         <img src="/images/branding/logo.png" alt="DCT Real Estate" className="h-12" />
+                        <span className="hidden xl:block text-[#C9A24D] text-xs tracking-[0.2em] uppercase font-medium border-l border-white/10 pl-4 py-1">
+                            Property Means DCT !
+                        </span>
                     </Link>
 
                     {/* DESKTOP NAV */}

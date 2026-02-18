@@ -1,7 +1,7 @@
-import ProjectCard from '@/components/ProjectCard';
+import { projects } from '../projectData';
 import VisitModal from '@/components/project/VisitModal';
 import { VisitModalProvider } from '@/components/project/VisitModalContext';
-import ScheduleVisitButton from '@/components/ScheduleVisitButton';
+import ProjectListing from '@/components/project/ProjectListing';
 
 export const metadata = {
     title: 'Ongoing Projects | DCT Real Estate',
@@ -9,51 +9,6 @@ export const metadata = {
 };
 
 export default function OngoingProjectsPage() {
-    const projects = [
-        {
-            title: 'Anand Vihar',
-            location: 'Akaltara',
-            description: 'A calm residential community focused on plotted living and everyday convenience.',
-            image: '/images/projects/project-vihar.jpg',
-            badge: 'Residential',
-            status: 'Ongoing',
-            link: '/projects/anand-vihar',
-            delay: 0,
-        },
-        {
-            title: 'Aishwaryam',
-            location: 'Opp. LCIT College, Raipur Road, Bilaspur',
-            description: 'T&CP approved layout with strong road access on NH 130.',
-            image: '/images/projects/project-aishwaryam.png',
-            badge: 'Clubhouse',
-            status: 'Ongoing', // Used RERA in HTML, but status is a good fallback
-            rera: 'RERA: PCGRERA220824001808',
-            link: '/projects/aishwaryam',
-            delay: 100,
-        },
-        {
-            title: 'Chitvan Farm',
-            location: 'In front of LCIT College, Raipur Road, Bilaspur',
-            description: 'Farmhouse living on NH 130 with curated open spaces and club-style amenities.',
-            image: '/images/projects/project-chitvan.jpg',
-            badge: 'Farmhouse',
-            status: 'Ongoing',
-            rera: 'RERA: PCGRERA060524001774',
-            link: '/projects/chitvan-farm',
-            delay: 200,
-        },
-        {
-            title: 'Gold Farm House',
-            location: 'Vill. Jarondha, Takhatpur-Mungeli Road, Bilaspur',
-            description: 'T&CP approved farmhouse plots positioned for peaceful living and returns.',
-            image: '/images/projects/project-arpa.jpg',
-            badge: 'Farmhouse Plots',
-            status: 'Ongoing',
-            link: '/projects/gold-farm-house',
-            delay: 300,
-        },
-    ];
-
     return (
         <VisitModalProvider>
             <main className="bg-white">
@@ -83,30 +38,8 @@ export default function OngoingProjectsPage() {
                     </div>
                 </section>
 
-                {/* PROJECT GRID */}
-                <section className="py-20 bg-slate-50">
-                    <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
-                            <div className="max-w-2xl">
-                                <p className="text-xs uppercase tracking-[0.35em] text-[#C9A24D] mb-3">What we build</p>
-                                <h2 className="font-heading text-3xl lg:text-4xl font-semibold text-[#061B3A]">
-                                    Our Ongoing Portfolio
-                                </h2>
-                                <p className="text-slate-600 mt-3 text-lg">
-                                    Carefully selected sites with strong connectivity, robust infrastructure, and
-                                    a clear path to lifestyle upgrades.
-                                </p>
-                            </div>
-                            <ScheduleVisitButton />
-                        </div>
-
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {projects.map((project, index) => (
-                                <ProjectCard key={index} {...project} />
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                {/* PROJECT LISTING */}
+                <ProjectListing projects={projects} initialFilter="Ongoing" />
 
                 {/* CTA */}
                 <section className="bg-[#061B3A] py-20">
