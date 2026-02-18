@@ -3,14 +3,23 @@
 import EventGallery from '@/components/media/EventGallery';
 import MediaCTA from '@/components/media/MediaCTA';
 import { mediaEvents } from './mediaData';
+import Image from 'next/image';
 
 export default function MediaPage() {
     return (
         <main className="bg-white min-h-screen">
             {/* HERO */}
-            <section className="relative h-[65vh] flex items-end justify-center pb-16 bg-[#061B3A]">
-                <div className="absolute inset-0 bg-[url('/images/events/megha-expo/1.jpg')] bg-cover bg-center opacity-30"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#061B3A] to-transparent"></div>
+            <section className="relative h-[65vh] flex items-end justify-center pb-16 bg-[#061B3A] overflow-hidden">
+                <div className="absolute inset-0 opacity-40">
+                    <Image
+                        src="/images/events/megha-expo/1.jpg"
+                        alt="Media and Events Background"
+                        fill
+                        priority
+                        className="object-cover"
+                    />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#061B3A] via-[#061B3A]/40 to-transparent"></div>
 
                 <div className="relative z-10 text-center px-4">
                     <p className="text-[#C9A24D] text-xs font-bold tracking-[0.3em] uppercase mb-4">DCT Real Estate</p>

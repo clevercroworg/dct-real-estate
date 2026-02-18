@@ -2,6 +2,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function Footer() {
@@ -27,7 +28,14 @@ export default function Footer() {
                     <div className="grid md:grid-cols-4 gap-12 mb-16">
                         {/* BRAND */}
                         <div>
-                            <img src="/images/branding/logo.png" alt="DCT Real Estate" className="h-12 mb-4" />
+                            <div className="relative h-12 w-32 mb-4">
+                                <Image
+                                    src="/images/branding/logo.png"
+                                    alt="DCT Real Estate"
+                                    fill
+                                    className="object-contain object-left"
+                                />
+                            </div>
                             <p className="text-white/70 text-sm leading-relaxed">
                                 <span className="font-semibold text-white">About DCT :</span> DCT Real Estate & Devloper is a real estate company of Bilaspur with top class residential projects that includes apartments, independent villa and plots in Bilaspur at very affordable prices. The company is a result of a strong and dynamic team of individuals with a zest for excellence in its field.
                                 <Link href="/about" className="text-[#C9A24D] hover:text-white ml-1 transition-colors">

@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface ProjectFeaturesProps {
     title?: string;
     features?: string[];
@@ -28,11 +30,14 @@ export default function ProjectFeatures({ title, features, imageSrc }: ProjectFe
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
                     <div>
-                        <img
-                            src={displayImage}
-                            alt="Project amenities"
-                            className="w-full rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform duration-500"
-                        />
+                        <div className="relative h-[300px] lg:h-[400px]">
+                            <Image
+                                src={displayImage}
+                                alt="Project amenities"
+                                fill
+                                className="rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform duration-500 object-cover"
+                            />
+                        </div>
                     </div>
                     <div>
                         <p className="text-xs uppercase tracking-[0.3em] text-[#C9A24D] mb-3">Property Features</p>

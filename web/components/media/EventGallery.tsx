@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface EventGalleryProps {
     title: string;
@@ -18,6 +20,12 @@ export default function EventGallery({ title, description, images = [] }: EventG
     ];
 
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    // Progressive loading - initial count
+    const InitialCount = 8;
+    const visibleImages = isExpanded ? displayImages : displayImages.slice(0, InitialCount);
+    const hasMore = displayImages.length > InitialCount;
 
     return (
         <div className="mb-20 last:mb-0">
@@ -37,49 +45,83 @@ export default function EventGallery({ title, description, images = [] }: EventG
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {displayImages.map((img, idx) => (
-                    <div
-                        key={idx}
-                        className="group relative h-64 overflow-hidden rounded-xl bg-gray-100 cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
-                        onClick={() => setSelectedImage(img)}
-                    >
-                        <img
-                            src={img}
-                            alt={`${title} - Image ${idx + 1}`}
-                            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                <AnimatePresence mode="popLayout">
+                    {visibleImages.map((img, idx) => (
+                        <motion.div
+                            layout
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.4, delay: idx * 0.05 }}
+                            key={img + idx}
+                            className="group relative h-64 overflow-hidden rounded-xl bg-gray-100 cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
+                            onClick={() => setSelectedImage(img)}
+                        >
+                            <Image
+                                src={img}
+                                alt={`${title} - Image ${idx + 1}`}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
 
-                        {/* Zoom Icon Overlay */}
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div className="bg-white/20 backdrop-blur-sm p-3 rounded-full text-white">
-                                <ion-icon name="expand-outline" class="text-2xl"></ion-icon>
+                            {/* Zoom Icon Overlay */}
+                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="bg-white/20 backdrop-blur-sm p-3 rounded-full text-white">
+                                    <ion-icon name="expand-outline" class="text-2xl"></ion-icon>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                ))}
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
             </div>
 
-            {/* Lightbox Modal */}
-            {selectedImage && (
-                <div
-                    className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
-                    onClick={() => setSelectedImage(null)}
-                >
+            {hasMore && (
+                <div className="mt-12 flex justify-center">
                     <button
-                        className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[101]"
-                        onClick={() => setSelectedImage(null)}
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        className="px-8 py-3 border-2 border-[#061B3A] text-[#061B3A] font-bold rounded-lg hover:bg-[#061B3A] hover:text-white transition-all transform active:scale-95"
                     >
-                        <ion-icon name="close-circle-outline" class="text-5xl"></ion-icon>
+                        {isExpanded ? 'Show Less' : `View All Photos (${displayImages.length})`}
                     </button>
-                    <img
-                        src={selectedImage}
-                        alt="Full screen view"
-                        className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl"
-                        onClick={(e) => e.stopPropagation()}
-                    />
                 </div>
             )}
+
+            {/* Lightbox Modal */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
+                        onClick={() => setSelectedImage(null)}
+                    >
+                        <button
+                            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[101]"
+                            onClick={() => setSelectedImage(null)}
+                        >
+                            <ion-icon name="close-circle-outline" class="text-5xl"></ion-icon>
+                        </button>
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            className="relative max-h-[85vh] max-w-[90vw] aspect-video"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <Image
+                                src={selectedImage}
+                                alt="Full screen view"
+                                fill
+                                className="object-contain rounded-lg shadow-2xl"
+                                sizes="90vw"
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

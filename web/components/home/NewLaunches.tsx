@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 
 export default function NewLaunches() {
     const sliderRef = useRef<HTMLDivElement>(null);
@@ -42,7 +43,13 @@ export default function NewLaunches() {
                     className="launch-slider flex gap-4 lg:gap-10 px-4 lg:px-0 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth min-h-[360px] lg:min-h-[460px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     {/* SLIDE 1 */}
                     <div className="launch-slide relative min-w-[88%] lg:min-w-[65%] h-[360px] lg:h-[460px] rounded-xl overflow-hidden bg-black snap-center shrink-0">
-                        <img src="/images/banners/launch-1.jpg" alt="Project Launch" className="w-full h-full object-cover" />
+                        <Image
+                            src="/images/banners/launch-1.jpg"
+                            alt="Project Launch"
+                            fill
+                            sizes="(max-width: 1024px) 90vw, 65vw"
+                            className="object-cover"
+                        />
 
                         <div className="launch-overlay absolute inset-0 p-5 lg:p-10 flex flex-col justify-end bg-gradient-to-t from-[#011E51]/90 via-[#011E51]/20 to-transparent">
                             <p className="launch-tag text-[10px] lg:text-xs uppercase tracking-[0.12em] text-brand-gold mb-2.5">New Launch</p>
@@ -56,7 +63,13 @@ export default function NewLaunches() {
 
                     {/* SLIDE 2 */}
                     <div className="launch-slide relative min-w-[88%] lg:min-w-[65%] h-[360px] lg:h-[460px] rounded-xl overflow-hidden bg-black snap-center shrink-0">
-                        <img src="/images/banners/launch-2.jpg" alt="Event" className="w-full h-full object-cover" />
+                        <Image
+                            src="/images/banners/launch-2.jpg"
+                            alt="Event"
+                            fill
+                            sizes="(max-width: 1024px) 90vw, 65vw"
+                            className="object-cover"
+                        />
 
                         <div className="launch-overlay absolute inset-0 p-5 lg:p-10 flex flex-col justify-end bg-gradient-to-t from-[#011E51]/90 via-[#011E51]/20 to-transparent">
                             <p className="launch-tag text-[10px] lg:text-xs uppercase tracking-[0.12em] text-brand-gold mb-2.5">CLUBHOUSE</p>

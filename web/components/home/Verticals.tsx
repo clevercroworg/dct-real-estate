@@ -1,5 +1,6 @@
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Verticals() {
     const verticals = [
@@ -28,9 +29,11 @@ export default function Verticals() {
                             key={index}
                             className="group relative block h-[300px] lg:h-[380px] rounded-2xl overflow-hidden reveal"
                         >
-                            <img
+                            <Image
                                 src={vertical.image}
                                 alt={vertical.title}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#011E51]/85 via-[#011E51]/35 to-transparent flex flex-col justify-end items-center pb-10 text-center text-white">

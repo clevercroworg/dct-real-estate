@@ -1,4 +1,5 @@
 import ScrollReveal from '../components/ScrollReveal';
+import Image from 'next/image';
 
 export default function LeadershipPage() {
     return (
@@ -7,7 +8,14 @@ export default function LeadershipPage() {
                 {/* HERO SECTION */}
                 <section className="relative bg-[#061B3A] text-white py-24 overflow-hidden">
                     <div className="absolute inset-0">
-                        <img src="/images/background/bg-4.png" alt="Background" className="w-full h-full object-cover opacity-40 mix-blend-overlay" />
+                        <Image
+                            src="/images/background/bg-4.png"
+                            alt="Background"
+                            fill
+                            priority
+                            className="object-cover opacity-40 mix-blend-overlay"
+                            sizes="100vw"
+                        />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-b from-[#061B3A]/90 to-[#061B3A]/70"></div>
                     <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
@@ -35,10 +43,12 @@ export default function LeadershipPage() {
                                     <div className="relative group sticky top-32">
                                         <div className="absolute inset-0 bg-brand-gold/20 transform translate-x-4 translate-y-4 rounded-3xl transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
                                         <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4] bg-white"> {/* Adjusted aspect ratio */}
-                                            <img
+                                            <Image
                                                 src="/images/about/leadership.jpg"
                                                 alt="Imran Khan - DOP & Strategic Leader"
-                                                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                                fill
+                                                sizes="(max-width: 1024px) 100vw, 40vw"
+                                                className="object-cover transform transition-transform duration-700 group-hover:scale-105"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-[#061B3A] via-transparent to-transparent opacity-60"></div>
                                             <div className="absolute bottom-0 left-0 right-0 p-8 text-center text-white bg-gradient-to-t from-[#061B3A] to-transparent">

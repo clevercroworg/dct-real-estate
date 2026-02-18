@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function FeaturedProjects() {
     return (
@@ -29,11 +30,15 @@ export default function FeaturedProjects() {
 
                     {/* PROJECT 1 */}
                     <div className="group bg-white rounded-[14px] overflow-hidden shadow-[0_20px_40px_rgba(1,30,81,0.08)] hover:-translate-y-1.5 hover:shadow-[0_30px_60px_rgba(1,30,81,0.14)] transition-all duration-200 reveal">
-                        <img
-                            src="/images/projects/project-vihar.jpg"
-                            alt="Krishnapuram Project"
-                            className="w-full h-[260px] object-cover block"
-                        />
+                        <div className="relative h-[260px]">
+                            <Image
+                                src="/images/projects/project-vihar.jpg"
+                                alt="Krishnapuram Project"
+                                fill
+                                className="object-cover block"
+                                sizes="(max-width: 1024px) 100vw, 33vw"
+                            />
+                        </div>
                         <div className="px-7 pt-[26px] pb-8">
                             <span className="inline-block text-[11px] uppercase tracking-[0.08em] px-2.5 py-1 rounded-[20px] font-medium bg-[#011E51]/10 text-[#011E51]">
                                 Ongoing
@@ -52,11 +57,15 @@ export default function FeaturedProjects() {
 
                     {/* PROJECT 2 */}
                     <div className="group bg-white rounded-[14px] overflow-hidden shadow-[0_20px_40px_rgba(1,30,81,0.08)] hover:-translate-y-1.5 hover:shadow-[0_30px_60px_rgba(1,30,81,0.14)] transition-all duration-200 reveal">
-                        <img
-                            src="/images/projects/project-aishwaryam.png"
-                            alt="Arpa Business Park"
-                            className="w-full h-[260px] object-cover block"
-                        />
+                        <div className="relative h-[260px]">
+                            <Image
+                                src="/images/projects/project-aishwaryam.png"
+                                alt="Arpa Business Park"
+                                fill
+                                className="object-cover block"
+                                sizes="(max-width: 1024px) 100vw, 33vw"
+                            />
+                        </div>
                         <div className="px-7 pt-[26px] pb-8">
                             <span className="inline-block text-[11px] uppercase tracking-[0.08em] px-2.5 py-1 rounded-[20px] font-medium bg-[#C9A24D]/15 text-[#8A6A2D]">
                                 Commercial
@@ -75,11 +84,15 @@ export default function FeaturedProjects() {
 
                     {/* PROJECT 3 */}
                     <div className="group bg-white rounded-[14px] overflow-hidden shadow-[0_20px_40px_rgba(1,30,81,0.08)] hover:-translate-y-1.5 hover:shadow-[0_30px_60px_rgba(1,30,81,0.14)] transition-all duration-200 reveal">
-                        <img
-                            src="/images/projects/project-chitvan.jpg"
-                            alt="Dwarkapuram Project"
-                            className="w-full h-[260px] object-cover block"
-                        />
+                        <div className="relative h-[260px]">
+                            <Image
+                                src="/images/projects/project-chitvan.jpg"
+                                alt="Dwarkapuram Project"
+                                fill
+                                className="object-cover block"
+                                sizes="(max-width: 1024px) 100vw, 33vw"
+                            />
+                        </div>
                         <div className="px-7 pt-[26px] pb-8">
                             <span className="inline-block text-[11px] uppercase tracking-[0.08em] px-2.5 py-1 rounded-[20px] font-medium bg-green-600/10 text-green-800">
                                 Residential

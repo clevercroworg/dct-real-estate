@@ -2,6 +2,7 @@
 
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function AboutPage() {
     return (
@@ -15,10 +16,13 @@ export default function AboutPage() {
                     <div className="absolute inset-0 z-0">
                         <div className="absolute inset-0 bg-black/60 z-10"></div>
                         <div className="absolute inset-0 z-0">
-                            <img
+                            <Image
                                 src="/images/background/bg-4.png"
                                 alt="Background"
-                                className="w-full h-full object-cover"
+                                fill
+                                priority
+                                className="object-cover"
+                                sizes="100vw"
                             />
                         </div>
                     </div>
@@ -44,9 +48,11 @@ export default function AboutPage() {
                     <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
                         <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white group">
                             {/* Added about.jpg here as requested */}
-                            <img
+                            <Image
                                 src="/images/about/about.jpg"
                                 alt="About DCT Real Estate"
+                                width={800}
+                                height={600}
                                 className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                             />
                         </div>

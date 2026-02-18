@@ -1,6 +1,7 @@
 "use client";
 
 import { useVisitModal } from './VisitModalContext';
+import Image from 'next/image';
 
 interface ProjectHeroProps {
     title: string;
@@ -23,10 +24,13 @@ export default function ProjectHero({
     return (
         <section className="pt-24 pb-8">
             <div className="relative w-full overflow-hidden rounded-b-[38px] min-h-[45vh] lg:min-h-[48vh] shadow-2xl group">
-                <img
+                <Image
                     src={bgImage}
                     alt={title}
-                    className="absolute inset-0 w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-[2s]"
+                    fill
+                    priority
+                    className="object-cover transform scale-105 group-hover:scale-110 transition-transform duration-[2s]"
+                    sizes="100vw"
                 />
 
                 {/* Overlays */}

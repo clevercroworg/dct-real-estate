@@ -3,14 +3,17 @@ import Footer from '../components/Footer';
 import Hero from '../components/home/Hero';
 import Marquee from '../components/home/Marquee';
 import AboutSection from '../components/home/AboutSection';
-import NewLaunches from '../components/home/NewLaunches';
-import Verticals from '../components/home/Verticals';
-import FeaturedProjects from '../components/home/FeaturedProjects';
-import WhyDCT from '../components/home/WhyDCT';
-import FinalCTA from '../components/home/FinalCTA';
-import Testimonials from '../components/home/Testimonials';
-import DisclaimerPopup from '../components/home/DisclaimerPopup';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import Image from 'next/image';
+
+const NewLaunches = dynamic(() => import('../components/home/NewLaunches'));
+const Verticals = dynamic(() => import('../components/home/Verticals'));
+const FeaturedProjects = dynamic(() => import('../components/home/FeaturedProjects'));
+const WhyDCT = dynamic(() => import('../components/home/WhyDCT'));
+const FinalCTA = dynamic(() => import('../components/home/FinalCTA'));
+const Testimonials = dynamic(() => import('../components/home/Testimonials'));
+const DisclaimerPopup = dynamic(() => import('../components/home/DisclaimerPopup'));
 
 export default function Home() {
   return (
@@ -25,11 +28,15 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
             {/* IMAGE */}
             <div className="relative">
-              <img
-                src="https://www.dctrealestate.in/assets/images/nitin.jpg"
-                alt="Rajendra Singh Rajput - Founder DCT Real Estate"
-                className="rounded-xl shadow-xl w-full object-cover"
-              />
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
+                <Image
+                  src="https://www.dctrealestate.in/assets/images/nitin.jpg"
+                  alt="Rajendra Singh Rajput - Founder DCT Real Estate"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
 
               {/* Award Tag */}
               <div className="absolute bottom-6 left-6 bg-brand-dark text-white px-5 py-3 rounded-lg shadow-lg flex items-center gap-3">

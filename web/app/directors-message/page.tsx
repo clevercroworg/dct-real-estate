@@ -1,4 +1,5 @@
 import ScrollReveal from '../components/ScrollReveal';
+import Image from 'next/image';
 
 export default function DirectorsMessagePage() {
     return (
@@ -7,7 +8,14 @@ export default function DirectorsMessagePage() {
                 {/* HERO SECTION */}
                 <section className="relative bg-[#061B3A] text-white py-20 overflow-hidden">
                     <div className="absolute inset-0">
-                        <img src="/images/background/bg-4.png" alt="Background" className="w-full h-full object-cover" />
+                        <Image
+                            src="/images/background/bg-4.png"
+                            alt="Background"
+                            fill
+                            priority
+                            className="object-cover"
+                            sizes="100vw"
+                        />
                     </div>
                     <div className="absolute inset-0 bg-[#061B3A]/80"></div> {/* Overlay for readability */}
                     <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
@@ -51,7 +59,13 @@ export default function DirectorsMessagePage() {
                             <div className="order-1 lg:order-2">
                                 <ScrollReveal animationClass="animate-slide-right">
                                     <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] w-full max-w-md mx-auto">
-                                        <img src="/images/about/director.jpg" alt="Rajendra Singh Rajput" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                                        <Image
+                                            src="/images/about/director.jpg"
+                                            alt="Rajendra Singh Rajput"
+                                            fill
+                                            sizes="(max-width: 1024px) 100vw, 50vw"
+                                            className="object-cover hover:scale-105 transition-transform duration-700"
+                                        />
                                     </div>
                                 </ScrollReveal>
                             </div>
@@ -66,7 +80,13 @@ export default function DirectorsMessagePage() {
                             <div className="order-1">
                                 <ScrollReveal animationClass="animate-slide-right">
                                     <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] w-full max-w-md mx-auto">
-                                        <img src="/images/about/nitin.jpg" alt="Honored by Nitin Gadkari" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                                        <Image
+                                            src="/images/about/nitin.jpg"
+                                            alt="Honored by Nitin Gadkari"
+                                            fill
+                                            sizes="(max-width: 1024px) 100vw, 50vw"
+                                            className="object-cover hover:scale-105 transition-transform duration-700"
+                                        />
                                     </div>
                                 </ScrollReveal>
                             </div>
@@ -119,7 +139,13 @@ export default function DirectorsMessagePage() {
                             <div className="order-1 lg:order-2">
                                 <ScrollReveal animationClass="animate-slide-right">
                                     <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] w-full max-w-md mx-auto">
-                                        <img src="/images/about/asutosh.jpg" alt="With Ashutosh Rana" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                                        <Image
+                                            src="/images/about/asutosh.jpg"
+                                            alt="With Ashutosh Rana"
+                                            fill
+                                            sizes="(max-width: 1024px) 100vw, 50vw"
+                                            className="object-cover hover:scale-105 transition-transform duration-700"
+                                        />
                                     </div>
                                 </ScrollReveal>
                             </div>
@@ -134,7 +160,13 @@ export default function DirectorsMessagePage() {
                             <div className="order-1">
                                 <ScrollReveal animationClass="animate-slide-right">
                                     <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] w-full max-w-md mx-auto">
-                                        <img src="/images/about/zee.jpg" alt="Zee News Award" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+                                        <Image
+                                            src="/images/about/zee.jpg"
+                                            alt="Zee News Award"
+                                            fill
+                                            sizes="(max-width: 1024px) 100vw, 50vw"
+                                            className="object-cover hover:scale-110 transition-transform duration-700"
+                                        />
                                     </div>
                                 </ScrollReveal>
                             </div>
@@ -188,7 +220,13 @@ export default function DirectorsMessagePage() {
                             <div className="order-1 lg:order-2">
                                 <ScrollReveal animationClass="animate-slide-right">
                                     <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] w-full max-w-md mx-auto">
-                                        <img src="/images/about/bhupesh.jpg" alt="With CM Bhupesh Baghel" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                                        <Image
+                                            src="/images/about/bhupesh.jpg"
+                                            alt="With CM Bhupesh Baghel"
+                                            fill
+                                            sizes="(max-width: 1024px) 100vw, 50vw"
+                                            className="object-cover hover:scale-105 transition-transform duration-700"
+                                        />
                                     </div>
                                 </ScrollReveal>
                             </div>

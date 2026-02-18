@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 type ExperienceItem = {
     title: string;
@@ -65,10 +66,12 @@ export default function ProjectExperiences({ data }: Props) {
                         {data.items.map((item, index) => (
                             <div key={index} className="bg-white border border-gray-100 rounded-3xl p-7 shadow-lg hover:shadow-xl transition-shadow duration-300">
                                 <div className="w-full h-48 rounded-2xl overflow-hidden bg-[#F1F5F9] mb-6 relative">
-                                    <img
+                                    <Image
                                         src={item.image}
                                         alt={item.title}
-                                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                                        fill
+                                        sizes="(max-width: 1024px) 100vw, 33vw"
+                                        className="object-cover hover:scale-110 transition-transform duration-700"
                                     />
                                 </div>
                                 <h3 className="font-heading text-xl font-semibold text-[#061B3A]">{item.title}</h3>

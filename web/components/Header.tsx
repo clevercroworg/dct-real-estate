@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function Header() {
@@ -37,7 +38,15 @@ export default function Header() {
                 <div className={`flex items-center justify-between h-20 transition-all duration-300 ${isScrolled ? 'h-[72px]' : ''}`}>
                     {/* LOGO */}
                     <Link href="/" className="flex items-center gap-4">
-                        <img src="/images/branding/logo.png" alt="DCT Real Estate" className="h-12" />
+                        <div className="relative h-12 w-32">
+                            <Image
+                                src="/images/branding/logo.png"
+                                alt="DCT Real Estate"
+                                fill
+                                className="object-contain object-left"
+                                priority
+                            />
+                        </div>
                         <span className="hidden xl:block text-[#C9A24D] text-xs tracking-[0.2em] uppercase font-medium border-l border-white/10 pl-4 py-1">
                             Property Means DCT !
                         </span>
