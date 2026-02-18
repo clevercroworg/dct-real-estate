@@ -9,6 +9,7 @@ import FeaturedProjects from '../components/home/FeaturedProjects';
 import WhyDCT from '../components/home/WhyDCT';
 import FinalCTA from '../components/home/FinalCTA';
 import Testimonials from '../components/home/Testimonials';
+import DisclaimerPopup from '../components/home/DisclaimerPopup';
 import Link from 'next/link';
 
 export default function Home() {
@@ -71,6 +72,7 @@ export default function Home() {
         <FeaturedProjects />
         <WhyDCT />
         <FinalCTA />
+        <DisclaimerPopup />
       </main>
     </div>
   );

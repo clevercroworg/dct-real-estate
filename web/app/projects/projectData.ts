@@ -437,7 +437,7 @@ export const projects = [
         title: 'Gold Farm House',
         location: 'Vill. Jarondha, Takhatpur-Mungeli Road, Bilaspur',
         summary: 'T&CP approved farmhouse plots positioned for peaceful living and returns.',
-        image: '/images/projects/project-arpa.jpg',
+        image: '/images/projects/gold-farm-house/render.png',
         videoUrl: "https://www.youtube.com/embed/vNDWX4P-BcI?si=ih5Y_qeIGCB2QoDt&rel=0&loop=1&playlist=vNDWX4P-BcI",
         badge: 'Farmhouse Plots',
         status: 'Ongoing',
@@ -453,7 +453,7 @@ export const projects = [
                 {
                     title: "Versatile Spaces",
                     description: "Perfect for weekend homes, organic farming, or a quiet getaway designed by you.",
-                    image: "/images/projects/project-arpa.jpg"
+                    image: "/images/projects/gold-farm-house/render.png"
                 },
                 {
                     title: "Secure Investment",
@@ -466,7 +466,7 @@ export const projects = [
         hero: {
             tagline: "Farmhouse Plots",
             location: "Vill. Jarondha, Takhatpur-Mungeli Road, Bilaspur",
-            bgImage: "/images/projects/project-arpa.jpg",
+            bgImage: "/images/projects/gold-farm-house/render.png",
             badges: ["Farmhouse Plots", "Takhatpur-Mungeli Road"]
         },
         stats: [
