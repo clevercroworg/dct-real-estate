@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -21,6 +21,15 @@ export default function EventGallery({ title, description, images = [] }: EventG
 
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [isExpanded, setIsExpanded] = useState(false);
+    const [shouldPreload, setShouldPreload] = useState(false);
+
+    // Preload rest of images after initial mount to make "Show More" instant
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShouldPreload(true);
+        }, 2500); // Wait 2.5s for initial page load to settle
+        return () => clearTimeout(timer);
+    }, []);
 
     // Progressive loading - initial count
     const InitialCount = 8;
@@ -75,6 +84,19 @@ export default function EventGallery({ title, description, images = [] }: EventG
                         </motion.div>
                     ))}
                 </AnimatePresence>
+
+                {/* Hidden pre-load container: Renders images but keeps them out of layout */}
+                {!isExpanded && shouldPreload && displayImages.slice(InitialCount).map((img, idx) => (
+                    <div key={`preload-${idx}`} className="hidden" aria-hidden="true">
+                        <Image
+                            src={img}
+                            alt="preload"
+                            width={10}
+                            height={10}
+                            priority={false}
+                        />
+                    </div>
+                ))}
             </div>
 
             {hasMore && (

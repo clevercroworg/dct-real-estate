@@ -31,6 +31,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preconnect to speed up icon loading */}
+        <link rel="preconnect" href="https://unpkg.com" />
+        <link rel="dns-prefetch" href="https://unpkg.com" />
+
         <Script
           type="module"
           src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
