@@ -196,7 +196,7 @@ export default function ProjectListing({ projects, initialFilter = 'All' }: Proj
                                     className="w-full bg-slate-50 border border-gray-200 text-[#061B3A] text-sm rounded-lg focus:ring-[#C9A24D] focus:border-[#C9A24D] block p-3 appearance-none cursor-pointer"
                                 >
                                     {options.statuses.map(status => (
-                                        <option key={status} value={status}>{status === 'All' ? 'All Statuses' : status}</option>
+                                        <option key={status} value={status}>{status === 'All' ? 'All Status' : status}</option>
                                     ))}
                                 </select>
                                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-[#061B3A]">

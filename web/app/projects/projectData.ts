@@ -1,169 +1,6 @@
 export const projects = [
     // ONGOING
-    {
-        id: 'anand-vihar',
-        slug: 'anand-vihar',
-        title: 'Anand Vihar',
-        location: 'Akaltara',
-        summary: 'A calm residential community focused on plotted living and everyday convenience.', // Renamed from description for listing
-        image: '/images/projects/project-vihar.jpg',
-        badge: 'Residential',
-        status: 'Ongoing',
-        delay: 0,
-        experience: {
-            title: "Experience Anand Vihar",
-            items: [
-                {
-                    title: "Modern Plotted Living",
-                    description: "Premium residential plots designed for a modern lifestyle with well-planned infrastructure.",
-                    image: "/images/projects/anand-vihar/gallery/AnandVihar - Gallery1.jpeg"
-                },
-                {
-                    title: "Strategic Connectivity",
-                    description: "Excellent location in Akaltara with easy access to daily necessities and transport.",
-                    image: "/images/projects/anand-vihar/gallery/AnandVihar - Gallery2.jpeg"
-                },
-                {
-                    title: "Nature & Progress",
-                    description: "A perfect blend of green surroundings and developmental progress for a balanced life.",
-                    image: "/images/projects/anand-vihar/gallery/AnandVihar - Gallery3.jpeg"
-                }
-            ]
-        },
-        // Detail data would go here
-        hero: {
-            tagline: "Residential",
-            location: "Akaltara",
-            bgImage: "/images/projects/project-vihar.jpg",
-            badges: ["Residential", "Akaltara"]
-        },
-        stats: [
-            { icon: "leaf-outline", label: "Lifestyle", value: "Peaceful Living", description: "A serene environment designed for comfortable family living." },
-            { icon: "home-outline", label: "Type", value: "Residential Plots", description: "Developed plots ready for construction of your dream home." },
-            { icon: "navigate-outline", label: "Location", value: "Akaltara", description: "Strategic location with easy access to daily necessities." }
-        ],
-        overview: {
-            title: "Anand Vihar: Your Gateway to Peaceful Residential Living.",
-            description: "Welcome to Anand Vihar, Akaltara – a premium residential plot project designed for modern living. Strategically located with excellent connectivity, Anand Vihar offers well-planned plots, wide roads, and green surroundings. Perfect for building your dream home or securing a smart investment, this project combines comfort, convenience, and long-term value. Experience a lifestyle that blends nature with progress at Anand Vihar, Akaltara.",
-            details: [
-                { label: "Project Type", value: "Residential Plotted Development" },
-                { label: "Status", value: "Ongoing" },
-                { label: "Location", value: "Akaltara" },
-                { label: "Highlights", value: "Grand Entrance, Clubhouse, Swimming Pool" },
-            ],
-            brochurePoints: [
-                "Grand Entrance Gate & Secured Campus",
-                "Clubhouse & Swimming Pool",
-                "Kids Play Area & Open-Air Gym",
-                "Wide Roads & Underground Electricity"
-            ]
-        },
-        gallery: [
-            "/images/projects/anand-vihar/gallery/AnandVihar - Gallery1.jpeg",
-            "/images/projects/anand-vihar/gallery/AnandVihar - Gallery2.jpeg",
-            "/images/projects/anand-vihar/gallery/AnandVihar - Gallery3.jpeg",
-            "/images/projects/anand-vihar/gallery/AnandVihar - Gallery4.jpeg",
-            "/images/projects/anand-vihar/gallery/AnandVihar - Gallery5.jpeg",
-            "/images/projects/anand-vihar/gallery/AnandVihar - Gallery6.jpeg",
-            "/images/projects/anand-vihar/gallery/AnandVihar - Gallery7.jpeg",
-            "/images/projects/anand-vihar/gallery/AnandVihar - Gallery8.jpeg",
-            "/images/projects/anand-vihar/1.jpg",
-            "/images/projects/anand-vihar/2.jpg",
-            "/images/projects/anand-vihar/3.jpg",
-            "/images/projects/anand-vihar/4.jpg",
-            "/images/projects/anand-vihar/5.jpg",
-            "/images/projects/anand-vihar/6.jpg",
-            "/images/projects/anand-vihar/7.jpg",
-            "/images/projects/anand-vihar/8.jpg",
-            "/images/projects/anand-vihar/9.jpg",
-            "/images/projects/anand-vihar/10.jpg",
-            "/images/projects/anand-vihar/11.jpg",
-            "/images/projects/anand-vihar/12.jpg",
-            "/images/projects/anand-vihar/13.jpg",
-            "/images/projects/anand-vihar/14.jpg"
-        ],
-        amenities: {
-            title: "Essential Amenities for Comfortable Living",
-            list: [
-                { icon: "enter-outline", name: "Grand Entrance Gate" },
-                { icon: "business-outline", name: "Grand Clubhouse" },
-                { icon: "water-outline", name: "Swimming Pool" },
-                { icon: "happy-outline", name: "Kids Play Area" },
-                { icon: "flash-outline", name: "Individual Transformer" },
-                { icon: "fitness-outline", name: "Open-Air Gym" },
-                { icon: "trail-sign-outline", name: "Wide Roads" },
-                { icon: "body-outline", name: "Yoga Center" },
-                { icon: "leaf-outline", name: "Plantation" },
-                { icon: "flower-outline", name: "Lush Green Garden" },
-                { icon: "shield-checkmark-outline", name: "Secured Campus" },
-                { icon: "lock-closed-outline", name: "Security Guard Room" },
-            ]
-        },
-        features: {
-            title: "Property Features",
-            list: [
-                "State-of-the-Art Fitness Center",
-                "Luxurious Swimming Pools",
-                "Spacious Parking Area",
-                "Panoramic Green Views",
-                "Dedicated Children’s Play Zone",
-                "Beautifully Landscaped Gardens",
-                "Premium Modular Kitchen Setup",
-                "Advanced Fire Safety Measures",
-                "Elegant High-Quality Doors",
-                "Well-Designed Storage Spaces",
-                "Polished Marble Flooring"
-            ],
-            imageSrc: "/images/projects/project-vihar.jpg"
-        },
-        locationDetails: {
-            title: "Convenicence at your doorstep",
-            landmarks: [
-                {
-                    category: "Health",
-                    icon: "medkit-outline",
-                    items: [
-                        { name: "CIMS Hospital", type: "General Hospital", distance: "5.5 km", time: "~10 mins" },
-                        { name: "Apollo Hospital", type: "Multi-specialty Hospital", distance: "12 km", time: "~20 mins" },
-                    ]
-                },
-                {
-                    category: "Shopping",
-                    icon: "cart-outline",
-                    items: [
-                        { name: "36 Mall", type: "Shopping Mall", distance: "6.0 km", time: "~12 mins" },
-                        { name: "Magneto Mall", type: "Shopping Mall", distance: "5.5 km", time: "~10 mins" },
-                    ]
-                },
-                {
-                    category: "Education",
-                    icon: "school-outline",
-                    items: [
-                        { name: "LCIT College & School", type: "College & School", distance: "0.0 km", time: "~1 mins" },
-                        { name: "DPS School", type: "Primary & Secondary School", distance: "2.0 km", time: "~5 mins" },
-                    ]
-                },
-                {
-                    category: "Restaurant",
-                    icon: "restaurant-outline",
-                    items: [
-                        { name: "AS Fun", type: "Restaurant", distance: "1.0 km", time: "~3 mins" },
-                    ]
-                },
-                {
-                    category: "Others",
-                    icon: "navigate-outline",
-                    items: [
-                        { name: "Transport Nagar", type: "Commercial Area", distance: "1.0 km", time: "~3 mins" },
-                        { name: "High Court", type: "Government Building", distance: "1.0 km", time: "~3 mins" },
-                        { name: "Nehru Chowk", type: "Public Square", distance: "4.0 km", time: "~6 mins" },
-                        { name: "New Bus Stand", type: "Bus Terminal", distance: "1.0 km", time: "~3 mins" },
-                        { name: "SECL Head Quarter", type: "Corporate Office", distance: "10 km", time: "~15 mins" },
-                    ]
-                }
-            ]
-        }
-    },
+
     {
         id: 'aishwaryam',
         slug: 'aishwaryam',
@@ -557,7 +394,7 @@ export const projects = [
         image: '/images/projects/krishnapuram/1.png',
         videoUrl: "https://www.youtube.com/embed/JGRtiR0RXdI?rel=0&loop=1&playlist=JGRtiR0RXdI",
         badge: 'Residential',
-        status: 'Completed',
+        status: 'Ongoing',
         delay: 0,
         experience: {
             title: "Experience Krishnapuram",
@@ -595,7 +432,7 @@ export const projects = [
             description: "Krishnapuram is one of the finest developed RERA projects in Bilaspur, specifically designed for modern families. It features 6 developed gardens, 2 overhead water tanks, and extensive roadside plantations with wide paved roads. Located conveniently near Bilha Turning on Raipur Road, it offers a secure and well-planned environment with top-notch infrastructure and a focus on community living.",
             details: [
                 { label: "Project Type", value: "Residential Plotted Colony" },
-                { label: "Status", value: "Completed" },
+                { label: "Status", value: "Ongoing" },
                 { label: "Location", value: "Near Bilha Turning" },
                 { label: "RERA Approved", value: "Yes" },
             ],
@@ -936,7 +773,7 @@ export const projects = [
         summary: 'Premium living with wellness amenities, landscaped greens, and a secured campus.',
         image: '/images/verticals/vertical-apartments.jpg',
         badge: 'Residential',
-        status: 'Completed',
+        status: 'Ongoing',
         delay: 300,
         experience: {
             title: "Convenience and Sophistication",
@@ -974,7 +811,7 @@ export const projects = [
             description: "Indu Imperial, located behind the High Court on Raipur Road, Bilaspur, offers an ideal blend of convenience and sophistication. Its prime location ensures easy access to key city landmarks, making it a perfect choice for residential and commercial purposes. Experience modern amenities and a serene environment in this prestigious property, crafted to provide a superior living experience with meticulously planned layouts and infrastructure.",
             details: [
                 { label: "Project Type", value: "Office-Cum-Residence" },
-                { label: "Status", value: "Completed" },
+                { label: "Status", value: "Ongoing" },
                 { label: "Location", value: "Behind High Court, Raipur Rd" },
                 { label: "Theme", value: "Premium Living" },
             ],
