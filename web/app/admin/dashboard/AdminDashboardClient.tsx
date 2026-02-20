@@ -90,21 +90,21 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
                     onClick={() => setActiveTab('contacts')}
                     className={`pb-4 text-sm font-semibold uppercase tracking-wider transition-colors border-b-2 ${activeTab === 'contacts' ? 'border-[#C9A24D] text-[#061B3A]' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
                 >
-                    Contact Info
+                    Enquiry
                 </button>
                 <button
                     onClick={() => setActiveTab('visits')}
                     className={`pb-4 text-sm font-semibold uppercase tracking-wider transition-colors border-b-2 flex items-center gap-2 ${activeTab === 'visits' ? 'border-[#C9A24D] text-[#061B3A]' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
                 >
                     <ion-icon name="calendar-outline" class="text-lg"></ion-icon>
-                    Submitted Requests
+                    Site Visit Request
                 </button>
                 <button
                     onClick={() => setActiveTab('brochures')}
                     className={`pb-4 text-sm font-semibold uppercase tracking-wider transition-colors border-b-2 flex items-center gap-2 ${activeTab === 'brochures' ? 'border-[#C9A24D] text-[#061B3A]' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
                 >
                     <ion-icon name="document-text-outline" class="text-lg"></ion-icon>
-                    Brochure Downloads
+                    Brochure Download
                 </button>
             </div>
 
@@ -131,6 +131,7 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
                         <tr>
                             <th scope="col" className="px-6 py-4 font-semibold w-[20%]">Details</th>
                             {activeTab === 'visits' && <th scope="col" className="px-6 py-4 font-semibold w-[15%]">Tour Date & Time</th>}
+                            <th scope="col" className="px-6 py-4 font-semibold w-[15%]">Project</th>
                             <th scope="col" className="px-6 py-4 font-semibold overflow-hidden">
                                 {activeTab === 'visits' ? 'Note / Subject' : 'Message'}
                             </th>
@@ -159,14 +160,6 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
                             >
                                 <td className="px-6 py-5 align-top">
                                     <div className="font-semibold text-[#061B3A] text-base mb-1">{contact.name}</div>
-                                    {contact.project && (
-                                        <div className="mb-3">
-                                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#C9A24D]/10 text-[#061B3A] text-xs font-medium border border-[#C9A24D]/20">
-                                                <ion-icon name="business-outline" class="text-[#C9A24D]"></ion-icon>
-                                                {contact.project}
-                                            </span>
-                                        </div>
-                                    )}
                                     <div className="space-y-1 mt-2">
                                         {contact.phone && (
                                             <div className="flex items-center gap-2 text-slate-500">
@@ -197,6 +190,19 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
                                         </div>
                                     </td>
                                 )}
+
+                                <td className="px-6 py-5 align-top">
+                                    {contact.project ? (
+                                        <div className="mb-3">
+                                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#C9A24D]/10 text-[#061B3A] text-xs font-medium border border-[#C9A24D]/20">
+                                                <ion-icon name="business-outline" class="text-[#C9A24D]"></ion-icon>
+                                                {contact.project}
+                                            </span>
+                                        </div>
+                                    ) : (
+                                        <span className="text-slate-400 italic text-sm">N/A</span>
+                                    )}
+                                </td>
 
                                 <td className="px-6 py-5 align-top">
                                     {contact.subject && <div className="font-medium text-[#061B3A] mb-1">{contact.subject}</div>}
