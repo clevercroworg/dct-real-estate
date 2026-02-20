@@ -16,6 +16,58 @@ export default function VisitModal() {
         }
         return () => window.removeEventListener('keydown', handleEsc);
     }, [isOpen, closeModal]);
+    const [formData, setFormData] = React.useState({
+        name: '',
+        phone: '',
+        date: '',
+        message: ''
+    });
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
+    const [submitStatus, setSubmitStatus] = React.useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus({ type: null, message: '' });
+
+        try {
+            // Include date in the message for context
+            const fullMessage = `Preferred Visit Date: ${formData.date}\nNotes: ${formData.message}`;
+
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: formData.name,
+                    phone: formData.phone,
+                    subject: 'Schedule a Visit Request',
+                    message: fullMessage
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) throw new Error(data.error || 'Something went wrong');
+
+            setSubmitStatus({ type: 'success', message: 'Visit request submitted successfully!' });
+
+            // Close modal after a short delay on success
+            setTimeout(() => {
+                closeModal();
+                setSubmitStatus({ type: null, message: '' });
+                setFormData({ name: '', phone: '', date: '', message: '' });
+            }, 2000);
+
+        } catch (error: any) {
+            setSubmitStatus({ type: 'error', message: error.message || 'Failed to submit request.' });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     if (!isOpen) return null;
 
@@ -43,42 +95,65 @@ export default function VisitModal() {
                     </button>
                 </div>
 
-                <form className="mt-6 grid gap-4" onSubmit={(e) => { e.preventDefault(); alert('Visit request submitted!'); closeModal(); }}>
-                    <input
-                        type="text"
-                        name="name"
-                        required
-                        placeholder="Full name"
-                        className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors"
-                    />
-                    <input
-                        type="tel"
-                        name="phone"
-                        required
-                        placeholder="Phone number"
-                        className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors"
-                    />
-                    <input
-                        type="date"
-                        name="date"
-                        required
-                        className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors"
-                    />
-                    <textarea
-                        name="message"
-                        rows={3}
-                        placeholder="Preferred time or notes"
-                        className="w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors resize-none"
-                    ></textarea>
+                {submitStatus.type === 'success' ? (
+                    <div className="mt-8 text-center py-8">
+                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mb-4">
+                            <ion-icon name="checkmark-outline" class="text-3xl"></ion-icon>
+                        </div>
+                        <h4 className="text-xl font-bold text-[#061B3A] mb-2">Request Received</h4>
+                        <p className="text-slate-600">We'll be in touch shortly to confirm your visit.</p>
+                    </div>
+                ) : (
+                    <form className="mt-6 grid gap-4" onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            name="name"
+                            required
+                            placeholder="Full name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors"
+                        />
+                        <input
+                            type="tel"
+                            name="phone"
+                            required
+                            placeholder="Phone number"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors"
+                        />
+                        <input
+                            type="date"
+                            name="date"
+                            required
+                            value={formData.date}
+                            onChange={handleChange}
+                            className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors"
+                        />
+                        <textarea
+                            name="message"
+                            rows={3}
+                            placeholder="Preferred time or notes"
+                            value={formData.message}
+                            onChange={handleChange}
+                            className="w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors resize-none"
+                        ></textarea>
 
-                    <button
-                        type="submit"
-                        className="rounded-full w-full justify-center inline-flex items-center gap-2 px-4 py-3 text-xs tracking-widest font-semibold uppercase bg-[#061B3A] text-white hover:bg-[#0B2550] transition-colors"
-                    >
-                        <ion-icon name="calendar-outline"></ion-icon>
-                        Submit request
-                    </button>
-                </form>
+                        {submitStatus.type === 'error' && (
+                            <div className="text-red-500 text-sm px-2">{submitStatus.message}</div>
+                        )}
+
+                        <button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="rounded-full w-full justify-center inline-flex items-center gap-2 px-4 py-3 text-xs tracking-widest font-semibold uppercase bg-[#061B3A] text-white hover:bg-[#0B2550] transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                        >
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            {isSubmitting ? 'Submitting...' : 'Submit request'}
+                        </button>
+                    </form>
+                )}
             </div>
         </div>
     );

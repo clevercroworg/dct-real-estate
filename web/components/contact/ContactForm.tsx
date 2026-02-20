@@ -10,19 +10,42 @@ export default function ContactForm() {
         subject: '',
         message: ''
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Form submitted:', formData);
-        alert('Thank you for your message. We will get back to you shortly.');
-        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-    };
+        setIsSubmitting(true);
+        setSubmitStatus({ type: null, message: '' });
 
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Something went wrong');
+            }
+
+            // Redirect to the existing Thank You page
+            window.location.href = '/thank-you';
+
+        } catch (error: any) {
+            setSubmitStatus({ type: 'error', message: error.message || 'Failed to submit form. Please try again.' });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
     return (
         <div className="bg-[#F9F9F7] rounded-3xl p-8 lg:p-10 shadow-sm border border-slate-200">
             <h2 className="font-heading text-3xl font-bold text-[#061B3A] text-center mb-8">
@@ -107,13 +130,21 @@ export default function ContactForm() {
                     I authorize DCT Real Estate to contact me about offers via call, SMS, email, or WhatsApp, overriding any DNC/NDNC.
                 </div>
 
+                {/* Status Message */}
+                {submitStatus.type && (
+                    <div className={`p-4 rounded-xl text-sm ${submitStatus.type === 'success' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'}`}>
+                        {submitStatus.message}
+                    </div>
+                )}
+
                 {/* Submit Button */}
                 <div className="text-center pt-2">
                     <button
                         type="submit"
-                        className="inline-block px-10 py-4 bg-brand-gold text-white font-bold rounded-lg shadow-lg hover:bg-[#d4b15f] hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                        disabled={isSubmitting}
+                        className="inline-block px-10 py-4 bg-brand-gold text-white font-bold rounded-lg shadow-lg hover:bg-[#d4b15f] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed"
                     >
-                        Submit
+                        {isSubmitting ? 'Sending...' : 'Submit'}
                     </button>
                 </div>
             </form>
