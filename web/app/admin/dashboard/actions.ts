@@ -16,9 +16,14 @@ export async function toggleContactStatus(id: string, currentStatus: string) {
 }
 
 export async function deleteContact(id: string) {
-    await prisma.contact.delete({
-        where: { id }
-    })
+    try {
+        await prisma.contact.delete({
+            where: { id }
+        })
+    } catch (error) {
+        // Record might already be deleted. Catch to prevent 500 errors from bubbling up
+        console.warn(`Contact ${id} was already deleted or not found.`)
+    }
 
     revalidatePath('/admin/dashboard')
     return true

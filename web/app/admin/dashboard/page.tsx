@@ -10,7 +10,8 @@ export const metadata = {
     description: 'Manage enquiries and leads',
 }
 
-export const revalidate = 0 // Disable aggressive caching for dashboard
+export const dynamic = 'force-dynamic' // Force dynamic rendering and skip caching
+export const fetchCache = 'force-no-store'
 
 export default async function AdminDashboard() {
     const session = await getServerSession(authOptions)
