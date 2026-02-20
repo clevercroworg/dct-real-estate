@@ -1,19 +1,18 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Hero from '../components/home/Hero';
-import Marquee from '../components/home/Marquee';
-import AboutSection from '../components/home/AboutSection';
+
+import Hero from '../../components/home/Hero';
+import Marquee from '../../components/home/Marquee';
+import AboutSection from '../../components/home/AboutSection';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const NewLaunches = dynamic(() => import('../components/home/NewLaunches'));
-const Verticals = dynamic(() => import('../components/home/Verticals'));
-const FeaturedProjects = dynamic(() => import('../components/home/FeaturedProjects'));
-const WhyDCT = dynamic(() => import('../components/home/WhyDCT'));
-const FinalCTA = dynamic(() => import('../components/home/FinalCTA'));
-const Testimonials = dynamic(() => import('../components/home/Testimonials'));
-const DisclaimerPopup = dynamic(() => import('../components/home/DisclaimerPopup'));
+const NewLaunches = dynamic(() => import('../../components/home/NewLaunches'));
+const Verticals = dynamic(() => import('../../components/home/Verticals'));
+const FeaturedProjects = dynamic(() => import('../../components/home/FeaturedProjects'));
+const WhyDCT = dynamic(() => import('../../components/home/WhyDCT'));
+const FinalCTA = dynamic(() => import('../../components/home/FinalCTA'));
+const Testimonials = dynamic(() => import('../../components/home/Testimonials'));
+const DisclaimerPopup = dynamic(() => import('../../components/home/DisclaimerPopup'));
 
 export default function Home() {
   return (
