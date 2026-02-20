@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { format } from 'date-fns'
-import { toggleContactStatus, deleteContact } from './actions'
+import { toggleContactStatus } from './actions'
 
 type Contact = {
     id: string;
@@ -61,21 +61,6 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
         } catch (err) {
             console.error('Failed to update status:', err)
             alert('Failed to update status. Please try again.')
-        } finally {
-            setUpdatingId(null)
-        }
-    }
-
-    const handleDelete = async (id: string) => {
-        if (!confirm('Are you sure you want to delete this message? This action cannot be undone.')) return
-
-        setUpdatingId(id)
-        try {
-            await deleteContact(id)
-            setContacts(contacts.filter(c => c.id !== id))
-        } catch (err) {
-            console.error('Failed to delete contact:', err)
-            alert('Failed to delete message. Please try again.')
         } finally {
             setUpdatingId(null)
         }
@@ -242,14 +227,6 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
                                                 name={contact.status === 'unread' ? "checkmark-done-outline" : "return-up-back-outline"}
                                                 class="text-lg"
                                             ></ion-icon>
-                                        </button>
-                                        <button
-                                            onClick={() => handleDelete(contact.id)}
-                                            disabled={updatingId === contact.id}
-                                            className="inline-flex items-center justify-center p-2 rounded-lg transition-all bg-red-50 text-red-600 hover:bg-red-100 hover:text-red-700 disabled:opacity-50"
-                                            title="Delete contact"
-                                        >
-                                            <ion-icon name="trash-outline" class="text-lg"></ion-icon>
                                         </button>
                                     </div>
                                 </td>
