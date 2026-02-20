@@ -8,7 +8,7 @@ interface ProjectHeroProps {
     tagline: string;
     location: string;
     bgImage: string;
-    videoUrl?: string; // If we want a video background later
+    videoUrl?: string | string[]; // If we want a video background later
     badges: string[];
 }
 
@@ -21,6 +21,8 @@ export default function ProjectHero({
     videoUrl,
 }: ProjectHeroProps) {
     const { openModal } = useVisitModal();
+    const heroVideo = Array.isArray(videoUrl) ? videoUrl[0] : videoUrl;
+
     return (
         <section className="pt-24 pb-8">
             <div className="relative w-full overflow-hidden rounded-b-[38px] min-h-[45vh] lg:min-h-[48vh] shadow-2xl group">
@@ -105,10 +107,10 @@ export default function ProjectHero({
                         <div className="w-full hidden lg:block">
                             <div className="relative w-full overflow-hidden rounded-3xl shadow-2xl bg-black border border-white/10 group-hover:border-[#C9A24D]/30 transition-colors">
                                 <div className="aspect-video">
-                                    {videoUrl ? (
+                                    {heroVideo ? (
                                         <iframe
                                             className="w-full h-full"
-                                            src={videoUrl}
+                                            src={heroVideo}
                                             title="project video"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowFullScreen

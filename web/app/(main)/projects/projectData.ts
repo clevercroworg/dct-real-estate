@@ -8,6 +8,7 @@ export const projects = [
         location: 'Opp. LCIT College, Raipur Road, Bilaspur',
         summary: 'T&CP approved layout with strong road access on NH 130.',
         image: '/images/projects/project-aishwaryam.png',
+        videoUrl: "https://www.youtube.com/embed/DwqckOC0Nxc?rel=0&loop=1&playlist=DwqckOC0Nxc",
         badge: 'Clubhouse',
         status: 'Ongoing',
         rera: 'RERA: PCGRERA220824001808',
@@ -37,7 +38,8 @@ export const projects = [
             tagline: "Commercial",
             location: "Opp. LCIT College, Raipur Road, Bilaspur",
             bgImage: "/images/projects/project-aishwaryam.png",
-            badges: ["Clubhouse", "NH 130"]
+            badges: ["Clubhouse", "NH 130"],
+            brochureLink: "/brochures/aishwaryam.pdf"
         },
         stats: [
             { icon: "business-outline", label: "Commercial", value: "Business Hub", description: "Premium commercial spaces designed for high visibility and footfall." },
@@ -122,7 +124,10 @@ export const projects = [
         location: 'In front of LCIT College, Raipur Road, Bilaspur',
         summary: 'Farmhouse living on NH 130 with curated open spaces and club-style amenities.',
         image: '/images/projects/project-chitvan.jpg',
-        videoUrl: "https://www.youtube.com/embed/Zi4Ye0T2eHI?rel=0&loop=1&playlist=Zi4Ye0T2eHI",
+        videoUrl: [
+            "https://www.youtube.com/embed/MRJO9cCIJW0?rel=0&loop=1&playlist=MRJO9cCIJW0",
+            "https://www.youtube.com/embed/Zi4Ye0T2eHI?rel=0&loop=1&playlist=Zi4Ye0T2eHI"
+        ],
         badge: 'Farmhouse',
         status: 'Ongoing',
         rera: 'RERA: PCGRERA060524001774',
@@ -151,7 +156,8 @@ export const projects = [
             tagline: "Farmhouse",
             location: "Mohda Mod, Bhojpuri Toll Plaza, NH 130, Bilaspur (C.G.)",
             bgImage: "/images/projects/chitvan-farm/gallery/Chitvan - hero.jpeg",
-            badges: ["Integrated Farmhouse Living", "Bilaspur – Raipur NH 130"]
+            badges: ["Integrated Farmhouse Living", "Bilaspur – Raipur NH 130"],
+            brochureLink: "/brochures/chitvan-farm.pdf"
         },
         stats: [
             { icon: "leaf-outline", label: "Signature", value: "Living Ecosystem", description: "Greens, water, and open spaces designed to breathe." },
@@ -275,7 +281,10 @@ export const projects = [
         location: 'Vill. Jarondha, Takhatpur-Mungeli Road, Bilaspur',
         summary: 'T&CP approved farmhouse plots positioned for peaceful living and returns.',
         image: '/images/projects/gold-farm-house/render.png',
-        videoUrl: "https://www.youtube.com/embed/cvFB6bkUs1Y?rel=0&loop=1&playlist=cvFB6bkUs1Y",
+        videoUrl: [
+            "https://www.youtube.com/embed/2OFrd710YDM?rel=0&loop=1&playlist=2OFrd710YDM",
+            "https://www.youtube.com/embed/cvFB6bkUs1Y?rel=0&loop=1&playlist=cvFB6bkUs1Y"
+        ],
         badge: 'Farmhouse Plots',
         status: 'Ongoing',
         delay: 300,
@@ -392,7 +401,10 @@ export const projects = [
         location: 'Near Bilha Turning, Raipur Road, Bilaspur',
         summary: 'RERA-approved plotted community with landscaped zones and planned infrastructure.',
         image: '/images/projects/krishnapuram/1.png',
-        videoUrl: "https://www.youtube.com/embed/JGRtiR0RXdI?rel=0&loop=1&playlist=JGRtiR0RXdI",
+        videoUrl: [
+            "https://www.youtube.com/embed/0yYGpVtPqK4?rel=0&loop=1&playlist=0yYGpVtPqK4",
+            "https://www.youtube.com/embed/JGRtiR0RXdI?rel=0&loop=1&playlist=JGRtiR0RXdI"
+        ],
         badge: 'Residential',
         status: 'Ongoing',
         delay: 0,
@@ -772,6 +784,7 @@ export const projects = [
         location: 'Behind High Court, Raipur Road, Bilaspur',
         summary: 'Premium living with wellness amenities, landscaped greens, and a secured campus.',
         image: '/images/verticals/vertical-apartments.jpg',
+        videoUrl: "https://www.youtube.com/embed/iJOceBofeG8?rel=0&loop=1&playlist=iJOceBofeG8",
         badge: 'Residential',
         status: 'Ongoing',
         delay: 300,

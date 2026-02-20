@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 interface StickyContactBarProps {
     onOpenModal: () => void;
     phone?: string;
@@ -9,8 +11,21 @@ export default function StickyContactBar({
     phone = "6264883066",
     whatsapp = "916264883066"
 }: StickyContactBarProps) {
+    const [isVisible, setIsVisible] = useState(true);
+
+    useEffect(() => {
+        const handleMenuToggle = (e: Event) => {
+            const customEvent = e as CustomEvent<{ isOpen: boolean }>;
+            setIsVisible(!customEvent.detail.isOpen);
+        };
+        window.addEventListener('mobile-menu-toggled', handleMenuToggle);
+        return () => window.removeEventListener('mobile-menu-toggled', handleMenuToggle);
+    }, []);
+
+    if (!isVisible) return null;
+
     return (
-        <div className="fixed bottom-4 left-0 right-0 z-50">
+        <div className="fixed bottom-4 left-0 right-0 z-50 transition-opacity duration-300" id="sticky-contact-bar">
             <div className="max-w-4xl mx-auto px-4">
                 <div className="bg-[#061B3A] text-white rounded-2xl shadow-2xl px-5 py-3 flex items-center justify-between gap-4 border border-white/10 backdrop-blur-md bg-opacity-95">
                     <a

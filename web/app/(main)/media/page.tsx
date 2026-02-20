@@ -2,6 +2,7 @@
 
 import EventGallery from '@/components/media/EventGallery';
 import MediaCTA from '@/components/media/MediaCTA';
+import Recognitions from '@/components/media/Recognitions';
 import { mediaEvents } from './mediaData';
 import Image from 'next/image';
 
@@ -32,14 +33,19 @@ export default function MediaPage() {
             {/* CONTENT */}
             <section className="py-20 px-6 lg:px-8 max-w-7xl mx-auto">
 
-                {mediaEvents.map((event) => (
-                    <EventGallery
-                        key={event.id}
-                        title={event.title}
-                        description={event.description}
-                        images={event.images}
-                    />
-                ))}
+                <Recognitions />
+
+                <div className="mt-20">
+                    <h2 className="font-heading text-3xl font-bold text-[#061B3A] text-center mb-12">Event Galleries</h2>
+                    {mediaEvents.map((event) => (
+                        <EventGallery
+                            key={event.id}
+                            title={event.title}
+                            description={event.description}
+                            images={event.images}
+                        />
+                    ))}
+                </div>
 
             </section>
 

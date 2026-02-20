@@ -4,7 +4,7 @@ import Image from 'next/image';
 interface ProjectGalleryProps {
     title?: string;
     description?: string;
-    videoUrl?: string; // YouTube embed URL
+    videoUrl?: string | string[]; // YouTube embed URL or array of URLs
     images?: string[];
 }
 
@@ -49,27 +49,39 @@ export default function ProjectGallery({ title, description, videoUrl, images }:
 
                 {/* Video Main */}
                 <div className="max-w-5xl mx-auto mb-12">
-                    <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-black ring-1 ring-white/10">
-                        <div className="aspect-video">
-                            {videoUrl ? (
-                                <iframe
-                                    className="w-full h-full"
-                                    src={videoUrl}
-                                    title={`${displayTitle} video`}
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                >
-                                </iframe>
-                            ) : (
-                                <div className="w-full h-full bg-white/5 flex items-center justify-center">
-                                    <div className="text-center">
-                                        <ion-icon name="videocam-off-outline" class="text-5xl text-white/10 mb-3"></ion-icon>
-                                        <p className="text-white/20 text-sm tracking-widest uppercase">Video Walkthrough Coming Soon</p>
+                    {(() => {
+                        const urls = Array.isArray(videoUrl) ? videoUrl : (videoUrl ? [videoUrl] : []);
+
+                        if (urls.length > 0) {
+                            return (
+                                <div className={`grid gap-6 ${urls.length > 1 ? 'md:grid-cols-2' : 'grid-cols-1'}`}>
+                                    {urls.map((url, idx) => (
+                                        <div key={idx} className="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-black ring-1 ring-white/10 aspect-video">
+                                            <iframe
+                                                className="w-full h-full"
+                                                src={url}
+                                                title={`${displayTitle} video ${idx + 1}`}
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                            >
+                                            </iframe>
+                                        </div>
+                                    ))}
+                                </div>
+                            );
+                        } else {
+                            return (
+                                <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl bg-black ring-1 ring-white/10 aspect-video">
+                                    <div className="w-full h-full bg-white/5 flex items-center justify-center">
+                                        <div className="text-center">
+                                            <ion-icon name="videocam-off-outline" class="text-5xl text-white/10 mb-3"></ion-icon>
+                                            <p className="text-white/20 text-sm tracking-widest uppercase">Video Walkthrough Coming Soon</p>
+                                        </div>
                                     </div>
                                 </div>
-                            )}
-                        </div>
-                    </div>
+                            );
+                        }
+                    })()}
                 </div>
 
                 {/* Image Grid */}

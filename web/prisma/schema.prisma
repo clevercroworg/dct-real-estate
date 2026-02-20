@@ -19,13 +19,16 @@ model User {
 }
 
 model Contact {
-  id        String   @id @default(cuid())
-  name      String
-  email     String?
-  phone     String?
-  subject   String?
-  project   String?
-  message   String?  @db.Text
-  status    String   @default("unread")
-  createdAt DateTime @default(now())
+  id         String   @id @default(cuid())
+  name       String
+  email      String?
+  phone      String?
+  subject    String?
+  project    String?
+  visitDate  String?
+  visitTime  String?
+  message    String?  @db.Text
+  status     String   @default("unread")
+  isBrochureDownload Boolean @default(false)
+  createdAt  DateTime @default(now())
 }

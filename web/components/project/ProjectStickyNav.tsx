@@ -1,13 +1,25 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useVisitModal } from './VisitModalContext';
 
 export default function ProjectStickyNav({ projectName }: { projectName?: string }) {
     const { openModal } = useVisitModal();
+    const [isVisible, setIsVisible] = useState(true);
+
+    useEffect(() => {
+        const handleMenuToggle = (e: Event) => {
+            const customEvent = e as CustomEvent<{ isOpen: boolean }>;
+            setIsVisible(!customEvent.detail.isOpen);
+        };
+        window.addEventListener('mobile-menu-toggled', handleMenuToggle);
+        return () => window.removeEventListener('mobile-menu-toggled', handleMenuToggle);
+    }, []);
+
+    if (!isVisible) return null;
 
     return (
-        <div className="fixed bottom-4 left-0 right-0 z-50 animate-in slide-in-from-bottom duration-500">
+        <div className="fixed bottom-4 left-0 right-0 z-50 animate-in slide-in-from-bottom duration-500" id="project-sticky-nav">
             <div className="max-w-4xl mx-auto px-4">
                 <div className="bg-[#061B3A] text-white rounded-2xl shadow-2xl px-5 py-3 flex items-center justify-between gap-4 border border-white/10 backdrop-blur-sm">
                     {/* Chat with us */}

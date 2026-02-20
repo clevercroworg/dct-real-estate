@@ -11,6 +11,9 @@ type Contact = {
     phone: string | null;
     subject: string | null;
     project: string | null;
+    visitDate: string | null;
+    visitTime: string | null;
+    isBrochureDownload: boolean;
     message: string | null;
     status: string;
     createdAt: Date | string;
@@ -20,9 +23,21 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
     const [contacts, setContacts] = useState<Contact[]>(initialContacts)
     const [updatingId, setUpdatingId] = useState<string | null>(null)
     const [searchQuery, setSearchQuery] = useState('')
+    const [activeTab, setActiveTab] = useState<'contacts' | 'visits' | 'brochures'>('visits')
 
+    // First filter by tab type
+    const typedContacts = useMemo(() => {
+        return contacts.filter(c => {
+            if (activeTab === 'brochures') return c.isBrochureDownload;
+
+            const isVisit = !!(c.visitDate || c.visitTime);
+            return activeTab === 'visits' ? isVisit && !c.isBrochureDownload : !isVisit && !c.isBrochureDownload;
+        });
+    }, [contacts, activeTab]);
+
+    // Then filter by search query
     const filteredContacts = useMemo(() => {
-        return contacts.filter(contact => {
+        return typedContacts.filter(contact => {
             if (!searchQuery) return true
             const term = searchQuery.toLowerCase()
             return contact.name.toLowerCase().includes(term) ||
@@ -31,7 +46,7 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
                 (contact.project && contact.project.toLowerCase().includes(term)) ||
                 (contact.message && contact.message.toLowerCase().includes(term))
         })
-    }, [contacts, searchQuery])
+    }, [typedContacts, searchQuery])
 
     const toggleStatus = async (id: string, currentStatus: string) => {
         setUpdatingId(id)
@@ -66,34 +81,47 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
         }
     }
 
-    if (contacts.length === 0) {
-        return (
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-12 text-center">
-                <div className="w-16 h-16 bg-slate-50 text-slate-300 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <ion-icon name="mail-open-outline" class="text-3xl"></ion-icon>
-                </div>
-                <h3 className="text-lg font-semibold text-[#061B3A] mb-1">No enquiries yet</h3>
-                <p className="text-slate-500">When someone submits a form on the website, it will appear here.</p>
-            </div>
-        )
-    }
-
     return (
         <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
+
+            {/* Tabs Navigation */}
+            <div className="flex border-b border-slate-200 px-6 pt-4 bg-slate-50/50 gap-6">
+                <button
+                    onClick={() => setActiveTab('contacts')}
+                    className={`pb-4 text-sm font-semibold uppercase tracking-wider transition-colors border-b-2 ${activeTab === 'contacts' ? 'border-[#C9A24D] text-[#061B3A]' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
+                >
+                    Contact Info
+                </button>
+                <button
+                    onClick={() => setActiveTab('visits')}
+                    className={`pb-4 text-sm font-semibold uppercase tracking-wider transition-colors border-b-2 flex items-center gap-2 ${activeTab === 'visits' ? 'border-[#C9A24D] text-[#061B3A]' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
+                >
+                    <ion-icon name="calendar-outline" class="text-lg"></ion-icon>
+                    Submitted Requests
+                </button>
+                <button
+                    onClick={() => setActiveTab('brochures')}
+                    className={`pb-4 text-sm font-semibold uppercase tracking-wider transition-colors border-b-2 flex items-center gap-2 ${activeTab === 'brochures' ? 'border-[#C9A24D] text-[#061B3A]' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
+                >
+                    <ion-icon name="document-text-outline" class="text-lg"></ion-icon>
+                    Brochure Downloads
+                </button>
+            </div>
+
             {/* Toolbar: Search and Filter */}
-            <div className="p-4 border-b border-slate-100 bg-slate-50 flex items-center justify-between gap-4 flex-wrap">
+            <div className="p-4 border-b border-slate-100 bg-white flex items-center justify-between gap-4 flex-wrap">
                 <div className="relative flex-1 max-w-md w-full">
                     <ion-icon name="search-outline" class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg"></ion-icon>
                     <input
                         type="text"
-                        placeholder="Search by name, email, or subject..."
+                        placeholder={`Search ${activeTab === 'visits' ? 'requests' : 'contacts'}...`}
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#C9A24D] focus:ring-1 focus:ring-[#C9A24D] outline-none transition-all text-sm bg-white shadow-sm"
+                        className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#C9A24D] focus:ring-1 focus:ring-[#C9A24D] outline-none transition-all text-sm bg-slate-50 shadow-sm"
                     />
                 </div>
                 <div className="text-sm font-medium text-slate-500 hidden sm:block">
-                    Showing {filteredContacts.length} {filteredContacts.length === 1 ? 'enquiry' : 'enquiries'}
+                    Showing {filteredContacts.length} {filteredContacts.length === 1 ? 'entry' : 'entries'}
                 </div>
             </div>
 
@@ -102,21 +130,26 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
                     <thead className="text-xs text-[#061B3A] uppercase bg-slate-50/80 border-b border-slate-100">
                         <tr>
                             <th scope="col" className="px-6 py-4 font-semibold w-[20%]">Details</th>
-                            <th scope="col" className="px-6 py-4 font-semibold w-[45%]">Message</th>
-                            <th scope="col" className="px-6 py-4 font-semibold w-[15%] text-center">Date</th>
+                            {activeTab === 'visits' && <th scope="col" className="px-6 py-4 font-semibold w-[15%]">Tour Date & Time</th>}
+                            <th scope="col" className="px-6 py-4 font-semibold overflow-hidden">
+                                {activeTab === 'visits' ? 'Note / Subject' : 'Message'}
+                            </th>
+                            <th scope="col" className="px-6 py-4 font-semibold w-[12%] text-center">Submitted</th>
                             <th scope="col" className="px-6 py-4 font-semibold w-[10%] text-center">Status</th>
                             <th scope="col" className="px-6 py-4 font-semibold w-[10%] text-right">Actions</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-100">
+                    <tbody className="divide-y divide-slate-100 bg-white">
                         {filteredContacts.length === 0 ? (
                             <tr>
-                                <td colSpan={5} className="px-6 py-12 text-center">
-                                    <div className="text-slate-400 mb-2">
-                                        <ion-icon name="search-outline" class="text-4xl opacity-50"></ion-icon>
+                                <td colSpan={6} className="px-6 py-16 text-center">
+                                    <div className="text-slate-300 mb-3 flex justify-center">
+                                        <ion-icon name={activeTab === 'visits' ? 'calendar-clear-outline' : activeTab === 'brochures' ? 'document-text-outline' : 'mail-open-outline'} style={{ fontSize: '48px' }}></ion-icon>
                                     </div>
-                                    <h3 className="text-base font-medium text-slate-600">No matching enquiries found</h3>
-                                    <p className="text-sm text-slate-500 mt-1">Try adjusting your search query.</p>
+                                    <h3 className="text-lg font-medium text-[#061B3A]">No {activeTab} found</h3>
+                                    <p className="text-sm text-slate-500 mt-1">
+                                        {searchQuery ? 'Try adjusting your search query.' : 'When someone submits a form, it will appear here.'}
+                                    </p>
                                 </td>
                             </tr>
                         ) : filteredContacts.map((contact) => (
@@ -134,15 +167,15 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
                                             </span>
                                         </div>
                                     )}
-                                    <div className="space-y-1">
+                                    <div className="space-y-1 mt-2">
                                         {contact.phone && (
                                             <div className="flex items-center gap-2 text-slate-500">
                                                 <ion-icon name="call-outline"></ion-icon>
-                                                <a href={`tel:${contact.phone}`} className="hover:text-[#C9A24D] transition-colors">{contact.phone}</a>
+                                                <a href={`tel:${contact.phone}`} className="hover:text-[#C9A24D] font-medium transition-colors">{contact.phone}</a>
                                             </div>
                                         )}
                                         {contact.email && (
-                                            <div className="flex items-center gap-2 text-slate-500">
+                                            <div className="flex items-center gap-2 text-slate-500 mt-1">
                                                 <ion-icon name="mail-outline"></ion-icon>
                                                 <a href={`mailto:${contact.email}`} className="hover:text-[#C9A24D] transition-colors truncate block max-w-[150px]" title={contact.email}>{contact.email}</a>
                                             </div>
@@ -150,9 +183,24 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
                                     </div>
                                 </td>
 
+                                {activeTab === 'visits' && (
+                                    <td className="px-6 py-5 align-top">
+                                        <div className="flex flex-col gap-2">
+                                            <span className="inline-flex items-center gap-2 text-sm text-[#061B3A] font-medium">
+                                                <ion-icon name="calendar" class="text-slate-400"></ion-icon>
+                                                {contact.visitDate ? format(new Date(contact.visitDate), 'dd MMM yyyy') : 'No date'}
+                                            </span>
+                                            <span className="inline-flex items-center gap-2 text-sm text-slate-500">
+                                                <ion-icon name="time-outline" class="text-slate-400"></ion-icon>
+                                                {contact.visitTime || 'No time'}
+                                            </span>
+                                        </div>
+                                    </td>
+                                )}
+
                                 <td className="px-6 py-5 align-top">
-                                    <div className="font-medium text-[#061B3A] mb-1">{contact.subject}</div>
-                                    <p className="text-slate-600 whitespace-pre-wrap leading-relaxed">{contact.message}</p>
+                                    {contact.subject && <div className="font-medium text-[#061B3A] mb-1">{contact.subject}</div>}
+                                    <p className="text-slate-600 whitespace-pre-wrap leading-relaxed text-sm">{contact.message || <span className="text-slate-400 italic">No message provided.</span>}</p>
                                 </td>
 
                                 <td className="px-6 py-5 align-top text-center whitespace-nowrap">
@@ -166,7 +214,7 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
 
                                 <td className="px-6 py-5 align-top text-center">
                                     <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border ${contact.status === 'unread'
-                                        ? 'bg-amber-50 text-amber-700 border-amber-200'
+                                        ? 'bg-amber-50 text-amber-700 border-amber-200 shadow-sm'
                                         : 'bg-green-50 text-green-700 border-green-200'
                                         }`}>
                                         {contact.status === 'unread' ? 'New' : 'Read'}

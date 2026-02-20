@@ -16,6 +16,11 @@
     @apply font-body text-text-primary bg-white;
   }
 
+  body.mobile-menu-open #sticky-contact-bar,
+  body.mobile-menu-open #project-sticky-nav {
+    display: none !important;
+  }
+
   h1,
   h2,
   h3,

@@ -17,15 +17,27 @@ export default function VisitModal() {
         return () => window.removeEventListener('keydown', handleEsc);
     }, [isOpen, closeModal]);
     const [formData, setFormData] = React.useState({
-        name: '',
+        firstName: '',
+        lastName: '',
+        email: '',
         phone: '',
         date: '',
+        time: '',
+        project: '',
         message: ''
     });
+
+    // Auto-fill the project when the modal opens with a context project name
+    useEffect(() => {
+        if (projectName) {
+            setFormData(prev => ({ ...prev, project: projectName }));
+        }
+    }, [projectName, isOpen]);
+
     const [isSubmitting, setIsSubmitting] = React.useState(false);
     const [submitStatus, setSubmitStatus] = React.useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
@@ -35,19 +47,16 @@ export default function VisitModal() {
         setSubmitStatus({ type: null, message: '' });
 
         try {
-            // Include date in the message for context
-            const fullMessage = `Preferred Visit Date: ${formData.date}\nNotes: ${formData.message}`;
-
-            const payload: any = {
-                name: formData.name,
+            const payload = {
+                name: `${formData.firstName} ${formData.lastName}`.trim(),
+                email: formData.email,
                 phone: formData.phone,
                 subject: 'Schedule a Visit Request',
-                message: fullMessage
+                visitDate: formData.date,
+                visitTime: formData.time,
+                project: formData.project || projectName,
+                message: formData.message
             };
-
-            if (projectName) {
-                payload.project = projectName;
-            }
 
             const response = await fetch('/api/contact', {
                 method: 'POST',
@@ -65,7 +74,7 @@ export default function VisitModal() {
             setTimeout(() => {
                 closeModal();
                 setSubmitStatus({ type: null, message: '' });
-                setFormData({ name: '', phone: '', date: '', message: '' });
+                setFormData({ firstName: '', lastName: '', email: '', phone: '', date: '', time: '', project: '', message: '' });
             }, 2000);
 
         } catch (error: any) {
@@ -91,7 +100,7 @@ export default function VisitModal() {
                     <div>
                         <p className="text-xs uppercase tracking-[0.3em] text-[#C9A24D]">Schedule a Visit</p>
                         <h3 className="font-heading text-2xl font-semibold text-[#061B3A] mt-2">
-                            {projectName ? `Plan your visit to ${projectName}` : 'Plan your walkthrough'}
+                            Schedule a tour today
                         </h3>
                     </div>
                     <button
@@ -113,12 +122,33 @@ export default function VisitModal() {
                     </div>
                 ) : (
                     <form className="mt-6 grid gap-4" onSubmit={handleSubmit}>
+                        <div className="grid grid-cols-2 gap-4">
+                            <input
+                                type="text"
+                                name="firstName"
+                                required
+                                placeholder="First name"
+                                value={formData.firstName}
+                                onChange={handleChange}
+                                className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors"
+                            />
+                            <input
+                                type="text"
+                                name="lastName"
+                                required
+                                placeholder="Last name"
+                                value={formData.lastName}
+                                onChange={handleChange}
+                                className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors"
+                            />
+                        </div>
+
                         <input
-                            type="text"
-                            name="name"
+                            type="email"
+                            name="email"
                             required
-                            placeholder="Full name"
-                            value={formData.name}
+                            placeholder="Email address"
+                            value={formData.email}
                             onChange={handleChange}
                             className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors"
                         />
@@ -126,23 +156,53 @@ export default function VisitModal() {
                             type="tel"
                             name="phone"
                             required
-                            placeholder="Phone number"
+                            placeholder="Mobile *"
                             value={formData.phone}
                             onChange={handleChange}
                             className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors"
                         />
-                        <input
-                            type="date"
-                            name="date"
-                            required
-                            value={formData.date}
+
+                        <div className="grid grid-cols-2 gap-4">
+                            <input
+                                type="date"
+                                name="date"
+                                required
+                                value={formData.date}
+                                onChange={handleChange}
+                                className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm text-slate-500 focus:outline-none focus:border-[#C9A24D] transition-colors"
+                            />
+                            <input
+                                type="time"
+                                name="time"
+                                required
+                                value={formData.time}
+                                onChange={handleChange}
+                                className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm text-slate-500 focus:outline-none focus:border-[#C9A24D] transition-colors"
+                            />
+                        </div>
+
+                        <select
+                            name="project"
+                            value={formData.project}
                             onChange={handleChange}
-                            className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors"
-                        />
+                            className="w-full border border-gray-200 rounded-full px-4 py-2.5 text-sm text-slate-500 bg-white focus:outline-none focus:border-[#C9A24D] transition-colors"
+                            required
+                        >
+                            <option value="" disabled>Select project</option>
+                            <option value="Aishwaryam">Aishwaryam</option>
+                            <option value="Chitvan Farm">Chitvan Farm</option>
+                            <option value="Gold Farm House">Gold Farm House</option>
+                            <option value="Krishnapuram">Krishnapuram</option>
+                            <option value="Bilaspur Textile Market">Bilaspur Textile Market</option>
+                            <option value="Shri Ram Park">Shri Ram Park</option>
+                            <option value="Induimperial">Induimperial</option>
+                            <option value="Other">Other / Not Sure</option>
+                        </select>
+
                         <textarea
                             name="message"
-                            rows={3}
-                            placeholder="Preferred time or notes"
+                            rows={2}
+                            placeholder="Add a note"
                             value={formData.message}
                             onChange={handleChange}
                             className="w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#C9A24D] transition-colors resize-none"

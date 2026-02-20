@@ -4,7 +4,7 @@ import prisma from '@/utils/prisma';
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { name, email, phone, subject, message, project } = body;
+        const { name, email, phone, subject, message, project, visitDate, visitTime, isBrochureDownload } = body;
 
         // Basic validation
         if (!name || (!email && !phone)) {
@@ -22,6 +22,9 @@ export async function POST(request: Request) {
                 phone,
                 subject,
                 project,
+                visitDate,
+                visitTime,
+                isBrochureDownload: isBrochureDownload || false,
                 message: message || '', // Message optional for visit requests
                 status: 'unread',
             }

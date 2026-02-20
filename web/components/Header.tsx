@@ -5,12 +5,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useVisitModal } from './project/VisitModalContext';
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const pathname = usePathname();
     const isHome = pathname === '/';
+    const { openModal } = useVisitModal();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,6 +23,12 @@ export default function Header() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    useEffect(() => {
+        // Dispatch event so other components (like sticky bars) can hide/show
+        const event = new CustomEvent('mobile-menu-toggled', { detail: { isOpen: mobileMenuOpen } });
+        window.dispatchEvent(event);
+    }, [mobileMenuOpen]);
 
     // Navbar background logic:
     // - Home page + Top: Transparent
@@ -311,10 +319,20 @@ export default function Header() {
                         </Link>
                     </nav>
 
-                    <div className="mt-auto">
+                    <div className="mt-auto flex flex-col gap-3">
                         <Link href="/contact" className="btn-primary w-full justify-center" onClick={() => setMobileMenuOpen(false)}>
                             Enquire Now
                         </Link>
+                        {/* SCHEDULE A VISIT MOBILE BUTTON */}
+                        <button
+                            className="bg-transparent border border-[#C9A24D] text-[#C9A24D] rounded-full px-6 py-2.5 text-xs tracking-widest font-semibold uppercase hover:bg-[#C9A24D] hover:text-white transition-colors w-full justify-center inline-flex"
+                            onClick={() => {
+                                setMobileMenuOpen(false);
+                                openModal();
+                            }}
+                        >
+                            Schedule a Visit
+                        </button>
                     </div>
                 </div>
             </div>

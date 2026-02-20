@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+
 interface OverviewDetail {
     label: string;
     value: string;
@@ -14,11 +16,44 @@ interface ProjectOverviewProps {
 }
 
 export default function ProjectOverview({ title, description, details, brochureLink = '#', brochurePoints }: ProjectOverviewProps) {
-    const handleBrochureSubmit = (e: React.FormEvent) => {
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+    const handleBrochureSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Redirect to thank you page with brochure link
-        if (brochureLink && brochureLink !== '#') {
-            window.location.href = `/thank-you?file=${encodeURIComponent(brochureLink)}`;
+        setIsSubmitting(true);
+
+        const formData = new FormData(e.currentTarget);
+        const name = formData.get('name');
+        const phone = formData.get('phone');
+
+        try {
+            await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name,
+                    phone,
+                    project: title,
+                    subject: 'Brochure Download',
+                    isBrochureDownload: true,
+                    message: `Downloaded brochure for ${title}`
+                }),
+            });
+        } catch (error) {
+            console.error('Failed to save brochure download contact:', error);
+        } finally {
+            setIsSubmitting(false);
+            if (brochureLink && brochureLink !== '#') {
+                // Force download instead of navigating
+                const link = document.createElement('a');
+                link.href = brochureLink;
+                // Extract filename from link, fallback to "brochure.pdf"
+                const fileName = brochureLink.split('/').pop() || 'brochure.pdf';
+                link.download = fileName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
         }
     };
 
@@ -85,10 +120,11 @@ export default function ProjectOverview({ title, description, details, brochureL
                             />
                             <button
                                 type="submit"
-                                className="rounded-full w-full justify-center inline-flex items-center gap-2 px-4 py-4 text-xs tracking-widest font-semibold uppercase bg-[#C9A24D] text-[#061B3A] shadow-lg shadow-[#C9A24D]/20 hover:-translate-y-0.5 hover:shadow-[#C9A24D]/40 transition-all"
+                                disabled={isSubmitting}
+                                className="rounded-full w-full justify-center inline-flex items-center gap-2 px-4 py-4 text-xs tracking-widest font-semibold uppercase bg-[#C9A24D] text-[#061B3A] shadow-lg shadow-[#C9A24D]/20 hover:-translate-y-0.5 hover:shadow-[#C9A24D]/40 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
                             >
                                 <ion-icon name="download-outline" class="text-[#061B3A] text-lg"></ion-icon>
-                                Download Brochure
+                                {isSubmitting ? 'Processing...' : 'Download Brochure'}
                             </button>
                             <p className="text-[11px] text-white/60 text-center">
                                 By submitting, you agree to receive a call from DCT.
