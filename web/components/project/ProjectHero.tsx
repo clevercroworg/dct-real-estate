@@ -71,7 +71,7 @@ export default function ProjectHero({
                             <div className="mt-8 flex flex-wrap items-center gap-4">
                                 <button
                                     type="button"
-                                    onClick={openModal}
+                                    onClick={() => openModal(title)}
                                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#C9A24D] text-[#061B3A] text-xs font-semibold uppercase tracking-widest shadow-lg shadow-[#C9A24D]/30 hover:-translate-y-0.5 transition-transform"
                                 >
                                     <ion-icon name="calendar-outline"></ion-icon>

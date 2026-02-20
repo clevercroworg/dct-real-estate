@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { useVisitModal } from './VisitModalContext';
 
 export default function VisitModal() {
-    const { isOpen, closeModal } = useVisitModal();
+    const { isOpen, projectName, closeModal } = useVisitModal();
 
     // Close on escape key
     useEffect(() => {
@@ -38,15 +38,21 @@ export default function VisitModal() {
             // Include date in the message for context
             const fullMessage = `Preferred Visit Date: ${formData.date}\nNotes: ${formData.message}`;
 
+            const payload: any = {
+                name: formData.name,
+                phone: formData.phone,
+                subject: 'Schedule a Visit Request',
+                message: fullMessage
+            };
+
+            if (projectName) {
+                payload.project = projectName;
+            }
+
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: formData.name,
-                    phone: formData.phone,
-                    subject: 'Schedule a Visit Request',
-                    message: fullMessage
-                }),
+                body: JSON.stringify(payload),
             });
 
             const data = await response.json();
@@ -84,7 +90,9 @@ export default function VisitModal() {
                 <div className="flex items-start justify-between gap-4">
                     <div>
                         <p className="text-xs uppercase tracking-[0.3em] text-[#C9A24D]">Schedule a Visit</p>
-                        <h3 className="font-heading text-2xl font-semibold text-[#061B3A] mt-2">Plan your walkthrough</h3>
+                        <h3 className="font-heading text-2xl font-semibold text-[#061B3A] mt-2">
+                            {projectName ? `Plan your visit to ${projectName}` : 'Plan your walkthrough'}
+                        </h3>
                     </div>
                     <button
                         type="button"

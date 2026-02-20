@@ -10,6 +10,7 @@ type Contact = {
     email: string | null;
     phone: string | null;
     subject: string | null;
+    project: string | null;
     message: string | null;
     status: string;
     createdAt: Date | string;
@@ -27,6 +28,7 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
             return contact.name.toLowerCase().includes(term) ||
                 (contact.email && contact.email.toLowerCase().includes(term)) ||
                 (contact.subject && contact.subject.toLowerCase().includes(term)) ||
+                (contact.project && contact.project.toLowerCase().includes(term)) ||
                 (contact.message && contact.message.toLowerCase().includes(term))
         })
     }, [contacts, searchQuery])
@@ -124,6 +126,14 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
                             >
                                 <td className="px-6 py-5 align-top">
                                     <div className="font-semibold text-[#061B3A] text-base mb-1">{contact.name}</div>
+                                    {contact.project && (
+                                        <div className="mb-3">
+                                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#C9A24D]/10 text-[#061B3A] text-xs font-medium border border-[#C9A24D]/20">
+                                                <ion-icon name="business-outline" class="text-[#C9A24D]"></ion-icon>
+                                                {contact.project}
+                                            </span>
+                                        </div>
+                                    )}
                                     <div className="space-y-1">
                                         {contact.phone && (
                                             <div className="flex items-center gap-2 text-slate-500">

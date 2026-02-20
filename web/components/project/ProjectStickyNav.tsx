@@ -3,7 +3,7 @@
 import React from 'react';
 import { useVisitModal } from './VisitModalContext';
 
-export default function ProjectStickyNav() {
+export default function ProjectStickyNav({ projectName }: { projectName?: string }) {
     const { openModal } = useVisitModal();
 
     return (
@@ -38,7 +38,7 @@ export default function ProjectStickyNav() {
                     {/* Schedule a visit */}
                     <button
                         type="button"
-                        onClick={openModal}
+                        onClick={() => openModal(projectName)}
                         className="flex items-center gap-2 text-xs uppercase tracking-widest hover:text-[#C9A24D] transition-colors"
                     >
                         <ion-icon name="calendar-outline" class="text-lg text-[#C9A24D]"></ion-icon>

@@ -4,7 +4,8 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface VisitModalContextType {
     isOpen: boolean;
-    openModal: () => void;
+    projectName: string | null;
+    openModal: (project?: string) => void;
     closeModal: () => void;
 }
 
@@ -12,12 +13,24 @@ const VisitModalContext = createContext<VisitModalContextType | undefined>(undef
 
 export function VisitModalProvider({ children }: { children: ReactNode }) {
     const [isOpen, setIsOpen] = useState(false);
+    const [projectName, setProjectName] = useState<string | null>(null);
 
-    const openModal = () => setIsOpen(true);
-    const closeModal = () => setIsOpen(false);
+    const openModal = (project?: string) => {
+        if (project) {
+            setProjectName(project);
+        } else {
+            setProjectName(null);
+        }
+        setIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsOpen(false);
+        setTimeout(() => setProjectName(null), 300); // Clear after animation
+    };
 
     return (
-        <VisitModalContext.Provider value={{ isOpen, openModal, closeModal }}>
+        <VisitModalContext.Provider value={{ isOpen, projectName, openModal, closeModal }}>
             {children}
         </VisitModalContext.Provider>
     );

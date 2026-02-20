@@ -14,7 +14,7 @@ export default function ScheduleVisitButton({
     const { openModal } = useVisitModal();
     return (
         <button
-            onClick={openModal}
+            onClick={() => openModal()}
             className={className || "px-6 py-3 rounded-full bg-[#C9A24D] text-[#061B3A] font-semibold text-xs uppercase tracking-widest hover:bg-[#d4b15f] transition-all shadow-lg hover:shadow-[#C9A24D]/30 inline-flex items-center gap-2"}
         >
             <ion-icon name="calendar-outline"></ion-icon>

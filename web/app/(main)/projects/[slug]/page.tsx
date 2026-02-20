@@ -93,7 +93,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                     landmarks={project.locationDetails.landmarks}
                 />
 
-                <ProjectStickyNav />
+                <ProjectStickyNav projectName={project.title} />
                 <VisitModal />
             </main>
         </VisitModalProvider>

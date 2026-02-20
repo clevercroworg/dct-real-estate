@@ -24,6 +24,7 @@ model Contact {
   email     String?
   phone     String?
   subject   String?
+  project   String?
   message   String?  @db.Text
   status    String   @default("unread")
   createdAt DateTime @default(now())
