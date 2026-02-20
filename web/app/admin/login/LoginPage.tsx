@@ -2,62 +2,36 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClient } from '@/utils/supabase/client'
-import Image from 'next/image'
+import { signIn } from 'next-auth/react'
 
 export default function LoginPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [error, setError] = useState<string | null>(null)
-    const [resetMessage, setResetMessage] = useState<string | null>(null)
     const router = useRouter()
-    const supabase = createClient()
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault()
         setIsSubmitting(true)
         setError(null)
-        setResetMessage(null)
 
         try {
-            const { error: authError } = await supabase.auth.signInWithPassword({
+            const res = await signIn('credentials', {
+                redirect: false,
                 email,
                 password,
             })
 
-            if (authError) throw authError
+            if (res?.error) {
+                throw new Error(res.error)
+            }
 
             // Hard redirect to clear out any cached states
             window.location.href = '/admin/dashboard'
         } catch (err: any) {
             console.error('Login error:', err)
             setError(err.message || 'Failed to login. Please check your credentials.')
-            setIsSubmitting(false)
-        }
-    }
-
-    const handleResetPassword = async () => {
-        if (!email) {
-            setError('Please enter your email address first.')
-            return
-        }
-
-        setIsSubmitting(true)
-        setError(null)
-        setResetMessage(null)
-
-        try {
-            const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
-                redirectTo: `${window.location.origin}/admin/reset-password`,
-            })
-
-            if (resetError) throw resetError
-
-            setResetMessage('Password reset instructions have been sent to your email.')
-        } catch (err: any) {
-            setError(err.message || 'Failed to send reset link.')
-        } finally {
             setIsSubmitting(false)
         }
     }
@@ -118,13 +92,6 @@ export default function LoginPage() {
                             </div>
                         )}
 
-                        {resetMessage && (
-                            <div className="p-3 bg-green-50 text-green-700 text-sm rounded-lg border border-green-100 flex items-start gap-2">
-                                <ion-icon name="checkmark-circle-outline" class="text-xl shrink-0"></ion-icon>
-                                <span>{resetMessage}</span>
-                            </div>
-                        )}
-
                         <button
                             type="submit"
                             disabled={isSubmitting}
@@ -137,9 +104,8 @@ export default function LoginPage() {
                     <div className="mt-6 text-center">
                         <button
                             type="button"
-                            onClick={handleResetPassword}
-                            disabled={isSubmitting}
-                            className="text-sm text-slate-500 hover:text-[#C9A24D] transition-colors font-medium bg-transparent border-none p-0 cursor-pointer disabled:opacity-50"
+                            onClick={() => alert('Please contact the IT administrator to reset your password.')}
+                            className="text-sm text-slate-500 hover:text-[#C9A24D] transition-colors font-medium bg-transparent border-none p-0 cursor-pointer"
                         >
                             Forgot your password?
                         </button>

@@ -1,36 +1,29 @@
 'use client'
 
 import { useState } from 'react'
-import { createClient } from '@/utils/supabase/client'
 import { format } from 'date-fns'
+import { toggleContactStatus } from './actions'
 
 type Contact = {
-    id: number;
+    id: string;
     name: string;
-    email: string;
-    phone: string;
-    subject: string;
-    message: string;
-    status: 'unread' | 'read';
-    created_at: string;
+    email: string | null;
+    phone: string | null;
+    subject: string | null;
+    message: string | null;
+    status: string;
+    createdAt: Date | string;
 }
 
 export default function AdminDashboardClient({ initialContacts }: { initialContacts: Contact[] }) {
     const [contacts, setContacts] = useState<Contact[]>(initialContacts)
-    const [updatingId, setUpdatingId] = useState<number | null>(null)
-    const supabase = createClient()
+    const [updatingId, setUpdatingId] = useState<string | null>(null)
 
-    const toggleStatus = async (id: number, currentStatus: string) => {
+    const toggleStatus = async (id: string, currentStatus: string) => {
         setUpdatingId(id)
-        const newStatus = currentStatus === 'unread' ? 'read' : 'unread'
 
         try {
-            const { error } = await supabase
-                .from('contacts')
-                .update({ status: newStatus })
-                .eq('id', id)
-
-            if (error) throw error
+            const newStatus = await toggleContactStatus(id, currentStatus)
 
             // Update local state
             setContacts(contacts.map(c =>
@@ -100,17 +93,17 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
 
                                 <td className="px-6 py-5 align-top text-center whitespace-nowrap">
                                     <div className="text-slate-800 font-medium">
-                                        {format(new Date(contact.created_at), 'dd MMM yyyy')}
+                                        {format(new Date(contact.createdAt), 'dd MMM yyyy')}
                                     </div>
                                     <div className="text-slate-500 text-xs mt-1">
-                                        {format(new Date(contact.created_at), 'hh:mm a')}
+                                        {format(new Date(contact.createdAt), 'hh:mm a')}
                                     </div>
                                 </td>
 
                                 <td className="px-6 py-5 align-top text-center">
                                     <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border ${contact.status === 'unread'
-                                            ? 'bg-amber-50 text-amber-700 border-amber-200'
-                                            : 'bg-green-50 text-green-700 border-green-200'
+                                        ? 'bg-amber-50 text-amber-700 border-amber-200'
+                                        : 'bg-green-50 text-green-700 border-green-200'
                                         }`}>
                                         {contact.status === 'unread' ? 'New' : 'Read'}
                                     </span>
@@ -121,8 +114,8 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
                                         onClick={() => toggleStatus(contact.id, contact.status)}
                                         disabled={updatingId === contact.id}
                                         className={`inline-flex items-center justify-center p-2 rounded-lg transition-all ${contact.status === 'unread'
-                                                ? 'bg-[#061B3A] text-white hover:bg-[#0B2550] shadow-sm'
-                                                : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                                            ? 'bg-[#061B3A] text-white hover:bg-[#0B2550] shadow-sm'
+                                            : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
                                             } disabled:opacity-50`}
                                         title={contact.status === 'unread' ? "Mark as read" : "Mark as unread"}
                                     >

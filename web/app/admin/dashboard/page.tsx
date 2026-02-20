@@ -1,6 +1,9 @@
-import { createClient } from '@/utils/supabase/server'
-import { redirect } from 'next/navigation'
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "@/utils/authOptions"
+import { redirect } from "next/navigation"
+import prisma from "@/utils/prisma"
 import AdminDashboardClient from './AdminDashboardClient'
+import LogoutButton from './LogoutButton'
 
 export const metadata = {
     title: 'Dashboard | DCT Admin',
@@ -10,24 +13,16 @@ export const metadata = {
 export const revalidate = 0 // Disable aggressive caching for dashboard
 
 export default async function AdminDashboard() {
-    const supabase = await createClient()
+    const session = await getServerSession(authOptions)
 
-    // Verify authentication explicitly
-    const { data: { user }, error: authError } = await supabase.auth.getUser()
-
-    if (authError || !user) {
+    if (!session || !session.user) {
         redirect('/admin/login')
     }
 
     // Fetch all contacts, sorted newest first
-    const { data: contacts, error } = await supabase
-        .from('contacts')
-        .select('*')
-        .order('created_at', { ascending: false })
-
-    if (error) {
-        console.error('Error fetching contacts:', error)
-    }
+    const contacts = await prisma.contact.findMany({
+        orderBy: { createdAt: 'desc' }
+    })
 
     return (
         <div className="min-h-screen bg-[#F9F9F7]">
@@ -46,20 +41,8 @@ export default async function AdminDashboard() {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <span className="text-sm text-slate-500 hidden sm:block">{user.email}</span>
-                            <form action={async () => {
-                                'use server'
-                                const supabase = await createClient()
-                                await supabase.auth.signOut()
-                                redirect('/admin/login')
-                            }}>
-                                <button
-                                    type="submit"
-                                    className="px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                                >
-                                    Sign Out
-                                </button>
-                            </form>
+                            <span className="text-sm text-slate-500 hidden sm:block">{session.user.email}</span>
+                            <LogoutButton />
                         </div>
                     </div>
                 </div>
@@ -72,7 +55,7 @@ export default async function AdminDashboard() {
                 </div>
 
                 {/* Client component for interactive table */}
-                <AdminDashboardClient initialContacts={contacts || []} />
+                <AdminDashboardClient initialContacts={contacts as any} />
             </main>
         </div>
     )
