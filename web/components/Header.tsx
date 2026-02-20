@@ -113,15 +113,9 @@ export default function Header() {
                             </div>
                         </div>
 
-                        <Link href="/our-ventures" className={`nav-link ${pathname === '/our-ventures' ? 'active' : ''}`}>
-                            Our Ventures
-                        </Link>
 
                         <Link href="/media" className={`nav-link ${pathname === '/media' ? 'active' : ''}`}>
                             Media
-                        </Link>
-                        <Link href="/blog" className={`nav-link ${pathname.startsWith('/blog') ? 'active' : ''}`}>
-                            Blogs
                         </Link>
                         <Link href="/careers" className={`nav-link ${pathname === '/careers' ? 'active' : ''}`}>
                             Careers
@@ -281,13 +275,6 @@ export default function Header() {
                             </Link>
                         </div>
 
-                        <Link
-                            href="/our-ventures"
-                            className={`text-lg font-medium ${pathname === '/our-ventures' ? 'text-brand-gold' : ''}`}
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            Our Ventures
-                        </Link>
 
                         <Link
                             href="/media"
@@ -295,13 +282,6 @@ export default function Header() {
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Media
-                        </Link>
-                        <Link
-                            href="/blog"
-                            className={`text-lg font-medium ${pathname.startsWith('/blog') ? 'text-brand-gold' : ''}`}
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            Blogs
                         </Link>
                         <Link
                             href="/careers"

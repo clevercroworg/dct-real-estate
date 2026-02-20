@@ -36,12 +36,7 @@ export default function Footer() {
                                     className="object-contain object-left"
                                 />
                             </div>
-                            <p className="text-white/70 text-sm leading-relaxed">
-                                <span className="font-semibold text-white">About DCT :</span> DCT Real Estate & Devloper is a real estate company of Bilaspur with top class residential projects that includes apartments, independent villa and plots in Bilaspur at very affordable prices. The company is a result of a strong and dynamic team of individuals with a zest for excellence in its field.
-                                <Link href="/about" className="text-[#C9A24D] hover:text-white ml-1 transition-colors">
-                                    Read More
-                                </Link>
-                            </p>
+
                             <div className="flex gap-4 mt-6 text-white/70">
                                 <a href="https://www.facebook.com/DCTBilaspur" target="_blank" className="hover:text-white transition">
                                     <ion-icon name="logo-facebook" class="text-xl"></ion-icon>
@@ -72,11 +67,7 @@ export default function Footer() {
                                         About Us
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link href="/our-ventures" className="hover:text-white transition">
-                                        Our Ventures
-                                    </Link>
-                                </li>
+
                                 <li>
                                     <Link href="/projects" className="hover:text-white transition">
                                         Projects
@@ -87,11 +78,7 @@ export default function Footer() {
                                         Contact
                                     </Link>
                                 </li>
-                                <li>
-                                    <Link href="/blog" className="hover:text-white transition">
-                                        Blogs
-                                    </Link>
-                                </li>
+
                                 <li>
                                     <Link href="/media" className="hover:text-white transition">
                                         Media
