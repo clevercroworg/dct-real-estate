@@ -14,3 +14,12 @@ export async function toggleContactStatus(id: string, currentStatus: string) {
     revalidatePath('/admin/dashboard')
     return newStatus
 }
+
+export async function deleteContact(id: string) {
+    await prisma.contact.delete({
+        where: { id }
+    })
+
+    revalidatePath('/admin/dashboard')
+    return true
+}

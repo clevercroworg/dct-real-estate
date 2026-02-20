@@ -32,16 +32,17 @@ export default async function AdminDashboard() {
                     <div className="flex justify-between h-16 items-center">
 
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-[#061B3A] rounded-full flex items-center justify-center shadow-md">
-                                <div className="text-white text-center">
-                                    <span className="block text-xs font-bold tracking-widest text-[#C9A24D]">DCT</span>
-                                </div>
-                            </div>
                             <h1 className="font-heading font-bold text-xl text-[#061B3A]">Admin Dashboard</h1>
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <span className="text-sm text-slate-500 hidden sm:block">{session.user.email}</span>
+                            <div className="hidden sm:flex items-center gap-2">
+                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#061B3A] to-blue-800 flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                                    {session.user.email?.charAt(0).toUpperCase() || 'A'}
+                                </div>
+                                <span className="text-sm font-medium text-slate-600">{session.user.email}</span>
+                            </div>
+                            <div className="w-px h-6 bg-slate-200 mx-2 hidden sm:block"></div>
                             <LogoutButton />
                         </div>
                     </div>
