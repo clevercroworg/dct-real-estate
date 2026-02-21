@@ -4,6 +4,7 @@ import { redirect } from "next/navigation"
 import prisma from "@/utils/prisma"
 import AdminDashboardClient from './AdminDashboardClient'
 import LogoutButton from './LogoutButton'
+import AdminNav from '../components/AdminNav'
 
 export const metadata = {
     title: 'Dashboard | DCT Admin',
@@ -50,14 +51,17 @@ export default async function AdminDashboard() {
                 </div>
             </nav>
 
+            <AdminNav />
+
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
                 <div className="mb-8">
                     <h2 className="text-2xl font-bold text-[#061B3A] font-heading">Recent Enquiries</h2>
                     <p className="text-slate-500 mt-1">Manage all contact and visit requests from the website.</p>
                 </div>
 
-                {/* Client component for interactive table */}
-                <AdminDashboardClient initialContacts={contacts as any} />
+                <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
+                    <AdminDashboardClient initialContacts={contacts} />
+                </div>
             </main>
         </div>
     )

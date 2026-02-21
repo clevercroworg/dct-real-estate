@@ -1,7 +1,8 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { blogPosts } from '../blogData';
+import prisma from '@/utils/prisma';
+import { format } from 'date-fns';
 
 interface Props {
     params: Promise<{
@@ -10,21 +11,34 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-    return blogPosts.map((post) => ({
+    const posts = await prisma.post.findMany({
+        where: { published: true },
+        select: { slug: true }
+    });
+    return posts.map((post: any) => ({
         slug: post.slug,
     }));
 }
 
 export default async function BlogPostPage({ params }: Props) {
     const { slug } = await params;
-    const post = blogPosts.find((p) => p.slug === slug);
+    const post = await prisma.post.findUnique({
+        where: { slug }
+    });
 
-    if (!post) {
+    if (!post || !post.published) {
         notFound();
     }
 
     // Filter out the current post to show related posts
-    const relatedPosts = blogPosts.filter((p) => p.id !== post.id).slice(0, 2);
+    const relatedPosts = await prisma.post.findMany({
+        where: {
+            published: true,
+            NOT: { id: post.id }
+        },
+        orderBy: { createdAt: 'desc' },
+        take: 2
+    });
 
     return (
         <div className="min-h-screen bg-slate-50">
@@ -62,7 +76,7 @@ export default async function BlogPostPage({ params }: Props) {
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <span className="text-brand-gold"><ion-icon name="calendar"></ion-icon></span>
-                                        <span>{post.date}</span>
+                                        <span>{format(new Date(post.createdAt), 'MMMM dd, yyyy')}</span>
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +84,7 @@ export default async function BlogPostPage({ params }: Props) {
                             {/* FEATURED IMAGE */}
                             <div className="mb-10 w-full overflow-hidden rounded-lg">
                                 <img
-                                    src={post.image}
+                                    src={post.image || '/images/default-blog.png'}
                                     alt={post.title}
                                     className="w-full h-auto object-cover"
                                 />
@@ -112,19 +126,19 @@ export default async function BlogPostPage({ params }: Props) {
                         <div className="max-w-7xl mx-auto px-6 lg:px-8">
                             <h2 className="font-heading text-3xl font-bold text-[#061B3A] mb-12">Related Articles</h2>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {relatedPosts.map((related) => (
+                                {relatedPosts.map((related: any) => (
                                     <Link href={`/blog/${related.slug}`} key={related.id} className="group">
                                         <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 h-full flex flex-col">
                                             <div className="relative h-52 overflow-hidden">
                                                 <img
-                                                    src={related.image}
+                                                    src={related.image || '/images/default-blog.png'}
                                                     alt={related.title}
                                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                                                 />
                                             </div>
                                             <div className="p-6 flex-1 flex flex-col">
                                                 <div className="flex items-center gap-3 text-[10px] text-slate-400 mb-3 uppercase tracking-widest font-medium">
-                                                    <span>{related.date}</span>
+                                                    <span>{format(new Date(related.createdAt), 'MMMM dd, yyyy')}</span>
                                                 </div>
                                                 <h3 className="font-heading text-lg font-bold text-[#061B3A] mb-2 group-hover:text-brand-blue transition-colors line-clamp-2">
                                                     {related.title}

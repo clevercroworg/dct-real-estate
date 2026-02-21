@@ -113,12 +113,6 @@ export default function Header() {
                             </div>
                         </div>
 
-                        {process.env.NODE_ENV === 'development' && (
-                            <Link href="/our-ventures" className={`nav-link ${pathname === '/our-ventures' ? 'active' : ''}`}>
-                                Our Ventures
-                            </Link>
-                        )}
-
                         <Link href="/media" className={`nav-link ${pathname === '/media' ? 'active' : ''}`}>
                             Media
                         </Link>
@@ -284,16 +278,6 @@ export default function Header() {
                                 Upcoming Projects
                             </Link>
                         </div>
-
-                        {process.env.NODE_ENV === 'development' && (
-                            <Link
-                                href="/our-ventures"
-                                className={`text-lg font-medium ${pathname === '/our-ventures' ? 'text-brand-gold' : ''}`}
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                Our Ventures
-                            </Link>
-                        )}
 
                         <Link
                             href="/media"

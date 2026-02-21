@@ -12,6 +12,7 @@ const FeaturedProjects = dynamic(() => import('../../components/home/FeaturedPro
 const WhyDCT = dynamic(() => import('../../components/home/WhyDCT'));
 const FinalCTA = dynamic(() => import('../../components/home/FinalCTA'));
 const Testimonials = dynamic(() => import('../../components/home/Testimonials'));
+const BrandVideo = dynamic(() => import('../../components/home/BrandVideo'));
 const DisclaimerPopup = dynamic(() => import('../../components/home/DisclaimerPopup'));
 
 export default function Home() {
@@ -75,6 +76,7 @@ export default function Home() {
         <NewLaunches />
         <Verticals />
         <Testimonials />
+        <BrandVideo />
         <FeaturedProjects />
         <WhyDCT />
         <FinalCTA />

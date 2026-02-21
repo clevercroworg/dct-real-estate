@@ -23,7 +23,7 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
     const [contacts, setContacts] = useState<Contact[]>(initialContacts)
     const [updatingId, setUpdatingId] = useState<string | null>(null)
     const [searchQuery, setSearchQuery] = useState('')
-    const [activeTab, setActiveTab] = useState<'contacts' | 'visits' | 'brochures'>('visits')
+    const [activeTab, setActiveTab] = useState<'contacts' | 'visits' | 'brochures'>('contacts')
 
     // First filter by tab type
     const typedContacts = useMemo(() => {
@@ -128,7 +128,7 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
                     <tbody className="divide-y divide-slate-100 bg-white">
                         {filteredContacts.length === 0 ? (
                             <tr>
-                                <td colSpan={6} className="px-6 py-16 text-center">
+                                <td colSpan={activeTab === 'visits' ? 7 : 6} className="px-6 py-16 text-center">
                                     <div className="text-slate-300 mb-3 flex justify-center">
                                         <ion-icon name={activeTab === 'visits' ? 'calendar-clear-outline' : activeTab === 'brochures' ? 'document-text-outline' : 'mail-open-outline'} style={{ fontSize: '48px' }}></ion-icon>
                                     </div>

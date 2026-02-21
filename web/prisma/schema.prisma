@@ -30,5 +30,18 @@ model Contact {
   message    String?  @db.Text
   status     String   @default("unread")
   isBrochureDownload Boolean @default(false)
-  createdAt  DateTime @default(now())
+  createdAt DateTime @default(now())
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String
+  excerpt   String   @db.Text
+  content   String   @db.Text
+  image     String?
+  author    String   @default("DCT Real Estate")
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

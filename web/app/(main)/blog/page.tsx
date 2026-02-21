@@ -1,8 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
-import { blogPosts } from './blogData';
+import prisma from '@/utils/prisma';
+import { format } from 'date-fns';
 
-export default function BlogPage() {
+export default async function BlogPage() {
+    const blogPosts = await prisma.post.findMany({
+        where: { published: true },
+        orderBy: { createdAt: 'desc' }
+    });
+
     return (
         <div className="min-h-screen">
             <main className="pt-24">
@@ -29,12 +35,12 @@ export default function BlogPage() {
                 <section className="py-20 bg-slate-50">
                     <div className="max-w-7xl mx-auto px-6 lg:px-8">
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {blogPosts.map((post) => (
+                            {blogPosts.map((post: any) => (
                                 <Link href={`/blog/${post.slug}`} key={post.id} className="group">
                                     <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 h-full flex flex-col">
                                         <div className="relative h-60 overflow-hidden">
                                             <img
-                                                src={post.image}
+                                                src={post.image || '/images/default-blog.png'}
                                                 alt={post.title}
                                                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                                             />
@@ -44,7 +50,7 @@ export default function BlogPage() {
                                         </div>
                                         <div className="p-8 flex-1 flex flex-col">
                                             <div className="flex items-center gap-4 text-xs text-slate-400 mb-4 uppercase tracking-widest font-medium">
-                                                <span>{post.date}</span>
+                                                <span>{format(new Date(post.createdAt), 'MMMM dd, yyyy')}</span>
                                                 <span className="w-1 h-1 bg-brand-gold rounded-full"></span>
                                                 <span>{post.author}</span>
                                             </div>
