@@ -113,6 +113,11 @@ export default function Header() {
                             </div>
                         </div>
 
+                        {process.env.NODE_ENV === 'development' && (
+                            <Link href="/our-ventures" className={`nav-link ${pathname === '/our-ventures' ? 'active' : ''}`}>
+                                Our Ventures
+                            </Link>
+                        )}
 
                         <Link href="/media" className={`nav-link ${pathname === '/media' ? 'active' : ''}`}>
                             Media
@@ -120,6 +125,11 @@ export default function Header() {
                         <Link href="/careers" className={`nav-link ${pathname === '/careers' ? 'active' : ''}`}>
                             Careers
                         </Link>
+                        {process.env.NODE_ENV === 'development' && (
+                            <Link href="/blog" className={`nav-link ${pathname.startsWith('/blog') ? 'active' : ''}`}>
+                                Blogs
+                            </Link>
+                        )}
                         <Link href="/contact" className={`nav-link ${pathname === '/contact' ? 'active' : ''}`}>
                             Contact
                         </Link>
@@ -275,6 +285,15 @@ export default function Header() {
                             </Link>
                         </div>
 
+                        {process.env.NODE_ENV === 'development' && (
+                            <Link
+                                href="/our-ventures"
+                                className={`text-lg font-medium ${pathname === '/our-ventures' ? 'text-brand-gold' : ''}`}
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                Our Ventures
+                            </Link>
+                        )}
 
                         <Link
                             href="/media"
@@ -290,6 +309,15 @@ export default function Header() {
                         >
                             Careers
                         </Link>
+                        {process.env.NODE_ENV === 'development' && (
+                            <Link
+                                href="/blog"
+                                className={`text-lg font-medium ${pathname.startsWith('/blog') ? 'text-brand-gold' : ''}`}
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                Blogs
+                            </Link>
+                        )}
                         <Link
                             href="/contact"
                             className={`text-lg font-medium ${pathname === '/contact' ? 'text-brand-gold' : ''}`}

@@ -67,7 +67,13 @@ export default function Footer() {
                                         About Us
                                     </Link>
                                 </li>
-
+                                {process.env.NODE_ENV === 'development' && (
+                                    <li>
+                                        <Link href="/our-ventures" className="hover:text-white transition">
+                                            Our Ventures
+                                        </Link>
+                                    </li>
+                                )}
                                 <li>
                                     <Link href="/projects" className="hover:text-white transition">
                                         Projects
@@ -78,7 +84,13 @@ export default function Footer() {
                                         Contact
                                     </Link>
                                 </li>
-
+                                {process.env.NODE_ENV === 'development' && (
+                                    <li>
+                                        <Link href="/blog" className="hover:text-white transition">
+                                            Blogs
+                                        </Link>
+                                    </li>
+                                )}
                                 <li>
                                     <Link href="/media" className="hover:text-white transition">
                                         Media
