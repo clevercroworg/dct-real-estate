@@ -119,11 +119,6 @@ export default function Header() {
                         <Link href="/careers" className={`nav-link ${pathname === '/careers' ? 'active' : ''}`}>
                             Careers
                         </Link>
-                        {process.env.NODE_ENV === 'development' && (
-                            <Link href="/blog" className={`nav-link ${pathname.startsWith('/blog') ? 'active' : ''}`}>
-                                Blogs
-                            </Link>
-                        )}
                         <Link href="/contact" className={`nav-link ${pathname === '/contact' ? 'active' : ''}`}>
                             Contact
                         </Link>
@@ -293,15 +288,6 @@ export default function Header() {
                         >
                             Careers
                         </Link>
-                        {process.env.NODE_ENV === 'development' && (
-                            <Link
-                                href="/blog"
-                                className={`text-lg font-medium ${pathname.startsWith('/blog') ? 'text-brand-gold' : ''}`}
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                Blogs
-                            </Link>
-                        )}
                         <Link
                             href="/contact"
                             className={`text-lg font-medium ${pathname === '/contact' ? 'text-brand-gold' : ''}`}

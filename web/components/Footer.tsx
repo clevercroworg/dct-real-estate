@@ -77,13 +77,6 @@ export default function Footer() {
                                         Contact
                                     </Link>
                                 </li>
-                                {process.env.NODE_ENV === 'development' && (
-                                    <li>
-                                        <Link href="/blog" className="hover:text-white transition">
-                                            Blogs
-                                        </Link>
-                                    </li>
-                                )}
                                 <li>
                                     <Link href="/media" className="hover:text-white transition">
                                         Media
