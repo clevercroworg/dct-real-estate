@@ -48,7 +48,7 @@ export default function ProjectGallery({ title, description, videoUrl, images }:
                 </div>
 
                 {/* Video Main */}
-                <div className="max-w-5xl mx-auto mb-12">
+                <div className="max-w-5xl mx-auto mb-20 lg:mb-28">
                     {(() => {
                         const urls = Array.isArray(videoUrl) ? videoUrl : (videoUrl ? [videoUrl] : []);
 
@@ -82,6 +82,12 @@ export default function ProjectGallery({ title, description, videoUrl, images }:
                             );
                         }
                     })()}
+                </div>
+
+                {/* Image Gallery Heading */}
+                <div className="mb-8 flex items-center gap-4">
+                    <h4 className="text-lg lg:text-xl font-semibold text-white tracking-wide">Image Gallery</h4>
+                    <div className="h-[1px] flex-grow bg-white/10"></div>
                 </div>
 
                 {/* Image Grid */}

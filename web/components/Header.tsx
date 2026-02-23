@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useVisitModal } from './project/VisitModalContext';
+import ScheduleVisitButton from './ScheduleVisitButton';
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -62,6 +63,12 @@ export default function Header() {
 
                     {/* DESKTOP NAV */}
                     <nav className="hidden lg:flex items-center gap-8 text-xs tracking-widest font-light uppercase">
+                        {/* SCHEDULE A TOUR BUTTON */}
+                        <ScheduleVisitButton
+                            text="Schedule a Tour"
+                            className="mr-2 px-4 py-1.5 rounded-full bg-transparent border border-[#C9A24D] text-[#C9A24D] font-medium text-[10px] uppercase tracking-[0.15em] hover:bg-[#C9A24D] hover:text-brand-blue transition-all inline-flex items-center gap-2"
+                        />
+
                         <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>
                             Home
                         </Link>
