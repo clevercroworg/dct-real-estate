@@ -31,7 +31,7 @@ export default function Home() {
             <div className="relative">
               <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
                 <Image
-                  src="https://www.dctrealestate.in/assets/images/nitin.jpg"
+                  src="/images/about/director.jpg"
                   alt="Rajendra Singh Rajput - Founder DCT Real Estate"
                   fill
                   className="object-cover"
