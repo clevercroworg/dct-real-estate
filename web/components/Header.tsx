@@ -56,19 +56,13 @@ export default function Header() {
                                 priority
                             />
                         </div>
-                        <span className="hidden xl:block text-[#C9A24D] text-xs tracking-[0.2em] uppercase font-medium border-l border-white/10 pl-4 py-1">
+                        <span className="hidden xl:block text-[#C9A24D] text-xs tracking-[0.2em] uppercase font-medium border-l border-white/10 pl-4 py-1 whitespace-nowrap">
                             Property Means DCT !
                         </span>
                     </Link>
 
                     {/* DESKTOP NAV */}
-                    <nav className="hidden lg:flex items-center gap-8 text-xs tracking-widest font-light uppercase">
-                        {/* SCHEDULE A TOUR BUTTON */}
-                        <ScheduleVisitButton
-                            text="Schedule a Tour"
-                            className="mr-2 px-4 py-1.5 rounded-full bg-transparent border border-[#C9A24D] text-[#C9A24D] font-medium text-[10px] uppercase tracking-[0.15em] hover:bg-[#C9A24D] hover:text-brand-blue transition-all inline-flex items-center gap-2"
-                        />
-
+                    <nav className="hidden lg:flex items-center gap-5 xl:gap-7 text-xs tracking-widest font-light uppercase">
                         <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>
                             Home
                         </Link>
@@ -130,15 +124,23 @@ export default function Header() {
                             Contact
                         </Link>
 
-                        {/* DESKTOP CALL BUTTON */}
-                        <a
-                            href="tel:6264883066"
-                            className="ml-2 inline-flex items-center gap-2 px-4 py-2 bg-brand-gold text-brand-blue text-[11px] tracking-widest font-medium rounded-full transition-all duration-200 hover:bg-[#d4b15f] hover:-translate-y-0.5 hover:shadow-lg"
-                        >
+                        {/* BUTTONS */}
+                        <div className="flex items-center gap-3 pl-2">
+                            {/* DESKTOP CALL BUTTON */}
+                            <a
+                                href="tel:6264883066"
+                                className="inline-flex items-center gap-2 px-4 py-2 bg-brand-gold text-brand-blue text-[11px] tracking-widest font-medium rounded-full transition-all duration-200 hover:bg-[#d4b15f] hover:-translate-y-0.5 hover:shadow-lg whitespace-nowrap"
+                            >
+                                <ion-icon name="call-outline" class="w-4 h-4 text-brand-blue"></ion-icon>
+                                62648&nbsp;83066
+                            </a>
 
-                            <ion-icon name="call-outline" class="w-4 h-4 text-brand-blue"></ion-icon>
-                            62648&nbsp;83066
-                        </a>
+                            {/* SCHEDULE A TOUR BUTTON */}
+                            <ScheduleVisitButton
+                                text="Schedule a Tour"
+                                className="px-4 py-1.5 rounded-full bg-transparent border border-[#C9A24D] text-[#C9A24D] font-medium text-[10px] uppercase tracking-[0.15em] hover:bg-[#C9A24D] hover:text-brand-blue transition-all inline-flex items-center gap-2 whitespace-nowrap"
+                            />
+                        </div>
                     </nav>
 
                     {/* MOBILE ACTIONS */}
