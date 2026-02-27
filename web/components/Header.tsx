@@ -41,148 +41,180 @@ export default function Header() {
     return (
         <header
             id="site-header"
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${navBackground} ${isScrolled ? 'py-0' : 'py-2'}`}
+            className="fixed top-0 left-0 w-full z-50 flex flex-col transition-all duration-300"
         >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className={`flex items-center justify-between h-20 transition-all duration-300 ${isScrolled ? 'h-[72px]' : ''}`}>
-                    {/* LOGO */}
-                    <Link href="/" className="flex items-center gap-4">
-                        <div className="relative h-12 w-32">
-                            <Image
-                                src="/images/branding/logo.png"
-                                alt="DCT Real Estate"
-                                fill
-                                className="object-contain object-left"
-                                priority
-                            />
-                        </div>
-                    </Link>
+            {/* TAGLINE TOP BAR */}
+            {/* Hides completely when scrolled down for a cleaner view */}
+            <div className={`w-full bg-transparent flex items-center transition-all duration-300 overflow-hidden ${isScrolled ? 'h-0 opacity-0' : 'h-[36px] opacity-100 border-b-2 border-brand-gold shadow-sm'}`}>
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full flex items-center justify-between">
+                    {/* The tagline stays above the logo on the left */}
+                    <div className="flex items-center gap-2.5 text-brand-gold h-full translate-y-[1px]">
+                        <span className="font-extrabold text-[15px] sm:text-[16px] tracking-widest uppercase origin-left" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                            प्रॉपर्टी मतलब DCT
+                        </span>
+                    </div>
 
-                    {/* DESKTOP NAV */}
-                    <nav className="hidden lg:flex items-center gap-5 xl:gap-7 text-xs tracking-widest font-light uppercase">
-                        <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>
-                            Home
-                        </Link>
+                    {/* SOCIAL MEDIA ICONS (RIGHT SIDE) */}
+                    <div className="flex items-center gap-4 text-brand-gold hidden sm:flex">
+                        <a href="https://www.facebook.com/DctRealEstate/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors">
+                            <ion-icon name="logo-facebook" class="w-[15px] h-[15px]"></ion-icon>
+                        </a>
+                        <a href="https://www.instagram.com/dctrealestate/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors">
+                            <ion-icon name="logo-instagram" class="w-[15px] h-[15px]"></ion-icon>
+                        </a>
+                        <a href="https://www.linkedin.com/company/dctrealestate/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors">
+                            <ion-icon name="logo-linkedin" class="w-[15px] h-[15px]"></ion-icon>
+                        </a>
+                        <a href="https://www.youtube.com/@DCTRealestate" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors">
+                            <ion-icon name="logo-youtube" class="w-[15px] h-[15px]"></ion-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-                        {/* ABOUT DROPDOWN */}
-                        <div className="relative group">
-                            <button className={`nav-link flex items-center gap-1 ${['/about', '/directors-message', '/leadership'].includes(pathname) ? 'active' : ''}`}>
-                                About
-                                <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M5.25 7.5L10 12.25 14.75 7.5" />
-                                </svg>
-                            </button>
-
-                            <div className="dropdown-panel">
-                                <Link href="/about" className={`dropdown-link ${pathname === '/about' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
-                                    Overview
-                                </Link>
-                                <Link href="/directors-message" className={`dropdown-link ${pathname === '/directors-message' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
-                                    Director’s Message
-                                </Link>
-                                <Link href="/leadership" className={`dropdown-link ${pathname === '/leadership' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
-                                    Leadership
-                                </Link>
+            {/* MAIN NAVBAR */}
+            <div className={`w-full transition-all duration-300 ${navBackground} ${isScrolled ? 'py-0' : 'py-2'}`}>
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <div className={`flex items-center justify-between h-20 transition-all duration-300 ${isScrolled ? 'h-[72px]' : ''}`}>
+                        {/* LOGO */}
+                        <Link href="/" className="flex items-center gap-4">
+                            <div className="relative h-12 w-32">
+                                <Image
+                                    src="/images/branding/logo.png"
+                                    alt="DCT Real Estate"
+                                    fill
+                                    className="object-contain object-left"
+                                    priority
+                                />
                             </div>
-                        </div>
+                        </Link>
 
-                        {/* PROJECTS DROPDOWN */}
-                        <div className="relative group">
-                            <button className={`nav-link flex items-center gap-1 ${pathname.startsWith('/projects') ? 'active' : ''}`}>
-                                Projects
-                                <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M5.25 7.5L10 12.25 14.75 7.5" />
-                                </svg>
-                            </button>
+                        {/* DESKTOP NAV */}
+                        <nav className="hidden lg:flex items-center gap-5 xl:gap-7 text-xs tracking-widest font-light uppercase">
+                            <Link href="/" className={`nav-link ${pathname === '/' ? 'active' : ''}`}>
+                                Home
+                            </Link>
 
-                            <div className="dropdown-panel">
-                                <Link href="/projects/ongoing" className={`dropdown-link ${pathname === '/projects/ongoing' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
-                                    Ongoing Projects
-                                </Link>
-                                <Link href="/projects/completed" className={`dropdown-link ${pathname === '/projects/completed' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
-                                    Completed Projects
-                                </Link>
-                                <Link href="/projects/commercial" className={`dropdown-link ${pathname === '/projects/commercial' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
-                                    Commercial Projects
-                                </Link>
-                                <Link href="/projects/upcoming" className={`dropdown-link ${pathname === '/projects/upcoming' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
-                                    Upcoming Projects
-                                </Link>
+                            {/* ABOUT DROPDOWN */}
+                            <div className="relative group">
+                                <button className={`nav-link flex items-center gap-1 ${['/about', '/directors-message', '/leadership'].includes(pathname) ? 'active' : ''}`}>
+                                    About
+                                    <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M5.25 7.5L10 12.25 14.75 7.5" />
+                                    </svg>
+                                </button>
+
+                                <div className="dropdown-panel">
+                                    <Link href="/about" className={`dropdown-link ${pathname === '/about' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
+                                        Overview
+                                    </Link>
+                                    <Link href="/directors-message" className={`dropdown-link ${pathname === '/directors-message' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
+                                        Director’s Message
+                                    </Link>
+                                    <Link href="/leadership" className={`dropdown-link ${pathname === '/leadership' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
+                                        Leadership
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
 
-                        <Link href="/media" className={`nav-link ${pathname === '/media' ? 'active' : ''}`}>
-                            Media
-                        </Link>
-                        <Link href="/careers" className={`nav-link ${pathname === '/careers' ? 'active' : ''}`}>
-                            Careers
-                        </Link>
-                        <Link href="/contact" className={`nav-link ${pathname === '/contact' ? 'active' : ''}`}>
-                            Contact
-                        </Link>
+                            {/* PROJECTS DROPDOWN */}
+                            <div className="relative group">
+                                <button className={`nav-link flex items-center gap-1 ${pathname.startsWith('/projects') ? 'active' : ''}`}>
+                                    Projects
+                                    <svg className="w-3 h-3" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M5.25 7.5L10 12.25 14.75 7.5" />
+                                    </svg>
+                                </button>
 
-                        {/* BUTTONS */}
-                        <div className="flex items-center gap-3 pl-2">
-                            {/* DESKTOP CALL BUTTON */}
+                                <div className="dropdown-panel">
+                                    <Link href="/projects/ongoing" className={`dropdown-link ${pathname === '/projects/ongoing' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
+                                        Ongoing Projects
+                                    </Link>
+                                    <Link href="/projects/completed" className={`dropdown-link ${pathname === '/projects/completed' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
+                                        Completed Projects
+                                    </Link>
+                                    <Link href="/projects/commercial" className={`dropdown-link ${pathname === '/projects/commercial' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
+                                        Commercial Projects
+                                    </Link>
+                                    <Link href="/projects/upcoming" className={`dropdown-link ${pathname === '/projects/upcoming' ? 'active !text-brand-gold font-semibold bg-slate-50' : ''}`}>
+                                        Upcoming Projects
+                                    </Link>
+                                </div>
+                            </div>
+
+                            <Link href="/media" className={`nav-link ${pathname === '/media' ? 'active' : ''}`}>
+                                Media
+                            </Link>
+                            <Link href="/careers" className={`nav-link ${pathname === '/careers' ? 'active' : ''}`}>
+                                Careers
+                            </Link>
+                            <Link href="/contact" className={`nav-link ${pathname === '/contact' ? 'active' : ''}`}>
+                                Contact
+                            </Link>
+
+                            {/* BUTTONS */}
+                            <div className="flex items-center gap-3 pl-2">
+                                {/* DESKTOP CALL BUTTON */}
+                                <a
+                                    href="tel:6264883066"
+                                    className="inline-flex items-center gap-2 px-4 py-2 bg-brand-gold text-brand-blue text-[11px] tracking-widest font-medium rounded-full transition-all duration-200 hover:bg-[#d4b15f] hover:-translate-y-0.5 hover:shadow-lg whitespace-nowrap"
+                                >
+                                    <ion-icon name="call-outline" class="w-4 h-4 text-brand-blue"></ion-icon>
+                                    62648&nbsp;83066
+                                </a>
+
+                                {/* SCHEDULE A TOUR BUTTON */}
+                                <ScheduleVisitButton
+                                    text="Schedule a Tour"
+                                    className="px-4 py-1.5 rounded-full bg-transparent border border-[#C9A24D] text-[#C9A24D] font-medium text-[10px] uppercase tracking-[0.15em] hover:bg-[#C9A24D] hover:text-brand-blue transition-all inline-flex items-center gap-2 whitespace-nowrap"
+                                />
+                            </div>
+                        </nav>
+
+                        {/* MOBILE ACTIONS */}
+                        <div className="flex items-center gap-3 lg:hidden">
+                            {/* MOBILE CALL ICON */}
                             <a
                                 href="tel:6264883066"
-                                className="inline-flex items-center gap-2 px-4 py-2 bg-brand-gold text-brand-blue text-[11px] tracking-widest font-medium rounded-full transition-all duration-200 hover:bg-[#d4b15f] hover:-translate-y-0.5 hover:shadow-lg whitespace-nowrap"
+                                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-brand-gold text-brand-blue transition hover:bg-[#d4b15f]"
                             >
-                                <ion-icon name="call-outline" class="w-4 h-4 text-brand-blue"></ion-icon>
-                                62648&nbsp;83066
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="w-5 h-5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="1.8"
+                                        d="M2 4.5C2 3.12 3.12 2 4.5 2h2c.83 0 1.58.51 1.88 1.29l.97 2.42a2 2.42 0 01-.45 2.11L7.5 9.5a12.5 12.5 0 007 7l1.68-1.4a2 2.42 0 012.11-.45l2.42.97A2 2 0 0122 17.5v2c0 1.38-1.12 2.5-2.5 2.5C9.61 22 2 14.39 2 4.5z"
+                                    />
+                                </svg>
                             </a>
 
-                            {/* SCHEDULE A TOUR BUTTON */}
-                            <ScheduleVisitButton
-                                text="Schedule a Tour"
-                                className="px-4 py-1.5 rounded-full bg-transparent border border-[#C9A24D] text-[#C9A24D] font-medium text-[10px] uppercase tracking-[0.15em] hover:bg-[#C9A24D] hover:text-brand-blue transition-all inline-flex items-center gap-2 whitespace-nowrap"
-                            />
-                        </div>
-                    </nav>
-
-                    {/* MOBILE ACTIONS */}
-                    <div className="flex items-center gap-3 lg:hidden">
-                        {/* MOBILE CALL ICON */}
-                        <a
-                            href="tel:6264883066"
-                            className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-brand-gold text-brand-blue transition hover:bg-[#d4b15f]"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="w-5 h-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
+                            {/* HAMBURGER */}
+                            <button
+                                id="menu-toggle"
+                                className="text-white"
+                                onClick={() => setMobileMenuOpen(true)}
                             >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
+                                <svg
+                                    className="w-6 h-6"
+                                    fill="none"
+                                    stroke="currentColor"
                                     strokeWidth="1.8"
-                                    d="M2 4.5C2 3.12 3.12 2 4.5 2h2c.83 0 1.58.51 1.88 1.29l.97 2.42a2 2.42 0 01-.45 2.11L7.5 9.5a12.5 12.5 0 007 7l1.68-1.4a2 2.42 0 012.11-.45l2.42.97A2 2 0 0122 17.5v2c0 1.38-1.12 2.5-2.5 2.5C9.61 22 2 14.39 2 4.5z"
-                                />
-                            </svg>
-                        </a>
-
-                        {/* HAMBURGER */}
-                        <button
-                            id="menu-toggle"
-                            className="text-white"
-                            onClick={() => setMobileMenuOpen(true)}
-                        >
-                            <svg
-                                className="w-6 h-6"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="1.8"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M4 6h16M4 12h16M4 18h16"
-                                />
-                            </svg>
-                        </button>
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M4 6h16M4 12h16M4 18h16"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
