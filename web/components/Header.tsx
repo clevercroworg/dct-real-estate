@@ -56,9 +56,6 @@ export default function Header() {
                                 priority
                             />
                         </div>
-                        <span className="hidden xl:block text-[#C9A24D] text-xs tracking-[0.2em] uppercase font-medium border-l border-white/10 pl-4 py-1 whitespace-nowrap">
-                            Property Means DCT !
-                        </span>
                     </Link>
 
                     {/* DESKTOP NAV */}
