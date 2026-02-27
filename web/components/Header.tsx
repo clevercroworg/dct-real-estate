@@ -312,6 +312,17 @@ export default function Header() {
                             </Link>
                         </div>
 
+                        <button
+                            className={`text-lg font-medium text-left uppercase tracking-widest flex items-center gap-2`}
+                            onClick={() => {
+                                setMobileMenuOpen(false);
+                                openModal();
+                            }}
+                        >
+                            <ion-icon name="calendar-outline" class="text-lg"></ion-icon>
+                            Schedule a Visit
+                        </button>
+
                         <Link
                             href="/media"
                             className={`text-lg font-medium ${pathname === '/media' ? 'text-brand-gold' : ''}`}
@@ -339,16 +350,6 @@ export default function Header() {
                         <Link href="/contact" className="btn-primary w-full justify-center" onClick={() => setMobileMenuOpen(false)}>
                             Enquire Now
                         </Link>
-                        {/* SCHEDULE A VISIT MOBILE BUTTON */}
-                        <button
-                            className="bg-transparent border border-[#C9A24D] text-[#C9A24D] rounded-full px-6 py-2.5 text-xs tracking-widest font-semibold uppercase hover:bg-[#C9A24D] hover:text-white transition-colors w-full justify-center inline-flex"
-                            onClick={() => {
-                                setMobileMenuOpen(false);
-                                openModal();
-                            }}
-                        >
-                            Schedule a Visit
-                        </button>
                     </div>
                 </div>
             </div>
