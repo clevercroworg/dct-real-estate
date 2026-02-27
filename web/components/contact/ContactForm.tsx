@@ -7,6 +7,7 @@ export default function ContactForm() {
         name: '',
         email: '',
         phone: '',
+        project: '',
         subject: '',
         message: ''
     });
@@ -99,17 +100,16 @@ export default function ContactForm() {
                         />
                     </div>
 
-                    {/* Subject */}
+                    {/* Project */}
                     <div>
                         <select
-                            name="subject"
-                            value={formData.subject}
+                            name="project"
+                            value={formData.project}
                             onChange={handleChange}
                             required
                             className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all text-slate-700 bg-white appearance-none cursor-pointer"
                         >
-                            <option value="" disabled>Select Property / Subject</option>
-                            <option value="General Enquiry">General Enquiry</option>
+                            <option value="" disabled>Select Project</option>
                             <option value="Aishwaryam">Aishwaryam</option>
                             <option value="Chitvan Farm">Chitvan Farm</option>
                             <option value="Gold Farm House">Gold Farm House</option>
@@ -117,9 +117,29 @@ export default function ContactForm() {
                             <option value="Bilaspur Textile Market">Bilaspur Textile Market</option>
                             <option value="Shri Ram Park">Shri Ram Park</option>
                             <option value="Induimperial">Induimperial</option>
-                            <option value="Other">Other</option>
+                            <option value="Upcoming Project">Upcoming Project</option>
+                            <option value="General Enquiry">General Enquiry</option>
                         </select>
                     </div>
+                </div>
+
+                {/* Enquiry Type */}
+                <div>
+                    <select
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all text-slate-700 bg-white appearance-none cursor-pointer"
+                    >
+                        <option value="" disabled>Select Enquiry Type</option>
+                        <option value="Book Site Visit">Book Site Visit</option>
+                        <option value="Price & Payment Plan">Price & Payment Plan</option>
+                        <option value="Download Brochure">Download Brochure</option>
+                        <option value="Investment Discussion">Investment Discussion</option>
+                        <option value="Construction Update">Construction Update</option>
+                        <option value="Support / Complaint">Support / Complaint</option>
+                    </select>
                 </div>
 
                 {/* Message */}
@@ -127,10 +147,9 @@ export default function ContactForm() {
                     <textarea
                         name="message"
                         rows={5}
-                        placeholder="Message"
+                        placeholder="Message (Optional)"
                         value={formData.message}
                         onChange={handleChange}
-                        required
                         className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all placeholder:text-slate-400 bg-white resize-none"
                     ></textarea>
                 </div>
