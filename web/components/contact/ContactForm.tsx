@@ -8,7 +8,6 @@ export default function ContactForm() {
         email: '',
         phone: '',
         project: '',
-        subject: '',
         message: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -123,24 +122,7 @@ export default function ContactForm() {
                     </div>
                 </div>
 
-                {/* Enquiry Type */}
-                <div>
-                    <select
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all text-slate-700 bg-white appearance-none cursor-pointer"
-                    >
-                        <option value="" disabled>Select Enquiry Type</option>
-                        <option value="Book Site Visit">Book Site Visit</option>
-                        <option value="Price & Payment Plan">Price & Payment Plan</option>
-                        <option value="Download Brochure">Download Brochure</option>
-                        <option value="Investment Discussion">Investment Discussion</option>
-                        <option value="Construction Update">Construction Update</option>
-                        <option value="Support / Complaint">Support / Complaint</option>
-                    </select>
-                </div>
+
 
                 {/* Message */}
                 <div>
