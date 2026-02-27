@@ -11,13 +11,18 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-    const posts = await prisma.post.findMany({
-        where: { published: true },
-        select: { slug: true }
-    });
-    return posts.map((post: any) => ({
-        slug: post.slug,
-    }));
+    try {
+        const posts = await prisma.post.findMany({
+            where: { published: true },
+            select: { slug: true }
+        });
+        return posts.map((post: any) => ({
+            slug: post.slug,
+        }));
+    } catch (error) {
+        console.warn("Could not reach database during build. Skipping static param generation for blog posts.");
+        return [];
+    }
 }
 
 export default async function BlogPostPage({ params }: Props) {
