@@ -1,6 +1,7 @@
 
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -19,6 +20,14 @@ export default function Footer() {
     ].includes(pathname || '');
 
     const shouldHideGlobalStickyBar = isProjectPage && !isListingPage;
+
+    // Hide mobile sticky bar when mobile menu is open
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    useEffect(() => {
+        const handleMenuToggle = (e: any) => setMobileMenuOpen(e.detail?.isOpen);
+        window.addEventListener('mobile-menu-toggled', handleMenuToggle);
+        return () => window.removeEventListener('mobile-menu-toggled', handleMenuToggle);
+    }, []);
 
     return (
         <>
@@ -174,7 +183,7 @@ export default function Footer() {
                         </div>
 
                         {/* MOBILE STICKY BAR */}
-                        <div className="fixed bottom-3 left-0 right-0 z-50 px-4 lg:hidden">
+                        <div className={`fixed bottom-3 left-0 right-0 z-50 px-4 lg:hidden transition-all duration-300 ${mobileMenuOpen ? 'opacity-0 pointer-events-none translate-y-full' : 'opacity-100 translate-y-0'}`}>
                             <div className="flex items-center gap-3 bg-white/95 backdrop-blur px-3 py-3 rounded-2xl shadow-xl border border-gray-200">
                                 {/* CALL (GOLD) */}
                                 <a
