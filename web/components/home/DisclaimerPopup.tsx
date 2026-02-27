@@ -8,13 +8,18 @@ export default function DisclaimerPopup() {
 
     useEffect(() => {
         // Appears on every refresh per client request
-        const timer = setTimeout(() => {
-            setIsVisible(true);
-        }, 1200);
-        return () => clearTimeout(timer);
+        // Update: Now checking localStorage so it doesn't appear again once accepted
+        const isAccepted = localStorage.getItem('disclaimerAccepted');
+        if (!isAccepted) {
+            const timer = setTimeout(() => {
+                setIsVisible(true);
+            }, 1200);
+            return () => clearTimeout(timer);
+        }
     }, []);
 
     const handleClose = () => {
+        localStorage.setItem('disclaimerAccepted', 'true');
         setIsVisible(false);
     };
 

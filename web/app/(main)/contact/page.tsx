@@ -33,7 +33,7 @@ export default function ContactPage() {
                 <section className="py-20">
                     <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-3 gap-12">
                         {/* LEFT COLUMN: CONTACT INFO */}
-                        <div className="lg:col-span-1">
+                        <div className="order-2 lg:order-1 lg:col-span-1">
                             <div className="sticky top-32 space-y-8">
                                 {/* Contact Card */}
                                 <div className="bg-white rounded-3xl border border-slate-100 p-8 shadow-[0_0_30px_rgba(0,0,0,0.05)]">
@@ -105,7 +105,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* RIGHT COLUMN: MAP & ACTIONS */}
-                        <div className="lg:col-span-2 bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
+                        <div className="order-1 lg:order-2 lg:col-span-2 bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
                             <div className="rounded-2xl overflow-hidden border border-slate-200 h-[500px]">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3698.8580824232267!2d82.08956177604578!3d22.016748079891393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x21aeba1c52739d0f%3A0x9e71225418876c19!2sDCT%20REAL%20ESTATE%20DEVELOPERS!5e0!3m2!1sen!2sin!4v1770860827964!5m2!1sen!2sin"

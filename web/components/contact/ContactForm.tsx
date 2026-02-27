@@ -101,14 +101,24 @@ export default function ContactForm() {
 
                     {/* Subject */}
                     <div>
-                        <input
-                            type="text"
+                        <select
                             name="subject"
-                            placeholder="Subject"
                             value={formData.subject}
                             onChange={handleChange}
-                            className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all placeholder:text-slate-400 bg-white"
-                        />
+                            required
+                            className="w-full px-5 py-4 rounded-xl border border-slate-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none transition-all text-slate-700 bg-white appearance-none cursor-pointer"
+                        >
+                            <option value="" disabled>Select Property / Subject</option>
+                            <option value="General Enquiry">General Enquiry</option>
+                            <option value="Aishwaryam">Aishwaryam</option>
+                            <option value="Chitvan Farm">Chitvan Farm</option>
+                            <option value="Gold Farm House">Gold Farm House</option>
+                            <option value="Krishnapuram">Krishnapuram</option>
+                            <option value="Bilaspur Textile Market">Bilaspur Textile Market</option>
+                            <option value="Shri Ram Park">Shri Ram Park</option>
+                            <option value="Induimperial">Induimperial</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </div>
                 </div>
 
