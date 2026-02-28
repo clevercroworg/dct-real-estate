@@ -53,7 +53,7 @@ export default function LeadershipPage() {
                                             <div className="absolute inset-0 bg-gradient-to-t from-[#061B3A] via-transparent to-transparent opacity-60"></div>
                                             <div className="absolute bottom-0 left-0 right-0 p-8 text-center text-white bg-gradient-to-t from-[#061B3A] to-transparent">
                                                 <h3 className="font-heading text-3xl font-bold mb-1">Imran Khan</h3>
-                                                <p className="text-brand-gold text-sm font-bold tracking-widest uppercase">DOP & Strategic Leader</p>
+                                                <p className="text-brand-gold text-sm font-bold tracking-widest uppercase">Operations Head & Technical Consultant</p>
                                             </div>
                                         </div>
                                     </div>
@@ -64,48 +64,72 @@ export default function LeadershipPage() {
                             <div className="lg:col-span-7 xl:col-span-8 order-2">
                                 <ScrollReveal animationClass="animate-slide-left">
                                     <div className="mb-10">
-                                        <h2 className="font-heading text-3xl md:text-5xl font-bold text-[#061B3A] mb-6"> {/* Larger heading */}
-                                            Revolutionizing Real Estate
+                                        <h2 className="font-heading text-3xl md:text-5xl font-bold text-[#061B3A] mb-6">
+                                            Operational Excellence & Strategic Governance
                                         </h2>
-                                        <p className="text-slate-600 leading-relaxed text-lg lg:text-xl mb-6 text-justify font-light"> {/* Larger text */}
-                                            <strong>Imran Khan's vision</strong> is to revolutionize the real estate industry by integrating innovation, technology, and sustainability into the very core of our operations. At DCT, we strive not just to build structures, but to create inspiring spaces that elevate lifestyles, deliver exceptional value, and forge lasting partnerships based on mutual respect. By consistently transforming challenges into opportunities, we uphold a legacy of trust and excellence that is evident in every project we undertake.
+                                        <p className="text-slate-600 leading-relaxed text-lg lg:text-xl mb-6 text-justify font-light">
+                                            Imran Khan serves as the <strong>Operations Head & Technical Consultant</strong> at DCT Real Estate, leading the organization’s strategic operations, technical planning, and project execution functions. He plays a central role in aligning corporate governance standards with structured operational frameworks to ensure disciplined and sustainable growth.
+                                        </p>
+                                        <p className="text-slate-600 leading-relaxed text-lg lg:text-xl mb-6 text-justify font-light">
+                                            With over nine years of cross-industry experience across Information Technology, Analytics, Infrastructure Distribution, and Real Estate, Imran brings a diversified and analytical leadership perspective. His professional journey from Data Engineering to executive-level operational leadership reflects a strong foundation in systems thinking, process optimization, and performance-driven execution.
+                                        </p>
+                                        <p className="text-slate-600 leading-relaxed text-lg lg:text-xl mb-6 text-justify font-light">
+                                            Leveraging his expertise in enterprise systems and data-driven methodologies, he integrates technology-enabled planning, compliance-focused governance, and financially disciplined execution models into real estate development. His approach emphasizes operational clarity, regulatory adherence, structured vendor management, and long-term asset value creation.
                                         </p>
                                         <p className="text-slate-600 leading-relaxed text-lg lg:text-xl mb-8 text-justify font-light">
-                                            With a robust portfolio spanning over seven years across diverse industries, Imran Khan stands as a dynamic leader driving innovation, operational excellence, and strategic growth. His multifaceted expertise in information technology, real estate, and business development has uniquely positioned him as a forward-thinking visionary. He is steadfastly dedicated to delivering sustainable solutions and unparalleled customer value, ensuring that DCT Real Estate remains at the forefront of the industry's evolution.
+                                            Imran’s leadership philosophy is grounded in institutional growth, operational transparency, and disciplined execution. His commitment to structured governance and systematic planning continues to strengthen DCT Real Estate’s position as a professionally managed and future-oriented development organization.
                                         </p>
                                     </div>
 
                                     <div className="bg-[#F8FAFC] p-8 lg:p-10 rounded-2xl border border-slate-100 shadow-sm mb-10">
                                         <h3 className="text-[#C9A24D] font-bold text-lg mb-6 uppercase tracking-wider flex items-center gap-2">
                                             <span className="w-8 h-[2px] bg-[#C9A24D]"></span>
-                                            Leadership Highlights
+                                            Strategic Focus Areas
                                         </h3>
-                                        <div className="grid md:grid-cols-3 gap-6"> {/* Horizontal grid for highlights */}
-                                            <div className="flex flex-col gap-3">
+                                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                            <div className="flex flex-col gap-2">
                                                 <div className="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold">
-                                                    <ion-icon name="checkmark-circle-outline" style={{ fontSize: '24px' }}></ion-icon>
+                                                    <ion-icon name="map-outline" style={{ fontSize: '24px' }}></ion-icon>
                                                 </div>
                                                 <div>
-                                                    <span className="font-bold text-[#061B3A] block mb-1">Proven Track Record</span>
-                                                    <span className="text-slate-600 text-sm">Driving significant growth and efficiency based on years of operational success.</span>
+                                                    <span className="font-bold text-[#061B3A] block mb-1">Land Acquisition</span>
+                                                    <span className="text-slate-600 text-sm">Strategic land acquisition and comprehensive project feasibility assessment.</span>
                                                 </div>
                                             </div>
-                                            <div className="flex flex-col gap-3">
+                                            <div className="flex flex-col gap-2">
                                                 <div className="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold">
-                                                    <ion-icon name="bulb-outline" style={{ fontSize: '24px' }}></ion-icon>
+                                                    <ion-icon name="shield-checkmark-outline" style={{ fontSize: '24px' }}></ion-icon>
                                                 </div>
                                                 <div>
-                                                    <span className="font-bold text-[#061B3A] block mb-1">Strategic Visionary</span>
-                                                    <span className="text-slate-600 text-sm">Innovating market expansion and cultivating long-term, high-value partnerships.</span>
+                                                    <span className="font-bold text-[#061B3A] block mb-1">Compliance</span>
+                                                    <span className="text-slate-600 text-sm">Regulatory compliance, statutory governance, and risk management.</span>
                                                 </div>
                                             </div>
-                                            <div className="flex flex-col gap-3">
+                                            <div className="flex flex-col gap-2">
                                                 <div className="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold">
-                                                    <ion-icon name="laptop-outline" style={{ fontSize: '24px' }}></ion-icon>
+                                                    <ion-icon name="construct-outline" style={{ fontSize: '24px' }}></ion-icon>
                                                 </div>
                                                 <div>
-                                                    <span className="font-bold text-[#061B3A] block mb-1">Technology Advocate</span>
-                                                    <span className="text-slate-600 text-sm">Leveraging cutting-edge tools to streamline processes and enhance clarity.</span>
+                                                    <span className="font-bold text-[#061B3A] block mb-1">Quality Assurance</span>
+                                                    <span className="text-slate-600 text-sm">Technical supervision and quality assurance benchmarks.</span>
+                                                </div>
+                                            </div>
+                                            <div className="flex flex-col gap-2">
+                                                <div className="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold">
+                                                    <ion-icon name="people-outline" style={{ fontSize: '24px' }}></ion-icon>
+                                                </div>
+                                                <div>
+                                                    <span className="font-bold text-[#061B3A] block mb-1">Vendor Ecosystem</span>
+                                                    <span className="text-slate-600 text-sm">Structured vendor and contractor ecosystem development.</span>
+                                                </div>
+                                            </div>
+                                            <div className="flex flex-col gap-2">
+                                                <div className="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold">
+                                                    <ion-icon name="trending-up-outline" style={{ fontSize: '24px' }}></ion-icon>
+                                                </div>
+                                                <div>
+                                                    <span className="font-bold text-[#061B3A] block mb-1">Asset Value</span>
+                                                    <span className="text-slate-600 text-sm">Sustainable capital appreciation and long-term value enhancement.</span>
                                                 </div>
                                             </div>
                                         </div>
