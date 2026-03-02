@@ -411,17 +411,17 @@ export const projects = [
                 {
                     title: "Premium Strategic Design",
                     description: "A premium commercial development on the National Highway corridor designed for maximum visibility.",
-                    image: "/images/projects/arpa-business-park/0W2A4570.JPG"
+                    image: "/images/projects/arpa-business-park/gallery/DJI_20260117144247_0223_D.JPG.jpeg"
                 },
                 {
                     title: "Strategic Location",
                     description: "Prime location on a 70 Ft wide main road with excellent frontage and high traffic flow.",
-                    image: "/images/projects/arpa-business-park/gallery/1.jpg"
+                    image: "/images/projects/arpa-business-park/gallery/DJI_20260117144005_0219_D.JPG.jpeg"
                 },
                 {
                     title: "Investment Strength",
                     description: "High capital appreciation potential and rental income opportunity in a major commercial hub.",
-                    image: "/images/projects/arpa-business-park/gallery/2.jpg"
+                    image: "/images/projects/arpa-business-park/gallery/DJI_20260117144924_0233_D.JPG.jpeg"
                 }
             ]
         },
