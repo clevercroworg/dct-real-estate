@@ -406,7 +406,7 @@ export const projects = [
         rera: 'PCGRERA020525001921 | PCGRERA020525001922',
         delay: 400,
         experience: {
-            title: "Future Business Landmark of Bilaspur",
+            title: "Apne Vyavsay Ko De Nayi Udaan — Arpa Business Park Ke Saath",
             items: [
                 {
                     title: "Premium Strategic Design",
@@ -437,7 +437,7 @@ export const projects = [
             { icon: "ribbon-outline", label: "Approval", value: "RERA Approved", description: "T&C & RERA Approved commercial project." }
         ],
         overview: {
-            title: "Growth-Driven Business Destination",
+            title: "Business Ka Naya Landmark — Bilaspur",
             description: "Arpa Business Park is a premium, strategically designed commercial development located on the rapidly growing National Highway – Ratanpur Road corridor in Bilaspur. Designed as a future business landmark, it provides the visibility, accessibility, and infrastructure your enterprise needs to thrive.",
             details: [
                 { label: "Project Type", value: "Commercial Plots & Shops" },
