@@ -455,9 +455,14 @@ export const projects = [
             "/images/projects/arpa-business-park/arpa-ad-poster-1.jpg",
             "/images/projects/arpa-business-park/arpa-ad-poster-2.jpg",
             "/images/projects/arpa-business-park/0W2A4570.JPG",
-            "/images/projects/arpa-business-park/gallery/1.jpg",
-            "/images/projects/arpa-business-park/gallery/2.jpg",
-            "/images/projects/arpa-business-park/gallery/3.jpg"
+            "/images/projects/arpa-business-park/gallery/DJI_20260117144005_0219_D.JPG.jpeg",
+            "/images/projects/arpa-business-park/gallery/DJI_20260117144011_0220_D.JPG.jpeg",
+            "/images/projects/arpa-business-park/gallery/DJI_20260117144247_0223_D.JPG.jpeg",
+            "/images/projects/arpa-business-park/gallery/DJI_20260117144254_0224_D.JPG.jpeg",
+            "/images/projects/arpa-business-park/gallery/DJI_20260117144557_0227_D.JPG.jpeg",
+            "/images/projects/arpa-business-park/gallery/DJI_20260117144820_0231_D.JPG.jpeg",
+            "/images/projects/arpa-business-park/gallery/DJI_20260117144924_0233_D.JPG.jpeg",
+            "/images/projects/arpa-business-park/gallery/DJI_20260117172858_0250_D.JPG.jpeg"
         ],
         amenities: {
             title: "Infrastructure & Development Features",
