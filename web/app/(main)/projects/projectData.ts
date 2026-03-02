@@ -452,6 +452,8 @@ export const projects = [
             ]
         },
         gallery: [
+            "/images/projects/arpa-business-park/arpa-ad-poster-1.jpg",
+            "/images/projects/arpa-business-park/arpa-ad-poster-2.jpg",
             "/images/projects/arpa-business-park/0W2A4570.JPG",
             "/images/projects/arpa-business-park/gallery/1.jpg",
             "/images/projects/arpa-business-park/gallery/2.jpg",
@@ -482,7 +484,7 @@ export const projects = [
                 "Organized Commercial Environment",
                 "Grand Main Entry Gate & CCTV Security"
             ],
-            imageSrc: "/images/projects/arpa-business-park/0W2A4570.JPG"
+            imageSrc: "/images/projects/arpa-business-park/arpa-ad-poster-2.jpg"
         },
         locationDetails: {
             title: "Strategic Location Advantage",
