@@ -1,5 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface ProjectGalleryProps {
     title?: string;
@@ -9,6 +13,8 @@ interface ProjectGalleryProps {
 }
 
 export default function ProjectGallery({ title, description, videoUrl, images }: ProjectGalleryProps) {
+    const [selectedImgIdx, setSelectedImgIdx] = useState<number | null>(null);
+
     const defaultImages = [
         "/images/banners/launch-1.jpg",
         "/images/banners/launch-2.jpg",
@@ -22,7 +28,10 @@ export default function ProjectGallery({ title, description, videoUrl, images }:
 
     let displayImages = images || defaultImages;
 
-    // Ensure full rows for 4-column grid
+    // Filter out placeholders for the actual clickable images array
+    const actualImages = displayImages.filter(img => !img.includes('placeholder'));
+
+    // Ensure full rows for 4-column grid display
     const remainder = displayImages.length % 4;
     if (remainder !== 0) {
         const missing = 4 - remainder;
@@ -31,6 +40,18 @@ export default function ProjectGallery({ title, description, videoUrl, images }:
     }
     const displayTitle = title || "Chitvan walkthrough";
     const displayDesc = description || "A glimpse of the clubhouse, greens, and outdoor living.";
+
+    // Handle keypress for navigation and closing
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (selectedImgIdx === null) return;
+            if (e.key === 'Escape') setSelectedImgIdx(null);
+            if (e.key === 'ArrowRight') setSelectedImgIdx((prev) => (prev !== null && prev < actualImages.length - 1 ? prev + 1 : prev));
+            if (e.key === 'ArrowLeft') setSelectedImgIdx((prev) => (prev !== null && prev > 0 ? prev - 1 : prev));
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [selectedImgIdx, actualImages.length]);
 
     return (
         <section className="py-20 bg-[#061B3A]">
@@ -92,20 +113,104 @@ export default function ProjectGallery({ title, description, videoUrl, images }:
 
                 {/* Image Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
-                    {displayImages.map((imgSrc, idx) => (
-                        <div key={idx} className="relative group overflow-hidden rounded-xl bg-white/5 h-32 md:h-48">
-                            <Image
-                                src={imgSrc}
-                                alt={`Gallery image ${idx + 1}`}
-                                fill
-                                sizes="(max-width: 768px) 50vw, 25vw"
-                                className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
-                            />
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
-                        </div>
-                    ))}
+                    {displayImages.map((imgSrc, idx) => {
+                        const isPlaceholder = imgSrc.includes('placeholder');
+                        const actualIdx = isPlaceholder ? -1 : actualImages.indexOf(imgSrc);
+
+                        return (
+                            <div
+                                key={idx}
+                                className={`relative group overflow-hidden rounded-xl bg-white/5 h-32 md:h-48 ${!isPlaceholder ? 'cursor-pointer' : ''}`}
+                                onClick={() => !isPlaceholder && setSelectedImgIdx(actualIdx)}
+                            >
+                                <Image
+                                    src={imgSrc}
+                                    alt={`Gallery image ${idx + 1}`}
+                                    fill
+                                    sizes="(max-width: 768px) 50vw, 25vw"
+                                    className={`object-cover ${!isPlaceholder ? 'opacity-80 group-hover:opacity-100 group-hover:scale-110' : 'opacity-20'} transition-all duration-700`}
+                                />
+                                {!isPlaceholder && (
+                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 duration-300">
+                                        <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                                            <ion-icon name="expand-outline" class="text-white text-xl"></ion-icon>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
+
+            {/* Lightbox Modal */}
+            <AnimatePresence>
+                {selectedImgIdx !== null && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-10"
+                        onClick={() => setSelectedImgIdx(null)}
+                    >
+                        <button
+                            className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-[110]"
+                            onClick={() => setSelectedImgIdx(null)}
+                        >
+                            <ion-icon name="close-outline" style={{ fontSize: '32px' }}></ion-icon>
+                        </button>
+
+                        <div
+                            className="relative w-full h-full max-w-6xl flex items-center justify-center"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={selectedImgIdx}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.9 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="relative w-full h-full"
+                                >
+                                    <Image
+                                        src={actualImages[selectedImgIdx]}
+                                        alt={`Full view ${selectedImgIdx + 1}`}
+                                        fill
+                                        className="object-contain"
+                                        priority
+                                    />
+                                </motion.div>
+                            </AnimatePresence>
+
+                            {/* Navigation */}
+                            {actualImages.length > 1 && (
+                                <>
+                                    <button
+                                        className={`absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 p-4 text-white hover:text-[#C9A24D] transition-colors ${selectedImgIdx === 0 ? 'opacity-20 cursor-not-allowed' : 'opacity-100'}`}
+                                        disabled={selectedImgIdx === 0}
+                                        onClick={() => setSelectedImgIdx(prev => prev !== null && prev > 0 ? prev - 1 : prev)}
+                                    >
+                                        <ion-icon name="chevron-back-outline" style={{ fontSize: '40px' }}></ion-icon>
+                                    </button>
+                                    <button
+                                        className={`absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 p-4 text-white hover:text-[#C9A24D] transition-colors ${selectedImgIdx === actualImages.length - 1 ? 'opacity-20 cursor-not-allowed' : 'opacity-100'}`}
+                                        disabled={selectedImgIdx === actualImages.length - 1}
+                                        onClick={() => setSelectedImgIdx(prev => prev !== null && prev < actualImages.length - 1 ? prev + 1 : prev)}
+                                    >
+                                        <ion-icon name="chevron-forward-outline" style={{ fontSize: '40px' }}></ion-icon>
+                                    </button>
+                                </>
+                            )}
+
+                            {/* Counter */}
+                            <div className="absolute bottom-[-40px] left-1/2 -translate-x-1/2 text-white/40 text-xs tracking-widest uppercase">
+                                {selectedImgIdx + 1} / {actualImages.length}
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }
