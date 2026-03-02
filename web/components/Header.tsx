@@ -78,7 +78,7 @@ export default function Header() {
                     <div className={`flex items-center justify-between h-20 transition-all duration-300 ${isScrolled ? 'h-[72px]' : ''}`}>
                         {/* LOGO */}
                         <Link href="/" className="flex items-center gap-4">
-                            <div className="relative h-12 w-32">
+                            <div className="relative h-14 w-40 sm:h-16 sm:w-48 lg:h-16 lg:w-[200px]">
                                 <Image
                                     src="/images/branding/logo.png"
                                     alt="DCT Real Estate"

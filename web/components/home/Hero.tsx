@@ -33,13 +33,13 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/85 via-brand-dark/75 to-brand-dark/90"></div>
 
             {/* HERO CONTENT */}
-            <div className="relative z-10 h-full flex items-center">
+            <div className="relative z-10 h-full flex items-center pt-24 lg:pt-0">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
                     <div className="max-w-4xl">
                         {/* HEADING */}
                         <h1 className="hero-animate font-heading text-white font-bold leading-[1.1] text-[32px] sm:text-[40px] md:text-[48px] lg:text-[60px] xl:text-[64px]">
-                            Shaping Landmarks.<br />
-                            Building Enduring Value.
+                            Shaping Landmarks<br />
+                            Building Enduring Value
                         </h1>
 
                         {/* SUBTEXT */}

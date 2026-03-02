@@ -196,6 +196,7 @@ export default function VisitModal() {
                             <option value="Bilaspur Textile Market">Bilaspur Textile Market</option>
                             <option value="Shri Ram Park">Shri Ram Park</option>
                             <option value="Induimperial">Induimperial</option>
+                            <option value="Arpa Business Park">Arpa Business Park</option>
                             <option value="Other">Other / Not Sure</option>
                         </select>
 

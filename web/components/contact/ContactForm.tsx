@@ -116,6 +116,7 @@ export default function ContactForm() {
                             <option value="Bilaspur Textile Market">Bilaspur Textile Market</option>
                             <option value="Shri Ram Park">Shri Ram Park</option>
                             <option value="Induimperial">Induimperial</option>
+                            <option value="Arpa Business Park">Arpa Business Park</option>
                             <option value="Upcoming Project">Upcoming Project</option>
                             <option value="General Enquiry">General Enquiry</option>
                         </select>

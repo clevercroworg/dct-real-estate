@@ -393,6 +393,111 @@ export const projects = [
             ]
         }
     },
+    {
+        id: 'arpa-business-park',
+        slug: 'arpa-business-park',
+        title: 'Arpa Business Park',
+        location: 'On National Highway, Ratanpur Road, Bilaspur',
+        summary: 'Bilaspur’s First & Only Commercial Project! Perfect spot for your business to grow!',
+        image: '/images/projects/arpa-business-park/0W2A4570.JPG',
+        videoUrl: 'https://drive.google.com/file/d/1OsDuzwNrM9Zt6m75-cgV5YcBT7KvfHP4/preview',
+        badge: 'Commercial',
+        status: 'Ongoing',
+        rera: 'RERA: PCGRERA020525001921 | PCGRERA020525001922',
+        delay: 400,
+        experience: {
+            title: "Bilaspur’s First & Only Commercial Project!",
+            items: [
+                {
+                    title: "Prime Location",
+                    description: "High footfall on National Highway, Ratanpur Road, ensuring maximum visibility for your brand.",
+                    image: "/images/projects/arpa-business-park/gallery/1.jpg"
+                },
+                {
+                    title: "Vastu-Friendly Design",
+                    description: "Thoughtfully designed commercial spaces embracing Vastu principles to invite prosperity.",
+                    image: "/images/projects/arpa-business-park/gallery/2.jpg"
+                },
+                {
+                    title: "Excellent Connectivity",
+                    description: "A commercial place that connects your brand with seamless access to the city and highway.",
+                    image: "/images/projects/arpa-business-park/gallery/3.jpg"
+                }
+            ]
+        },
+        hero: {
+            tagline: "Commercial",
+            location: "On National Highway, Ratanpur Road, Bilaspur",
+            bgImage: "/images/projects/arpa-business-park/0W2A4570.JPG",
+            badges: ["Commercial", "National Highway"]
+        },
+        stats: [
+            { icon: "business-outline", label: "Project", value: "Commercial Hub", description: "Bilaspur’s First & Only Commercial Project!" },
+            { icon: "people-outline", label: "Footfall", value: "High Visibility", description: "Prime Location with High Footfall on National Highway." },
+            { icon: "navigate-outline", label: "Connectivity", value: "Excellent", description: "Seamless connectivity on Ratanpur Road." }
+        ],
+        overview: {
+            title: "Arpa Business Park: The Perfect Spot for Your Business to Grow!",
+            description: "Arpa Business Park is Bilaspur’s First & Only Commercial Project! Located strategically on the National Highway, Ratanpur Road, Bilaspur, it offers a prime location with high footfall, making it the perfect spot for your business to grow. Featuring exceptional Vastu-friendly design and excellent connectivity, this commercial place is uniquely positioned to connect your brand with the masses.",
+            details: [
+                { label: "Project Type", value: "Commercial" },
+                { label: "Location", value: "Ratanpur Road, NH" },
+                { label: "Status", value: "Ongoing" },
+                { label: "RERA Reg.", value: "PCGRERA020525001921 / 22" },
+            ],
+            brochurePoints: [
+                "Prime Location with High Footfall.",
+                "Vastu-Friendly Design.",
+                "Excellent Connectivity."
+            ]
+        },
+        gallery: [
+            "/images/projects/arpa-business-park/0W2A4570.JPG",
+            "/images/projects/arpa-business-park/gallery/1.jpg",
+            "/images/projects/arpa-business-park/gallery/2.jpg",
+            "/images/projects/arpa-business-park/gallery/3.jpg"
+        ],
+        amenities: {
+            title: "Commercial Amenities",
+            list: [
+                { icon: "car-outline", name: "Ample Parking Space" },
+                { icon: "shield-checkmark-outline", name: "24/7 Security" },
+                { icon: "flash-outline", name: "Power Backup" },
+                { icon: "water-outline", name: "Water Supply" },
+                { icon: "people-outline", name: "High Footfall Area" },
+                { icon: "navigate-outline", name: "Excellent Connectivity" },
+                { icon: "business-outline", name: "Modern Architecture" },
+                { icon: "sunny-outline", name: "Vastu-Friendly" },
+            ]
+        },
+        features: {
+            title: "Designed for Brand Connection",
+            list: [
+                "Bilaspur’s First & Only Commercial Project",
+                "Prime location on National Highway",
+                "Vastu-friendly architectural design",
+                "Perfect spot for your business to grow",
+                "High visibility and footfall",
+                "Excellent connectivity to Bilaspur city",
+                "Commercial place that connects your brand",
+                "RERA registered for trust and transparency"
+            ],
+            imageSrc: "/images/projects/arpa-business-park/0W2A4570.JPG"
+        },
+        locationDetails: {
+            title: "Prime Commercial Address",
+            landmarks: [
+                {
+                    category: "Connectivity",
+                    icon: "navigate-outline",
+                    items: [
+                        { name: "Ratanpur Road", type: "Highway", distance: "0 km", time: "On Highway" },
+                        { name: "Bilaspur City", type: "City Center", distance: "Nearby", time: "Few mins" },
+                    ]
+                }
+            ]
+        }
+    },
     // COMPLETED
     {
         id: 'krishnapuram',

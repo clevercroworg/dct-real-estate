@@ -84,7 +84,7 @@ export default function ProjectOverview({ title, description, details, brochureL
                             {details.map((detail, index) => (
                                 <div key={index} className="p-6 border border-gray-200 rounded-2xl hover:bg-slate-50 transition-colors">
                                     <p className="text-xs uppercase tracking-widest text-gray-500">{detail.label}</p>
-                                    <p className="mt-2 font-semibold text-[#061B3A] text-lg">{detail.value}</p>
+                                    <p className="mt-2 font-semibold text-[#061B3A] text-[15px] sm:text-lg break-words leading-tight">{detail.value}</p>
                                 </div>
                             ))}
                         </div>
