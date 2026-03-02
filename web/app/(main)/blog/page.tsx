@@ -3,11 +3,18 @@ import Link from 'next/link';
 import prisma from '@/utils/prisma';
 import { format } from 'date-fns';
 
+export const dynamic = 'force-dynamic';
+
 export default async function BlogPage() {
-    const blogPosts = await prisma.post.findMany({
-        where: { published: true },
-        orderBy: { createdAt: 'desc' }
-    });
+    let blogPosts: any[] = [];
+    try {
+        blogPosts = await prisma.post.findMany({
+            where: { published: true },
+            orderBy: { createdAt: 'desc' }
+        });
+    } catch {
+        console.log('Could not reach database during build. Rendering blog page with no posts.');
+    }
 
     return (
         <div className="min-h-screen">
