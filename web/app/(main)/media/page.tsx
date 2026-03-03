@@ -5,6 +5,13 @@ import MediaCTA from '@/components/media/MediaCTA';
 import Recognitions from '@/components/media/Recognitions';
 import { mediaEvents } from './mediaData';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Media & Recognitions | DCT Real Estate',
+  description: 'Explore the latest news, media coverage, and awards for DCT Real Estate.',
+};
+
 
 export default function MediaPage() {
     return (

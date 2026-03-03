@@ -5,6 +5,13 @@ import AboutSection from '../../components/home/AboutSection';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'DCT Real Estate | Trusted Developer in Bilaspur',
+  description: 'Find premium residential and commercial properties in Bilaspur with DCT Real Estate.',
+};
+
 
 const NewLaunches = dynamic(() => import('../../components/home/NewLaunches'));
 const Verticals = dynamic(() => import('../../components/home/Verticals'));

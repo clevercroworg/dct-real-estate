@@ -1,5 +1,12 @@
 import ScrollReveal from '../components/ScrollReveal';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Leadership | DCT Real Estate',
+  description: 'Meet the visionaries and leaders behind DCT Real Estate.',
+};
+
 
 export default function LeadershipPage() {
     return (

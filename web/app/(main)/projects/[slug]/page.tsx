@@ -14,6 +14,30 @@ type Props = {
     params: Promise<{ slug: string }>;
 };
 
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { slug } = await params;
+    const project = projects.find((p) => p.slug === slug);
+
+    if (!project) {
+        return {
+            title: 'Project Not Found | DCT Real Estate',
+            description: 'The requested project could not be found.'
+        };
+    }
+
+    return {
+        title: `${project.title} - ${project.hero?.tagline || 'Premium Real Estate'} | DCT`,
+        description: project.overview?.description?.substring(0, 160) || `Discover ${project.title} by DCT Real Estate in Bilaspur.`,
+        openGraph: {
+            title: project.title,
+            description: project.overview?.description?.substring(0, 160) || `Discover ${project.title} by DCT Real Estate in Bilaspur.`,
+            images: [project.hero?.bgImage || ''],
+        }
+    };
+}
+
 export async function generateStaticParams() {
     return projects.map((project) => ({
         slug: project.slug,

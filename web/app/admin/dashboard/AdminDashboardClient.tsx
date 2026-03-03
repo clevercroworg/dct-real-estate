@@ -66,6 +66,68 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
         }
     }
 
+    const handleExportCSV = () => {
+        if (filteredContacts.length === 0) {
+            alert('No data to export')
+            return
+        }
+
+        // Define CSV headers based on active tab
+        const headers = ['Name', 'Phone', 'Email', 'Project'];
+        if (activeTab === 'visits') {
+            headers.push('Tour Date', 'Tour Time', 'Note / Subject');
+        } else if (activeTab === 'contacts') {
+            headers.push('Subject', 'Message');
+        } else {
+            headers.push('Message');
+        }
+        headers.push('Submitted At', 'Status');
+
+        // Map data to rows
+        const rows = filteredContacts.map(contact => {
+            const row = [
+                `"${contact.name || ''}"`,
+                `"${contact.phone || ''}"`,
+                `"${contact.email || ''}"`,
+                `"${contact.project || ''}"`
+            ];
+
+            if (activeTab === 'visits') {
+                row.push(
+                    `"${contact.visitDate ? format(new Date(contact.visitDate), 'dd MMM yyyy') : ''}"`,
+                    `"${contact.visitTime || ''}"`,
+                    `"${(contact.subject || '').replace(/"/g, '""')}"`
+                );
+            } else if (activeTab === 'contacts') {
+                row.push(
+                    `"${(contact.subject || '').replace(/"/g, '""')}"`,
+                    `"${(contact.message || '').replace(/"/g, '""')}"`
+                );
+            } else {
+                row.push(`"${(contact.message || '').replace(/"/g, '""')}"`);
+            }
+
+            row.push(
+                `"${format(new Date(contact.createdAt), 'dd MMM yyyy hh:mm a')}"`,
+                `"${contact.status === 'unread' ? 'New' : 'Read'}"`
+            );
+
+            return row.join(',');
+        });
+
+        const csvContent = [headers.join(','), ...rows].join('\n');
+
+        // Create a blob and trigger download
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.setAttribute('href', url);
+        link.setAttribute('download', `DCT-Leads-${activeTab}-${format(new Date(), 'yyyy-MM-dd')}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
     return (
         <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
 
@@ -105,8 +167,17 @@ export default function AdminDashboardClient({ initialContacts }: { initialConta
                         className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#C9A24D] focus:ring-1 focus:ring-[#C9A24D] outline-none transition-all text-sm bg-slate-50 shadow-sm"
                     />
                 </div>
-                <div className="text-sm font-medium text-slate-500 hidden sm:block">
-                    Showing {filteredContacts.length} {filteredContacts.length === 1 ? 'entry' : 'entries'}
+                <div className="flex items-center gap-4">
+                    <button
+                        onClick={handleExportCSV}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-[#061B3A] text-white text-sm font-medium rounded-xl hover:bg-[#0B2550] transition-colors shadow-sm"
+                    >
+                        <ion-icon name="download-outline" class="text-lg"></ion-icon>
+                        Export CSV
+                    </button>
+                    <div className="text-sm font-medium text-slate-500 hidden sm:block">
+                        Showing {filteredContacts.length} {filteredContacts.length === 1 ? 'entry' : 'entries'}
+                    </div>
                 </div>
             </div>
 

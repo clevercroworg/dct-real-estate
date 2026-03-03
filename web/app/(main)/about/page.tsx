@@ -3,6 +3,13 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About Us | DCT Real Estate',
+  description: 'Learn more about DCT Real Estate, our vision, and our journey as a leading developer.',
+};
+
 
 export default function AboutPage() {
     return (

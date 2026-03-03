@@ -2,6 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import prisma from '@/utils/prisma';
 import { format } from 'date-fns';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Blog | DCT Real Estate',
+  description: 'Read the latest real estate trends, tips, and updates on the DCT Blog.',
+};
+
 
 export const dynamic = 'force-dynamic';
 

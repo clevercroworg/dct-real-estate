@@ -1,4 +1,11 @@
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms & Conditions | DCT Real Estate',
+  description: 'Terms and conditions for using the DCT Real Estate website and services.',
+};
+
 
 export default function TermsConditionsPage() {
     return (

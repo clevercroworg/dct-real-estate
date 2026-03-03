@@ -1,4 +1,11 @@
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Disclaimer | DCT Real Estate',
+  description: 'Read the official disclaimer for DCT Real Estate website and projects.',
+};
+
 
 export default function DisclaimerPage() {
     return (

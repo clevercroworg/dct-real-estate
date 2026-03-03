@@ -10,6 +10,34 @@ interface Props {
     }>;
 }
 
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { slug } = await params;
+    const post = await prisma.post.findUnique({
+        where: { slug }
+    });
+
+    if (!post || !post.published) {
+        return {
+            title: 'Blog Not Found | DCT Real Estate',
+            description: 'The requested blog post could not be found.'
+        };
+    }
+
+    const plainTextDescription = post.content.replace(/<[^>]+>/g, '').substring(0, 160) + '...';
+
+    return {
+        title: `${post.title} | DCT Real Estate Blog`,
+        description: plainTextDescription,
+        openGraph: {
+            title: post.title,
+            description: plainTextDescription,
+            images: post.image ? [post.image] : [],
+        }
+    };
+}
+
 export async function generateStaticParams() {
     try {
         const posts = await prisma.post.findMany({

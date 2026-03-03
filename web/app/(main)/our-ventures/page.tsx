@@ -1,5 +1,12 @@
 import React from 'react';
 import { ventureReasons } from './venturesData';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Our Ventures | DCT Real Estate',
+  description: 'Discover the diverse business ventures and divisions of DCT Real Estate.',
+};
+
 
 export default function OurVenturesPage() {
     return (

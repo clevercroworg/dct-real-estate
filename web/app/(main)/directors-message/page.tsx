@@ -1,5 +1,12 @@
 import ScrollReveal from '../components/ScrollReveal';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Director's Message | DCT Real Estate",
+    description: 'Read the message from the Director of DCT Real Estate on our commitment to excellence.',
+};
+
 
 export default function DirectorsMessagePage() {
     return (

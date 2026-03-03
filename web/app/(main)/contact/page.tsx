@@ -3,6 +3,13 @@
 
 import React from 'react';
 import ContactForm from '@/components/contact/ContactForm';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact Us | DCT Real Estate',
+  description: 'Get in touch with DCT Real Estate for property inquiries and support.',
+};
+
 
 export default function ContactPage() {
     return (

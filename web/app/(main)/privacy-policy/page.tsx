@@ -1,4 +1,11 @@
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | DCT Real Estate',
+  description: 'Learn how DCT Real Estate protects your privacy and personal information.',
+};
+
 
 export default function PrivacyPolicyPage() {
     return (
