@@ -17,8 +17,36 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: 'DCT Real Estate - Bilaspur',
-    description: 'Trusted Real Estate Developer in Bilaspur',
+    metadataBase: new URL('https://dctdevelopers.com'),
+    title: {
+        default: 'DCT Real Estate | Trusted Developers in Bilaspur',
+        template: '%s | DCT Real Estate'
+    },
+    description: 'DCT Real Estate Developers - Leading property developers in Bilaspur offering premium residential projects, villas, and plots with trust and excellence.',
+    keywords: ['Real Estate Bilaspur', 'DCT Developers', 'Property in Bilaspur', 'Villas in Bilaspur', 'Plots in Bilaspur'],
+    authors: [{ name: 'DCT Real Estate' }],
+    openGraph: {
+        title: 'DCT Real Estate | Trusted Developers in Bilaspur',
+        description: 'Premium residential projects, villas, and apartments in Bilaspur. Built with trust and excellence.',
+        url: 'https://dctdevelopers.com',
+        siteName: 'DCT Real Estate',
+        images: [
+            {
+                url: '/images/branding/logo.png',
+                width: 1200,
+                height: 630,
+                alt: 'DCT Real Estate Logo',
+            },
+        ],
+        locale: 'en_IN',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'DCT Real Estate | Trusted Developers in Bilaspur',
+        description: 'Leading property developers in Bilaspur offering premium residential projects with trust and excellence.',
+        images: ['/images/branding/logo.png'],
+    },
 };
 
 export default function RootLayout({
