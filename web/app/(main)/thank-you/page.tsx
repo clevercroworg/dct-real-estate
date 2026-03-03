@@ -3,12 +3,7 @@
 import { useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Thank You | DCT Real Estate',
-  description: 'Thank you for contacting DCT Real Estate. We will get back to you shortly.',
-};
 
 
 function ThankYouContent() {
