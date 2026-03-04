@@ -53,7 +53,7 @@ export default function DisclaimerPopup() {
                             {/* Body Text - Slightly more compact for corner style */}
                             <div className="space-y-3 text-slate-600 leading-snug text-xs sm:text-sm">
                                 <p>
-                                    This is to inform that <span className="font-bold text-[#061B3A]">www.dctrealestate.com</span> is the only official website of <span className="font-semibold text-[#061B3A]">DCT Real Estate</span>.
+                                    This is to inform that <span className="font-bold text-[#061B3A]">www.dctdevelopers.com</span> is the only official website of <span className="font-semibold text-[#061B3A]">DCT Real Estate</span>.
                                 </p>
                                 <p>
                                     Users are advised not to rely on any information available on other websites or social media pages that may appear similar to our brand.

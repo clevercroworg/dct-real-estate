@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'www.dctrealestate.in',
+        hostname: 'www.dctdevelopers.com',
       },
     ],
   },
